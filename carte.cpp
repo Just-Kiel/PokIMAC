@@ -7,6 +7,7 @@
  */
 
 #include <iostream>
+#include "carte.h"
 using namespace std;
 
 void changementTab(char tab[], int taille){
@@ -33,7 +34,7 @@ void affichageTab(char tab[], int taille){
     cout<<endl;
 }
 
-int main(void) {
+/*int main(void) {
     int taille = 100;
     char tableau[taille];
 
@@ -47,7 +48,7 @@ int main(void) {
     cout<<"Nouveau tab après changement :"<<endl;
     affichageTab(tableau, taille);
     return 0;
-}
+}*/
 //
 // Created by Aurore on 07/12/2021.
 //
