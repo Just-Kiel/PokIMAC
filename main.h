@@ -4,5 +4,6 @@
 
 #ifndef PROJET_MAIN_H
 #define PROJET_MAIN_H
-char map[];
+//char map[];
+//Joueur joueur;
 #endif //PROJET_MAIN_H

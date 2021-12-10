@@ -25,8 +25,8 @@ void changementTab(char tab[], int taille){
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
-    for(int i=0; i<taille; i++){
-        if(i%10==0 && i!=0){
+    for(int i=0; i<taille*taille; i++){
+        if(i%taille==0 && i!=0){
             cout<<endl;
         }
         cout<<tab[i];

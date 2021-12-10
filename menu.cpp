@@ -1,6 +1,7 @@
 #include <iostream>
 #include "menu.h"
 #include "carte.h"
+#include "main.h"
 using namespace std;
 
 void printMenu(){
@@ -35,11 +36,15 @@ void printMenu(){
             //TODO Amener vers fonction affichage des regles
         } else {
             //TODO Afficher carte du jeu ou début
-            sizeMap();
+            int size = sizeMap();
+            char map[size];
+            Joueur joueur;
+            initPlayer(&joueur);
+            affichageTab(map, size);
         }
 }
 
-/* void initPlayer(Joueur *player){
+void initPlayer(Joueur *player){
     char validation='o';
     cout<<"Quel nom voulez-vous donner à votre dresseur PokIMAC ?"<<endl;
     cin>>player->nom;
@@ -53,7 +58,6 @@ void printMenu(){
     }
     cout<<"Bienvenue "<<player->nom<<" !"<<endl;
 }
- */
 
 int sizeMap(){
     int largeur;
