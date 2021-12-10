@@ -1,12 +1,16 @@
-
 //
-// Created by Sarah on 07/12/2021.
+//  type_definition.h
+//  
+//
+//  Created by Sarah N'GOTTA on 10/12/2021.
 //
 
-using namespace std;
+#ifndef type_definition_h
+#define type_definition_h
+
 #include <iostream>
 #include <cstring>
-
+using namespace std;
 
 typedef struct{
     
@@ -45,3 +49,5 @@ typedef struct{
     
     
 } joueur;
+
+#endif /* type_definition_h */
