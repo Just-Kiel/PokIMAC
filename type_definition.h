@@ -17,7 +17,7 @@ typedef struct{
     string nom_attaque;
     int pouvoir;
     
-}attaque;
+}Attaque;
 
 typedef struct {
     
@@ -26,7 +26,7 @@ typedef struct {
     string rares;
     string cpcs;
     
-} inventaire;
+} Inventaire;
 
 
 typedef struct {
@@ -38,16 +38,20 @@ typedef struct {
     int force;
     int defense;
     
-} pokimac;
+} Pokimac;
 
 
 typedef struct{
     
     string nom;
-    pokimac equipe[] ;
-    inventaire equipement;
+    Pokimac equipe[] ;
+    Inventaire equipement;
     
     
+<<<<<<< Updated upstream:type_definition.h
 } joueur;
 
 #endif /* type_definition_h */
+=======
+} Joueur;
+>>>>>>> Stashed changes:type_definition.cpp
