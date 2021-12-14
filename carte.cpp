@@ -3,7 +3,6 @@
  *      - Joueur
  *      - Pokemons
  *      - Sol
- *      - Taille de la carte (en fait non ça sera au joueur de la saisir)
  */
 
 #include <iostream>
@@ -25,6 +24,7 @@ void changementTab(char tab[], int taille){
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
+    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd."<<endl;
     for(int i=0; i<taille*taille; i++){
         if(i%taille==0 && i!=0){
             cout<<endl;
@@ -37,7 +37,7 @@ void affichageTab(char tab[], int taille){
 void remplissageTab(char tab[], int taille){
     //Remplissage du tableau
     for(int i=0; i<(taille*taille); i++){
-        tab[i]=97;
+        tab[i]=char(97);
     }
 }
 //

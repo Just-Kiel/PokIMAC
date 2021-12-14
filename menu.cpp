@@ -2,6 +2,7 @@
 #include "main.h"
 #include "menu.h"
 #include "carte.h"
+#include "consoleUtils.hpp"
 
 
 using namespace std;
@@ -32,6 +33,8 @@ void printMenu(){
             cout << "Votre choix : ";
             cin >> user_choice;
         }
+
+        consoleUtils::clear();
         if (user_choice == 3) {
             //TODO Fin du programme
         } else if (user_choice == 2) {
@@ -50,17 +53,18 @@ void printMenu(){
 
 void initPlayer(Joueur *player){
     char validation='o';
-    cout<<"Quel nom voulez-vous donner à votre dresseur PokIMAC ?"<<endl;
+    cout<<"Quel nom voulez-vous donner a votre dresseur PokIMAC ?"<<endl;
     cin>>player->nom;
     cout<<"C'est bien "<<player->nom<<" votre nom ? (o/n)"<<endl;
     cin>>validation;
-    while(validation=='n'){
-        cout<<"Quel nom voulez-vous donner à votre dresseur PokIMAC ?"<<endl;
+    while(validation=='n' || validation!='o'){
+        cout<<"Quel nom voulez-vous donner a votre dresseur PokIMAC ?"<<endl;
         cin>>player->nom;
         cout<<"C'est bien "<<player->nom<<" votre nom ? (o/n)"<<endl;
         cin>>validation;
     }
     cout<<"Bienvenue "<<player->nom<<" !"<<endl;
+    consoleUtils::clear();
 }
 
 int sizeMap(){
@@ -72,4 +76,3 @@ int sizeMap(){
 //
 // Created by Aurore on 07/12/2021.
 //
-
