@@ -37,7 +37,7 @@ void affichageTab(char tab[], int taille){
 void remplissageTab(char tab[], int taille){
     //Remplissage du tableau
     for(int i=0; i<(taille*taille); i++){
-        tab[i]=169;
+        tab[i]=97;
     }
 }
 //
