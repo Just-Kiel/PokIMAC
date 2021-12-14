@@ -7,6 +7,7 @@
 
 #include "variables.h"
 
-pokimac ;
+Pokimac Robbizarre, Nosteevrapti, Ozlameche, Soniafee, Laporteille, Nocvelli, Rieulu, Guerrarlande, Charpenti ;
+
 
     
