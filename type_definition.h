@@ -54,9 +54,9 @@ typedef struct {
 typedef struct{
     
     string nom; //nom du joueur
-    Pokimac equipe[] ; //composition de son équipe de pokemon, via la struct pokimac
-    Objet inventaire[] ; // composition de son sac a dos, via la struct objet
+    Pokimac equipe[6] ; //composition de son équipe de pokemon, via la struct pokimac
+    Objet inventaire[2] ; // composition de son sac a dos, via la struct objet
     
-} Joueur;
+}Joueur;
 
 #endif /* type_definition_h */

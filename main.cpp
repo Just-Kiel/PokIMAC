@@ -3,11 +3,14 @@
 //
 
 #include <iostream>
-#include "menu.h"
-#include "main.h"
 using namespace std;
+#include "menu.h"
+#include "type_definition.h"
+#include "main.h"
+
 
 int main(){
+    Joueur joueur;
     printMenu();
     return 0;
 }

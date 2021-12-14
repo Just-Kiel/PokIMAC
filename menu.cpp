@@ -1,7 +1,9 @@
 #include <iostream>
+#include "main.h"
 #include "menu.h"
 #include "carte.h"
-#include "main.h"
+
+
 using namespace std;
 
 void printMenu(){
@@ -37,9 +39,11 @@ void printMenu(){
         } else {
             //TODO Afficher carte du jeu ou début
             int size = sizeMap();
-            char map[size];
-            Joueur joueur;
+
+            char * map=(char *) malloc(size*size*sizeof(char));
+
             initPlayer(&joueur);
+            remplissageTab(map, size);
             affichageTab(map, size);
         }
 }
