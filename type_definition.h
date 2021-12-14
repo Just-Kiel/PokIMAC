@@ -41,10 +41,10 @@ typedef struct {
     
     string nom; //nom du pokimac
     string espece; // son espece : 3D, graphisme, communication, dev, inté, audiovisuelle...
-    string representation; // visuel du pokimac
+    int representation; // visuel du pokimac
     int pv; // nombre de pv du pokimac
-    int force; // quantite de degat (en pv) que le pokimac inflige à l'adversaire
-    int defense; // quantité de pv qu'un pokimac peut encaisser sans perdre de vie lorsqu'il subit lors d'une attanque par un adversaire
+   // int resistance; //
+  //  int defense; // quantité de pv qu'un pokimac peut encaisser sans perdre de vie lorsqu'il subit lors d'une attanque par un adversaire
     Attaque pouvoir[2] ; //attaque propre au pokimac defini par le type attaque
     
 } Pokimac;
@@ -56,6 +56,8 @@ typedef struct{
     string nom; //nom du joueur
     Pokimac equipe[6] ; //composition de son équipe de pokemon, via la struct pokimac
     Objet inventaire[2] ; // composition de son sac a dos, via la struct objet
+    int position_x;
+    int position_y;
     
 }Joueur;
 
