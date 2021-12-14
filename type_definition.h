@@ -41,7 +41,7 @@ typedef struct {
     
     string nom; //nom du pokimac
     string espece; // son espece : 3D, graphisme, communication, dev, inté, audiovisuelle...
-    int representation; // visuel du pokimac
+   // int representation; // visuel du pokimac
     int pv; // nombre de pv du pokimac
    // int resistance; //
   //  int defense; // quantité de pv qu'un pokimac peut encaisser sans perdre de vie lorsqu'il subit lors d'une attanque par un adversaire
