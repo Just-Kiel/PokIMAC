@@ -76,7 +76,7 @@
 
 namespace consoleUtils {
 
-	const int init_error = Init();
+	static const int init_error = Init();
 
 	inline void sleep(const unsigned int& ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }
 	// https://docs.microsoft.com/en-us/windows/console/console-screen-buffers#character-attributes
@@ -120,13 +120,13 @@ namespace consoleUtils {
 	}
 
 	// Consts: ANSI escape strings
-	const char* ANSI_CLS                = "\033[2J\033[3J";
-	const char* ANSI_CONSOLE_TITLE_PRE  = "\033]0;";
-	const char* ANSI_CONSOLE_TITLE_POST = "\007";
-	const char* ANSI_ATTRIBUTE_RESET    = "\033[0m";
-	const char* ANSI_CURSOR_HIDE        = "\033[?25l";
-	const char* ANSI_CURSOR_SHOW        = "\033[?25h";
-	const char* ANSI_CURSOR_HOME        = "\033[H";
+    inline const char* ANSI_CLS() { return "\033[2J\033[3J"; }
+    inline const char* ANSI_CONSOLE_TITLE_PRE() { return "\033]0;"; }
+    inline const char* ANSI_CONSOLE_TITLE_POST() {return "\007"; }
+    inline const char* ANSI_ATTRIBUTE_RESET() {   return "\033[0m"; }
+    inline const char* ANSI_CURSOR_HIDE() {       return "\033[?25l"; }
+    inline const char* ANSI_CURSOR_SHOW() {       return "\033[?25h"; }
+    inline const char* ANSI_CURSOR_HOME() {       return "\033[H"; }
 
 	/// Non-blocking getch(). Returns 0 if no key was pressed.
 	inline int nb_getChar(void) {
@@ -161,7 +161,7 @@ namespace consoleUtils {
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleTextAttribute(hConsole, DefaultAttributes);
 #else
-		std::cout << ANSI_ATTRIBUTE_RESET;
+		std::cout << ANSI_ATTRIBUTE_RESET();
 #endif
 	}
 
@@ -184,7 +184,7 @@ namespace consoleUtils {
 
 		SetConsoleCursorPosition(hConsole, coordScreen);
 #else
-		std::cout << ANSI_CLS << ANSI_CURSOR_HOME;
+		std::cout << ANSI_CLS() << ANSI_CURSOR_HOME();
 #endif
 	}
 

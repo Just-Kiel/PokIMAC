@@ -5,8 +5,6 @@
 //  Created by Sarah N'GOTTA on 07/12/2021.
 //
 
-#include "variables.h"
-
 Pokimac Robbizarre, Nosteevrapti, Ozlameche, Soniafee, Laporteille, Nocvelli, Rieulu, Guerrarlande, Charpenti, Enguerratueur, Gautiplouf, Chataiglam ;
 
             Robbizarre ={"Robbizarre","culture", 80, pouvoir[perspective, exposition] };

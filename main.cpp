@@ -5,12 +5,13 @@
 #include <iostream>
 using namespace std;
 #include "menu.h"
-#include "type_definition.h"
 #include "main.h"
 
 
 int main(){
     Joueur joueur;
-    printMenu();
+    joueur.position_x = 1;
+    joueur.position_y = 2;
+    printMenu(&joueur);
     return 0;
 }

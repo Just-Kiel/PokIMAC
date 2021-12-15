@@ -1,13 +1,10 @@
 #include <iostream>
-#include "main.h"
 #include "menu.h"
 #include "carte.h"
-#include "consoleUtils.hpp"
-
 
 using namespace std;
 
-void printMenu(){
+void printMenu(Joueur* joueur){
     int user_choice=0;
     cout<<"\n"
           "  _____      _    _____ __  __          _____ \n"
@@ -35,23 +32,24 @@ void printMenu(){
         }
 
         consoleUtils::clear();
-        if (user_choice == 3) {
-            //TODO Fin du programme
-        } else if (user_choice == 2) {
-            //TODO Amener vers fonction affichage des regles
-        } else {
+        if (user_choice == 1) {
             //TODO Afficher carte du jeu ou début
             int size = sizeMap();
 
             char * map=(char *) malloc(size*size*sizeof(char));
 
-            initPlayer(&joueur);
+            initPlayer(joueur);
             remplissageTab(map, size);
-            affichageTab(map, size);
+            deplacementTab(map, size, joueur);
+        } else if (user_choice == 2) {
+            //TODO Amener vers fonction affichage des regles
+        } else {
+            //Fin du programme
         }
 }
 
 void initPlayer(Joueur *player){
+    //TODO est ce qu'on lui fait choisir un pokimac starter ou pas ?
     char validation='o';
     cout<<"Quel nom voulez-vous donner a votre dresseur PokIMAC ?"<<endl;
     cin>>player->nom;

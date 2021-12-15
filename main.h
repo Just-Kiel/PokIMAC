@@ -1,10 +1,9 @@
 //
 // Created by Aurore on 07/12/2021.
 //
-
-#ifndef PROJET_MAIN_H
-#define PROJET_MAIN_H \
-
+#include "consoleUtils.hpp"
 #include "type_definition.h"
-static Joueur joueur;
+#ifndef PROJET_MAIN_H
+#define PROJET_MAIN_H
+
 #endif //PROJET_MAIN_H
