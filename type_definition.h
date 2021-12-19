@@ -4,7 +4,6 @@
 //
 //  Created by Sarah N'GOTTA on 10/12/2021.
 //
-
 #ifndef type_definition_h
 #define type_definition_h
 

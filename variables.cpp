@@ -7,7 +7,7 @@
 
 Pokimac Robbizarre, Nosteevrapti, Ozlameche, Soniafee, Laporteille, Nocvelli, Rieulu, Guerrarlande, Charpenti, Enguerratueur, Gautiplouf, Chataiglam ;
 
-            Robbizarre ={"Robbizarre","culture", 80, pouvoir[perspective, exposition] };
+            /*Robbizarre ={"Robbizarre","culture", 80, pouvoir[perspective, exposition] };
 
             Nosteevrapti={"Nosteevrapti", "programmation", 50, pouvoir[tp,c++ ]};
 
@@ -33,7 +33,22 @@ Pokimac Robbizarre, Nosteevrapti, Ozlameche, Soniafee, Laporteille, Nocvelli, Ri
 
 Attaque perspective, exposition, tp, c++ , expose, inenglishplease, edt, cle, video, pointeur, integration, contreintuition, td, explications, culture, controles, css, twitter, photo, diplome;
 
+*/
 
 
-
-    
+//Objet test1, test2, test3;
+            Objet test1={.nom="pouic",
+                   .definition="tue des gens",
+                   .id_type=2,
+                   .visuel="P",
+                   .apparition=0.8};
+            Objet test2={.nom="no",
+                   .definition = "aime pas les gens",
+                   .id_type=1,
+                   .visuel="N",
+                   .apparition=0.2};
+            Objet test3={.nom="ouin",
+                   .definition="pleure sur les gens",
+                   .id_type=3,
+                   .visuel="O",
+                   .apparition=0.5};

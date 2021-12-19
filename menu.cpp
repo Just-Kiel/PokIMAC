@@ -1,7 +1,6 @@
 #include <iostream>
 #include "menu.h"
 #include "carte.h"
-
 using namespace std;
 
 void printMenu(Joueur* joueur){
@@ -31,7 +30,7 @@ void printMenu(Joueur* joueur){
             cin >> user_choice;
         }
 
-        consoleUtils::clear();
+        ConsoleUtils::clear();
         if (user_choice == 1) {
             //TODO Afficher carte du jeu ou début
             int size = sizeMap();
@@ -41,6 +40,9 @@ void printMenu(Joueur* joueur){
             initPlayer(joueur);
             remplissageTab(map, size);
             deplacementTab(map, size, joueur);
+            //if(detection(map, size, joueur)){
+
+            //}
         } else if (user_choice == 2) {
             //TODO Amener vers fonction affichage des regles
         } else {
@@ -62,10 +64,11 @@ void initPlayer(Joueur *player){
         cin>>validation;
     }
     cout<<"Bienvenue "<<player->nom<<" !"<<endl;
-    consoleUtils::clear();
+    ConsoleUtils::clear();
 }
 
 int sizeMap(){
+    //TODO detecter si c'est un nb ou pas pour faire boucler
     int largeur;
     cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
     cin>>largeur;
