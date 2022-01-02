@@ -12,12 +12,13 @@ using namespace std;
 
 void affichageDebutCombat(Joueur * player, Pokimac pokimac){
     cout<<"Oh non te voici face a "<<pokimac.nom<<endl;
-    while(pokimac.pv>0 && player->equipe[0].pv>0) {
+    int statusFight=0;
+    while(pokimac.pv>0 && player->equipe[0].pv>0 && statusFight!=2) {
         cout << left << setw(20) << player->equipe[0].nom << pokimac.nom << endl;
 
         cout << "PV : " << left << setw(15) << player->equipe[0].pv << "PV : " << pokimac.pv << endl;
 
-        choixCombat(player, &pokimac);
+        statusFight=choixCombat(player, &pokimac);
     }
     if(pokimac.pv<=0){
         cout<<pokimac.nom<<" est mort, tu as gagne !"<<endl;
@@ -26,14 +27,14 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac){
     }
 };
 
-void choixCombat(Joueur * player, Pokimac * pokimac){
+int choixCombat(Joueur * player, Pokimac * pokimac){
     int user_fight;
 
     cout<<"Que souhaites tu faire ?"<<endl;
     cout<<"1. Attaquer"<<endl;
     cout<<"2. Capturer"<<endl;
-    cout<<"3. Inventaire"<<endl;
-    cout<<"4. Fuir"<<endl;
+    cout<<"3. Inventaire (not implemented yet)"<<endl;
+    cout<<"4. Fuir (not implemented yet)"<<endl;
 
     cout<<"Votre choix :";
     cin>> user_fight;
@@ -52,6 +53,7 @@ void choixCombat(Joueur * player, Pokimac * pokimac){
         cout<<pokimac->nom<<" contr-attaque !"<<endl;
         player->equipe[0].pv-=pokimac->attaque;
         ConsoleUtils::clear();
+        return 1;
     } else if(user_fight==2) {
         //TODO Lancer Pokeball + systeme de capture par force ou rareté
         for(int i=0; i<3; i++){
@@ -60,16 +62,23 @@ void choixCombat(Joueur * player, Pokimac * pokimac){
                     if(player->equipe[j].nom == ""){
                         player->equipe[j]=*pokimac;
                         cout<<"Tu as capture "<<pokimac->nom<<endl;
+                        return 2;
                         break;
                     }
                 }
                 player->inventaire[i]=vide;
+                break;
             }
         }
 
+
     } else if(user_fight == 3){
         //TODO ouvrir inventaire
+        return 0;
+
     } else {
         //TODO fuite du combat
+        return 0;
     }
+    return 0;
 }

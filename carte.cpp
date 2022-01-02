@@ -7,6 +7,7 @@
 #include "consoleUtils.hpp"
 #include "objet.h"
 #include "combat.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -38,7 +39,7 @@ void changementTab(char tab[], int taille){
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
-    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles et fermer le jeu avec la touche ESPACE."<<endl;
+    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles et revenir au menu avec la touche ESPACE."<<endl;
     for(int i=0; i<taille*taille; i++){
         if(i%taille==0 && i!=0){
             cout<<endl;
@@ -141,12 +142,15 @@ void deplacementTab(char tab[], int taille, Joueur* player){
                     break;
                 case ' ':
                     move = false;
+                    detect=false;
                     ConsoleUtils::clear();
+                    printMenu(player);
                     break;
             }
         }
-
-        detect = detection(tab, taille, player);
+        if(input!= ' ') {
+            detect = detection(tab, taille, player);
+        }
     }
 
 }
@@ -161,15 +165,18 @@ bool detection(char tab[], int taille, Joueur * player){
 
         //Fonction ajout Objet à inventaire
         ajoutObjetAInventaire(player, &possibleObjects[random], nbObjet);
-        return true;
+        ConsoleUtils::clear();
+        affichageTab(tab, taille);
+        return false;
     } else if(tab[(taille*(player->position_y)+(player->position_x))]==herbes){
         ConsoleUtils::clear();
         //TODO is there pokimac in that herb ?
 
         //TODO start fight
         affichageDebutCombat(player, allPokimac[1]);
-
-        return true;
+        ConsoleUtils::clear();
+        affichageTab(tab, taille);
+        return false;
     }
     return false;
 }

@@ -11,6 +11,7 @@ void ajoutObjetAInventaire(Joueur * player, Objet * object, int nbObjects){
             player->inventaire[i]=*object;
         }
     }
+    //TODO détection input pour passer à l'écran suivant
     cout<<object->visuel<<endl;
     cout<<"L'objet "<<object->nom<<" vient d'etre ajoute a ton inventaire !"<<endl;
     cout<<"Voici son utilite :"<<endl;
