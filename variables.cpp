@@ -14,10 +14,12 @@ const Pokimac allPokimac[2]= {
         {"Robbizarre", "culture","R" , 80, 35},
         {"Nosteevrapti", "programmation","N" , 50, 10}
 };
+const Pokimac videPokimac={"", "", "", 0, 0};
 Objet test1={"pouic","tue des gens",2,"P",0.8};
 Objet test2={"no","aime pas les gens",1,"N",0.2};
 Objet test3={"ouin","pleure sur les gens",3,"O",0.5};
-
+Objet pokIBALL={"PokIBALL", "permet de capturer des pokIMACs", 1, "P", 0.9};
+Objet vide={"", "",0,"",0};
 /*Pokimac Robbizarre = {.nom="Robbizarre",
         .espece="culture",
         .representation="Robibi",

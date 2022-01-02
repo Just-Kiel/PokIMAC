@@ -18,6 +18,10 @@ int main(){
     joueur.position_x = 0;
     joueur.position_y = 0;
     joueur.equipe[0]=allPokimac[0];
+    for(int i=1; i<6; i++){
+        joueur.equipe[i]=videPokimac;
+    }
+    joueur.inventaire[0]=pokIBALL;
     printMenu(&joueur);
     return 0;
 }

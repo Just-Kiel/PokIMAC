@@ -1,23 +1,24 @@
-pokIMAC : main.o carte.o menu.o objet.o variables.o combat.o
-	g++ main.o carte.o menu.o objet.o variables.o combat.o -o pokIMAC -Wall
+APPNAME = app
 
-main.o : main.cpp main.h variables.cpp
-	g++ -c -Wall main.cpp
+SRCFILES = $(wildcard *.cpp)
+OBJFILES = $(SRCFILES:%.cpp=%.o)
 
-carte.o : carte.cpp carte.h objet.h combat.cpp
-	g++ -c -Wall carte.cpp
+DEPDIR := .deps
 
-menu.o : menu.cpp menu.h
-	g++ -c -Wall menu.cpp
+DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
-objet.o : objet.cpp objet.h
-	g++ -c -Wall objet.cpp
+all: $(APPNAME)
 
-variables.o : variables.cpp variables.h
-	g++ -c -Wall variables.cpp
+$(APPNAME): $(OBJFILES)
+	g++ $^ -o $(APPNAME)
 
-combat.o : combat.cpp combat.h
-	g++ -c -Wall combat.cpp
+# %.o : %.cpp
+%.o : %.cpp $(DEPDIR)/%.d | $(DEPDIR)
+	g++ -c $(DEPFLAGS) $(CFLAGS) $<
 
-clean :
-	$(RM) -f *.o *.exe
+$(DEPDIR): ; @mkdir -p $@
+
+DEPFILES := $(SRCS:%.c=$(DEPDIR)/%.d)
+$(DEPFILES):
+
+include $(wildcard $(DEPFILES))

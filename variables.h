@@ -14,9 +14,10 @@
 //Pokimac Robbizarre, Nosteevrapti, Ozlameche, Soniafee, Laporteille, Nocvelli, Rieulu, Guerrarlande, Charpenti, Enguerratueur, Gautiplouf, Chataiglam ;
 
 //extern Pokimac Robbizarre;
-extern Objet test1, test2, test3;
+extern Objet test1, test2, test3, pokIBALL, vide;
 
 extern const Pokimac allPokimac[2];
+extern const Pokimac videPokimac;
 /*
 Pokimac Robbizarre = {.nom="Robbizarre",
                      .espece="culture",
