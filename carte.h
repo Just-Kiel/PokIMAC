@@ -2,9 +2,6 @@
 // Created by Aurore on 07/12/2021.
 //
 #include "type_definition.h"
-#include "consoleUtils.hpp"
-#include "variables.h"
-#include "objet.h"
 #ifndef PROJET_CARTE_H
 #define PROJET_CARTE_H
 void changementTab(char tab[], int taille);

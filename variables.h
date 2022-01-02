@@ -1,3 +1,4 @@
+#include "type_definition.h"
 #ifndef PROJET_VARIABLES_H
 #define PROJET_VARIABLES_H
 //
@@ -7,11 +8,24 @@
 //  Created by Sarah N'GOTTA on 07/12/2021.
 //
 
-Pokimac Robbizarre, Nosteevrapti, Ozlameche, Soniafee, Laporteille, Nocvelli, Rieulu, Guerrarlande, Charpenti, Enguerratueur, Gautiplouf, Chataiglam ;
+//TODO mettre des variables dans du cpp pas des h
+//TODO en fait non faut faire un tableau
 
-/*Robbizarre ={"Robbizarre","culture", 80, pouvoir[perspective, exposition] };
+//Pokimac Robbizarre, Nosteevrapti, Ozlameche, Soniafee, Laporteille, Nocvelli, Rieulu, Guerrarlande, Charpenti, Enguerratueur, Gautiplouf, Chataiglam ;
 
-Nosteevrapti={"Nosteevrapti", "programmation", 50, pouvoir[tp,c++ ]};
+//extern Pokimac Robbizarre;
+extern Objet test1, test2, test3;
+
+extern const Pokimac allPokimac[2];
+/*
+Pokimac Robbizarre = {.nom="Robbizarre",
+                     .espece="culture",
+                     .representation="Robibi",
+                     .pv=80,
+                     //.pouvoir={perspective, exposition}
+                     };
+*/
+/*Nosteevrapti={"Nosteevrapti", "programmation", 50, pouvoir[tp,c++ ]};
 
 Ozlameche={"Ozlameche", "culture", 70, pouvoir[expose, inenglishplease] };
 
@@ -37,22 +51,28 @@ Attaque perspective, exposition, tp, c++ , expose, inenglishplease, edt, cle, vi
 
 */
 
-
+/*
 //Objet test1, test2, test3;
 Objet test1={.nom="pouic",
         .definition="tue des gens",
         .id_type=2,
-        .visuel="P",
+        .visuel="|\\---/|\n"
+                "| o_o |\n"
+                " \\_^_/",
         .apparition=0.8};
 Objet test2={.nom="no",
         .definition = "aime pas les gens",
         .id_type=1,
-        .visuel="N",
+        .visuel="|\\---/|\n"
+                "| o_o |\n"
+                " \\_^_/",
         .apparition=0.2};
 Objet test3={.nom="ouin",
         .definition="pleure sur les gens",
         .id_type=3,
-        .visuel="O",
+        .visuel="|\\---/|\n"
+                "| o_o |\n"
+                " \\_^_/",
         .apparition=0.5};
-
+*/
 #endif //PROJET_VARIABLES_H

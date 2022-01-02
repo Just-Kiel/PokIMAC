@@ -1,6 +1,13 @@
 #include <iostream>
 #include <stdlib.h>
+
 #include "carte.h"
+
+#include "variables.h"
+#include "consoleUtils.hpp"
+#include "objet.h"
+#include "combat.h"
+
 using namespace std;
 
 /*
@@ -31,7 +38,7 @@ void changementTab(char tab[], int taille){
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
-    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles."<<endl;
+    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles et fermer le jeu avec la touche ESPACE."<<endl;
     for(int i=0; i<taille*taille; i++){
         if(i%taille==0 && i!=0){
             cout<<endl;
@@ -52,6 +59,14 @@ void remplissageTab(char tab[], int taille){
     for(int j=0; j<nbObjet; j++){
         randomObject = rand()%(taille*taille);
         tab[randomObject]=objet;
+    }
+
+    //Positionnement des mauvaises herbes
+    for(int k=0; k<(taille*taille/3); k++){
+        randomObject = rand()%(taille*taille);
+        if(tab[randomObject]!=objet){
+            tab[randomObject]=herbes;
+        }
     }
 
     affichageTab(tab, taille);
@@ -100,32 +115,24 @@ void deplacementTab(char tab[], int taille, Joueur* player){
             }
         } else {
             switch (input) {
-                //case 'H':
-                //case 'A': //Check if A sur Mac up ?
                 case 'z':
                     if (player->position_y > 0) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_y--;
                     }
                     break;
-                //case 'P':
-                //case 'B': //Check if B sur Mac down ?
                 case 's':
                     if (player->position_y < taille - 1) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_y++;
                     }
                     break;
-                //case 'M':
-                //case 'C': //Check if C sur Mac right ?
                 case 'd':
                     if (player->position_x < taille - 1) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_x++;
                     }
                     break;
-                //case 'K':
-                //case 'D': //Check if D sur Mac left ?
                 case 'q':
                     if ((player->position_x) > 0) {
                         affichageApresDeplacementCell(player, tab, taille);
@@ -145,7 +152,7 @@ void deplacementTab(char tab[], int taille, Joueur* player){
 }
 //TODO detecter objet et passer un écran pour signaler l'objet dans l'inventaire
 bool detection(char tab[], int taille, Joueur * player){
-    if(tab[(taille*(player->position_y)+(player->position_x))]=='o'){
+    if(tab[(taille*(player->position_y)+(player->position_x))]==objet){
         ConsoleUtils::clear();
 
         //TODO random en fonction de la rareté d'apparition
@@ -154,6 +161,13 @@ bool detection(char tab[], int taille, Joueur * player){
 
         //Fonction ajout Objet à inventaire
         ajoutObjetAInventaire(player, &possibleObjects[random], nbObjet);
+        return true;
+    } else if(tab[(taille*(player->position_y)+(player->position_x))]==herbes){
+        ConsoleUtils::clear();
+        //TODO is there pokimac in that herb ?
+
+        //TODO start fight
+        affichageDebutCombat(player, allPokimac[1]);
 
         return true;
     }

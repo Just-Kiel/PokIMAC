@@ -1,6 +1,6 @@
 #include <iostream>
 #include "menu.h"
-#include "carte.h"
+#include "consoleUtils.hpp"
 using namespace std;
 
 void printMenu(Joueur* joueur){
@@ -37,12 +37,11 @@ void printMenu(Joueur* joueur){
 
             char * map=(char *) malloc(size*size*sizeof(char));
 
-            initPlayer(joueur);
+            //initPlayer(joueur);
+            ConsoleUtils::clear();
             remplissageTab(map, size);
             deplacementTab(map, size, joueur);
-            //if(detection(map, size, joueur)){
 
-            //}
         } else if (user_choice == 2) {
             //TODO Amener vers fonction affichage des regles
         } else {
@@ -52,6 +51,7 @@ void printMenu(Joueur* joueur){
 
 void initPlayer(Joueur *player){
     //TODO est ce qu'on lui fait choisir un pokimac starter ou pas ?
+    //TODO decommenter le nom du player
     char validation='o';
     cout<<"Quel nom voulez-vous donner a votre dresseur PokIMAC ?"<<endl;
     cin>>player->nom;

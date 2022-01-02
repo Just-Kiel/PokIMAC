@@ -2,7 +2,7 @@
 // Created by Aurore on 07/12/2021.
 //
 #include "type_definition.h"
-//#include "variables.h"
+#include "carte.h"
 #ifndef PROJET_MENU_H
 #define PROJET_MENU_H
 

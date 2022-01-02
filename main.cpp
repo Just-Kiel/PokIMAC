@@ -6,6 +6,7 @@
 using namespace std;
 #include "menu.h"
 #include "main.h"
+#include "variables.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -16,6 +17,7 @@ int main(){
     Joueur joueur;
     joueur.position_x = 0;
     joueur.position_y = 0;
+    joueur.equipe[0]=allPokimac[0];
     printMenu(&joueur);
     return 0;
 }
