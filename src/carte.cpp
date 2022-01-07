@@ -22,20 +22,7 @@ char perso = 'i';
 char sol = 'a';
 char herbes = 'X';
 char objet = 'o';
-int nbObjet = 3;
-
-void changementTab(char tab[], int taille){
-    char caractere, new_caractere;
-    cout<<"Quel caractère souhaitez vous modifier ?"<<endl;
-    cin>>caractere;
-    cout<<"Par quel caractère voulez vous remplacer ?"<<endl;
-    cin>>new_caractere;
-    for(int i=0; i<taille;i++) {
-        if (tab[i] == caractere) {
-            tab[i] = new_caractere;
-        }
-    }
-}
+int nbObjet = sizeof(allObject)/sizeof(allObject[0]);
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
@@ -51,20 +38,21 @@ void affichageTab(char tab[], int taille){
 
 void remplissageTab(char tab[], int taille){
     //Remplissage du tableau
-    int randomObject;
     for(int i=0; i<(taille*taille); i++){
         tab[i]=sol;
     }
 
+    int randomObject;
+
     //Positionnement random des objets
-    for(int j=0; j<nbObjet; j++){
+    for(int j=0; j<(taille*taille/5); j++){
         randomObject = rand()%(taille*taille);
         tab[randomObject]=objet;
     }
 
     //Positionnement des mauvaises herbes
-    for(int k=0; k<(taille*taille/3); k++){
-        randomObject = rand()%(taille*taille);
+    for(int k=1; k<(taille*taille/3); k++){
+        randomObject = rand()%(taille*taille) +1;
         if(tab[randomObject]!=objet){
             tab[randomObject]=herbes;
         }
@@ -75,6 +63,10 @@ void remplissageTab(char tab[], int taille){
 
 void affichageApresDeplacementCell(Joueur * player, char *tab, int taille){
     ConsoleUtils::setCursorPos(player->position_x*3, player->position_y+1);
+    //Si le dresseur vient de récupérer un objet, il n'est plus affiché sur la carte
+    if(tab[(taille*(player->position_y)+(player->position_x))] == objet){
+        tab[(taille*(player->position_y)+(player->position_x))]=sol;
+    }
     cout<<tab[(taille*(player->position_y)+(player->position_x))];
 }
 
@@ -83,6 +75,7 @@ void deplacementTab(char tab[], int taille, Joueur* player){
     bool move = true;
     bool detect = false;
     bool arrow = false;
+    //Detection et déplacement en fonction des fleches et de ZQSD
     while(move && !detect) {
         ConsoleUtils::setCursorPos(player->position_x*3, player->position_y+1);
         cout << perso;
@@ -117,29 +110,35 @@ void deplacementTab(char tab[], int taille, Joueur* player){
         } else {
             switch (input) {
                 case 'z':
+                case 'Z':
                     if (player->position_y > 0) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_y--;
                     }
                     break;
                 case 's':
+                case 'S':
                     if (player->position_y < taille - 1) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_y++;
                     }
                     break;
                 case 'd':
+                case 'D':
                     if (player->position_x < taille - 1) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_x++;
                     }
                     break;
                 case 'q':
+                case 'Q':
                     if ((player->position_x) > 0) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_x--;
                     }
                     break;
+
+                    //Revenir au menu principal
                 case ' ':
                     move = false;
                     detect=false;
@@ -154,25 +153,24 @@ void deplacementTab(char tab[], int taille, Joueur* player){
     }
 
 }
-//TODO detecter objet et passer un écran pour signaler l'objet dans l'inventaire
+//je crois c'est bon TODO detecter objet et passer un écran pour signaler l'objet dans l'inventaire
 bool detection(char tab[], int taille, Joueur * player){
     if(tab[(taille*(player->position_y)+(player->position_x))]==objet){
         ConsoleUtils::clear();
 
-        //TODO random en fonction de la rareté d'apparition
-        Objet possibleObjects[]={test1, test2, test3};
+        //Facultatif TODO random en fonction de la rareté d'apparition
+
+        //Objet possibleObjects[]={test1, test2, test3};
         int random=rand()%nbObjet;
 
         //Fonction ajout Objet à inventaire
-        ajoutObjetAInventaire(player, &possibleObjects[random], nbObjet);
-        ConsoleUtils::clear();
+        ajoutObjetAInventaire(player, allObject[random]);
         affichageTab(tab, taille);
         return false;
     } else if(tab[(taille*(player->position_y)+(player->position_x))]==herbes){
         ConsoleUtils::clear();
         //TODO is there pokimac in that herb ?
 
-        //TODO start fight
         affichageDebutCombat(player, allPokimac[1]);
         ConsoleUtils::clear();
         affichageTab(tab, taille);

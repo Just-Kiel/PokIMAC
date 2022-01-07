@@ -8,9 +8,11 @@
 #include "combat.h"
 #include "consoleUtils.hpp"
 #include "variables.h"
+#include "menu.h"
 using namespace std;
 
 void affichageDebutCombat(Joueur * player, Pokimac pokimac){
+    //Facultatif TODO choisir quel PokIMAC envoyé
     cout<<"Oh non te voici face a "<<pokimac.nom<<endl;
     int statusFight=0;
     while(pokimac.pv>0 && player->equipe[0].pv>0 && statusFight!=2) {
@@ -45,6 +47,8 @@ int choixCombat(Joueur * player, Pokimac * pokimac){
         cin >> user_fight;
     }
 
+    ConsoleUtils::clear();
+
     if(user_fight == 1){
         //TODO attaque par attaques différentes + types de chaque pokimac
 
@@ -52,7 +56,7 @@ int choixCombat(Joueur * player, Pokimac * pokimac){
         pokimac->pv-=player->equipe[0].attaque;
         cout<<pokimac->nom<<" contr-attaque !"<<endl;
         player->equipe[0].pv-=pokimac->attaque;
-        ConsoleUtils::clear();
+        detectSpace();
         return 1;
     } else if(user_fight==2) {
         //TODO Lancer Pokeball + systeme de capture par force ou rareté
@@ -73,11 +77,11 @@ int choixCombat(Joueur * player, Pokimac * pokimac){
 
 
     } else if(user_fight == 3){
-        //TODO ouvrir inventaire
+        //Facultatif TODO ouvrir inventaire
         return 0;
 
     } else {
-        //TODO fuite du combat
+        //Facultatif TODO fuite du combat
         return 0;
     }
     return 0;

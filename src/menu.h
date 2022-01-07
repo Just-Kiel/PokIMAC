@@ -10,5 +10,6 @@
 int sizeMap();
 void printMenu(Joueur * joueur);
 void initPlayer(Joueur *player);
+void detectSpace();
 
 #endif //PROJET_MENU_H
