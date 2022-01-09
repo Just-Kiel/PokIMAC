@@ -5,6 +5,7 @@
 
 #include "menu.h"
 #include "variables.h"
+#include "consoleUtils.hpp"
 using namespace std;
 
 bool ajoutObjetAInventaire(Joueur * player, Objet object){
@@ -34,7 +35,7 @@ int capturePokIBALL(Joueur * player, Pokimac * pokimac){
     Objet pokiball=allObject[0];
     bool recup = false;
     if(pokimac->pv<=10) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < sizeInventaire; i++) {
             if (player->inventaire[i].nom == pokiball.nom) {
                 for (int j = 0; j < 7; j++) {
                     if (player->equipe[j].nom == videPokimac.nom) {
@@ -60,5 +61,36 @@ int capturePokIBALL(Joueur * player, Pokimac * pokimac){
         return 0;
     }else{
         return 2;
+    }
+}
+
+void ouvertureInventaire(Joueur * player, bool inCombat){
+    int nbObjetMax=0;
+    cout<<"Dans ton inventaire il y a :"<<endl;
+
+    for(int i=0; i<sizeInventaire; i++){
+        if(player->inventaire[i].nom != vide.nom && (!inCombat || player->inventaire[i].nom != allObject[0].nom)){
+            cout<< i+1 <<". "<<player->inventaire[i].nom<<endl;
+            nbObjetMax=i+1;
+        }
+    }
+    cout<<sizeInventaire+1<<". Retour"<<endl;
+
+    int user_choice;
+    cout << "Ton choix : ";
+    cin >> user_choice;
+
+    //TODO object use when inventaire is great
+
+    while(user_choice!=sizeInventaire+1 && (user_choice<1 || user_choice>nbObjetMax)){
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbObjetMax<<" ou "<<sizeInventaire+1<<"."<<endl;
+        cout << "Ton choix : ";
+        cin >> user_choice;
+    }
+
+    if(user_choice == sizeInventaire+1){
+        ConsoleUtils::clear();
+    } else {
+        detectSpace();
     }
 }

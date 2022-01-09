@@ -111,6 +111,12 @@ void deplacementTab(char tab[], int taille, Joueur* player){
             }
         } else {
             switch (input) {
+                case 'I':
+                case 'i':
+                    ConsoleUtils::clear();
+                    ouvertureInventaire(player);
+                    affichageTab(tab, taille);
+                    break;
                 case 'z':
                 case 'Z':
                     if (player->position_y > 0) {

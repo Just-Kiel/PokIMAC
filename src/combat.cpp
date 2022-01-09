@@ -68,7 +68,8 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
         return captureStatus;
 
     } else if(user_fight == 3){
-        //Facultatif TODO ouvrir inventaire
+        // Ouvre l'inventaire et permet le retour (pas encore possible d'agir vu que 0 objet possible)
+        ouvertureInventaire(player, true);
         return 0;
 
     } else if(user_fight == 4){

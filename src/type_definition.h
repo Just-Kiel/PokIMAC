@@ -11,7 +11,7 @@
 #include <cstring>
 using namespace std;
 
-// structure attaque qui définie les atatques des pokimacs
+// structure attaque qui définit les attaques des pokimacs
 
 typedef struct{
     
@@ -50,7 +50,7 @@ typedef struct {
 } Pokimac;
 
 // structure Joueur qui définie le joueur
-
+constexpr int sizeInventaire = 2;
 typedef struct{
     
     string nom; //nom du joueur
