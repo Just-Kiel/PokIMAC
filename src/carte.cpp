@@ -10,7 +10,6 @@
 #include "menu.h"
 
 using namespace std;
-
 /*
  * TODO Caractères à définir :
  *      - Joueur
@@ -27,7 +26,7 @@ bool recupDone=false;
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
-    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles et revenir au menu avec la touche ESPACE."<<endl;
+    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles, ouvrir l'inventaire avec i et revenir au menu avec la touche ESPACE."<<endl;
     for(int i=0; i<taille*taille; i++){
         if(i%taille==0 && i!=0){
             cout<<endl;

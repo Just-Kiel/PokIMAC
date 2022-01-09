@@ -54,13 +54,9 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
     ConsoleUtils::clear();
 
     if(user_fight == 1){
-        //TODO attaque par attaques différentes + types de chaque pokimac
+        //TODO attaque types de chaque pokimac
+        attaqueCombat(&player->equipe[pokimacUser], pokimac);
 
-        cout<<"Tu attaques avec "<<player->equipe[pokimacUser].nom<<endl;
-        pokimac->pv-=player->equipe[pokimacUser].attaque;
-        cout<<pokimac->nom<<" contr-attaque !"<<endl;
-        player->equipe[pokimacUser].pv-=pokimac->attaque;
-        detectSpace();
         return 1;
     } else if(user_fight==2) {
         // Tentative de capture avec lancement de PokIBALL
@@ -116,4 +112,31 @@ int choixPokIMAC(Joueur * player){
 
     ConsoleUtils::clear();
     return user_pokIMAC-1;
+}
+
+void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
+
+    cout<<player_pokimac->nom<<" peut attaquer avec :"<<endl;
+
+    for(int a=0; a<nbAttaque; a++){
+        cout<<a+1<<". "<<player_pokimac->pouvoir[a].nom_attaque<<endl;
+    }
+
+    int user_choice;
+    cout << "Ton choix : ";
+    cin >> user_choice;
+
+    while(user_choice<1 || user_choice>nbAttaque+1){
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbAttaque+1<<"."<<endl;
+        cout << "Ton choix : ";
+        cin >> user_choice;
+    }
+
+    cout<<"Tu attaques avec "<<player_pokimac->pouvoir[user_choice-1].nom_attaque<<endl;
+    enemy_pokimac->pv-=player_pokimac->pouvoir[user_choice-1].puissance;
+    cout<<enemy_pokimac->nom<<" contre-attaque !"<<endl;
+
+    int randAttaque = rand()%nbAttaque;
+    player_pokimac->pv-=enemy_pokimac->pouvoir[randAttaque].puissance;
+    detectSpace();
 }

@@ -38,7 +38,7 @@ void printMenu(Joueur* joueur){
         ConsoleUtils::clear();
 
         if (user_choice == 1) {
-            //Facultatif TODO Afficher carte du jeu ou début
+            //Facultatif++ TODO Afficher carte du jeu ou début
             int size = sizeMap();
             char * map=(char *) malloc(size*size*sizeof(char));
 
@@ -57,7 +57,7 @@ void printMenu(Joueur* joueur){
             //Fin du programme
             cout<<"Merci d'avoir joue a PokIMAC !"<<endl;
             detectSpace();
-            //Facultatif TODO Fin de jeu
+            //Facultatif++ TODO Fin de jeu
         }
 }
 

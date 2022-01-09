@@ -7,4 +7,5 @@
 void affichageDebutCombat(Joueur * player, Pokimac pokimac);
 int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser);
 int choixPokIMAC(Joueur * player);
+void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac);
 #endif //PROJET_COMBAT_H
