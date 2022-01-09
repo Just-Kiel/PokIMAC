@@ -17,12 +17,13 @@ using namespace std;
  *      - Pokemons
  *      - Objet
  *      - Sol
+ *      - Centre Pokemon en cas de décès de tous les pokimac
  */
 char perso = 'i';
 char sol = 'a';
 char herbes = 'X';
 char objet = 'o';
-int nbObjet = sizeof(allObject)/sizeof(allObject[0]);
+bool recupDone=false;
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
@@ -63,10 +64,11 @@ void remplissageTab(char tab[], int taille){
 
 void affichageApresDeplacementCell(Joueur * player, char *tab, int taille){
     ConsoleUtils::setCursorPos(player->position_x*3, player->position_y+1);
-    //Si le dresseur vient de récupérer un objet, il n'est plus affiché sur la carte
-    if(tab[(taille*(player->position_y)+(player->position_x))] == objet){
+    //Si le dresseur vient de récupérer un objet (et qu'il avait la place dans son inventaire), il n'est plus affiché sur la carte
+    if(tab[(taille*(player->position_y)+(player->position_x))] == objet && recupDone){
         tab[(taille*(player->position_y)+(player->position_x))]=sol;
     }
+
     cout<<tab[(taille*(player->position_y)+(player->position_x))];
 }
 
@@ -139,6 +141,7 @@ void deplacementTab(char tab[], int taille, Joueur* player){
                     break;
 
                     //Revenir au menu principal
+                    //Facultatif TODO validation de retour au menu
                 case ' ':
                     move = false;
                     detect=false;
@@ -153,28 +156,30 @@ void deplacementTab(char tab[], int taille, Joueur* player){
     }
 
 }
-//je crois c'est bon TODO detecter objet et passer un écran pour signaler l'objet dans l'inventaire
+
 bool detection(char tab[], int taille, Joueur * player){
     if(tab[(taille*(player->position_y)+(player->position_x))]==objet){
         ConsoleUtils::clear();
 
         //Facultatif TODO random en fonction de la rareté d'apparition
 
-        //Objet possibleObjects[]={test1, test2, test3};
         int random=rand()%nbObjet;
 
         //Fonction ajout Objet à inventaire
-        ajoutObjetAInventaire(player, allObject[random]);
+        recupDone=ajoutObjetAInventaire(player, allObject[random]);
         affichageTab(tab, taille);
-        return false;
+
     } else if(tab[(taille*(player->position_y)+(player->position_x))]==herbes){
         ConsoleUtils::clear();
-        //TODO is there pokimac in that herb ?
+        //Random vérifiant si un PokIMAC est dans la mauvaise herbe (permet de simuler le déplacement des pokIMACs)
+        bool randomBoolPokIMAC =rand()%2;
+        if(randomBoolPokIMAC){
+            int randomPokIMAC=rand()%nbPokIMAC;
+            affichageDebutCombat(player, allPokimac[randomPokIMAC]);
+            ConsoleUtils::clear();
+        }
 
-        affichageDebutCombat(player, allPokimac[1]);
-        ConsoleUtils::clear();
         affichageTab(tab, taille);
-        return false;
     }
     return false;
 }

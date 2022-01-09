@@ -4,5 +4,6 @@
 #include "type_definition.h"
 #ifndef PROJET_OBJET_H
 #define PROJET_OBJET_H
-void ajoutObjetAInventaire(Joueur * player, Objet object);
+bool ajoutObjetAInventaire(Joueur * player, Objet object);
+int capturePokIBALL(Joueur * player, Pokimac * pokimac);
 #endif //PROJET_OBJET_H

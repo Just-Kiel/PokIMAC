@@ -7,12 +7,13 @@
 //
 //  Created by Sarah N'GOTTA on 07/12/2021.
 //
-extern Objet test1, test2, test3, pokIBALL;
 
-extern const Objet allObject[1];
+constexpr int nbObjet = 1;
+extern const Objet allObject[nbObjet];
 extern const Objet vide;
 
-extern const Pokimac allPokimac[12];
+constexpr int nbPokIMAC = 12;
+extern const Pokimac allPokimac[nbPokIMAC];
 extern const Pokimac videPokimac;
 /*
 Pokimac Robbizarre = {.nom="Robbizarre",

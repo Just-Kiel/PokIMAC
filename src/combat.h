@@ -5,5 +5,6 @@
 #ifndef PROJET_COMBAT_H
 #define PROJET_COMBAT_H
 void affichageDebutCombat(Joueur * player, Pokimac pokimac);
-int choixCombat(Joueur * player, Pokimac * pokimac);
+int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser);
+int choixPokIMAC(Joueur * player);
 #endif //PROJET_COMBAT_H

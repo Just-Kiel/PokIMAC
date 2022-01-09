@@ -4,9 +4,10 @@
 #include "objet.h"
 
 #include "menu.h"
+#include "variables.h"
 using namespace std;
 
-void ajoutObjetAInventaire(Joueur * player, Objet object){
+bool ajoutObjetAInventaire(Joueur * player, Objet object){
     bool recup = false;
     int size_inventaire = sizeof (player->inventaire)/sizeof(player->inventaire[0]);
     for(int i=0; i<size_inventaire; i++){
@@ -26,4 +27,38 @@ void ajoutObjetAInventaire(Joueur * player, Objet object){
         cout << object.definition << endl;
     }
     detectSpace();
+    return recup;
+}
+
+int capturePokIBALL(Joueur * player, Pokimac * pokimac){
+    Objet pokiball=allObject[0];
+    bool recup = false;
+    if(pokimac->pv<=10) {
+        for (int i = 0; i < 3; i++) {
+            if (player->inventaire[i].nom == pokiball.nom) {
+                for (int j = 0; j < 7; j++) {
+                    if (player->equipe[j].nom == videPokimac.nom) {
+                        player->equipe[j] = *pokimac;
+                        recup = true;
+                        cout << "Tu as capture " << pokimac->nom << endl;
+                        detectSpace();
+                        break;
+                    }
+                }
+                player->inventaire[i] = vide;
+                break;
+            }
+        }
+    }
+    if(pokimac->pv<=10){
+        cout<<"Tu n'as pas pu capture le PokIMAC, desole !"<<endl;
+        detectSpace();
+        return 0;
+    }else if(!recup){
+        cout<<"Tu n'as plus de PokIBALL !"<<endl;
+        detectSpace();
+        return 0;
+    }else{
+        return 2;
+    }
 }

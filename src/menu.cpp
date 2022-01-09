@@ -26,12 +26,12 @@ void printMenu(Joueur* joueur){
         cout << "3. Quitter" << endl;
 
 
-        cout << "Votre choix : ";
+        cout << "Ton choix : ";
         cin >> user_choice;
 
         while(user_choice<1 || user_choice>3){
             cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
-            cout << "Votre choix : ";
+            cout << "Ton choix : ";
             cin >> user_choice;
         }
 
@@ -40,19 +40,19 @@ void printMenu(Joueur* joueur){
         if (user_choice == 1) {
             //Facultatif TODO Afficher carte du jeu ou début
             int size = sizeMap();
-
             char * map=(char *) malloc(size*size*sizeof(char));
 
             //Personnalisation du dresseur
             //TODO à décommenter
-            //initPlayer(joueur);
+            initPlayer(joueur);
 
             //Début du déplacement sur la carte
             remplissageTab(map, size);
             deplacementTab(map, size, joueur);
 
         } else if (user_choice == 2) {
-            //Facultatif TODO Amener vers fonction affichage des regles
+            //Sarah / Facultatif TODO Amener vers fonction affichage des regles
+            printMenu(joueur);
         } else {
             //Fin du programme
             cout<<"Merci d'avoir joue a PokIMAC !"<<endl;
@@ -63,16 +63,17 @@ void printMenu(Joueur* joueur){
 
 void initPlayer(Joueur *player){
     //Nom du dresseur PokIMAC
+
     char validation='o';
-    cout<<"Quel nom voulez-vous donner a votre dresseur PokIMAC ?"<<endl;
+    cout<<"Quel nom veux-tu donner a ton dresseur PokIMAC ?"<<endl;
     cin>>player->nom;
-    cout<<"C'est bien "<<player->nom<<" votre nom ? (o/n)"<<endl;
+    cout<<"C'est bien "<<player->nom<<" ton nom ? (o/n)"<<endl;
     cin>>validation;
 
     while(validation=='n' || validation!='o'){
-        cout<<"Quel nom voulez-vous donner a votre dresseur PokIMAC ?"<<endl;
+        cout<<"Quel nom veux-tu donner a ton dresseur PokIMAC ?"<<endl;
         cin>>player->nom;
-        cout<<"C'est bien "<<player->nom<<" votre nom ? (o/n)"<<endl;
+        cout<<"C'est bien "<<player->nom<<" ton nom ? (o/n)"<<endl;
         cin>>validation;
     }
     cout<<"Bienvenue "<<player->nom<<" !"<<endl;
@@ -86,12 +87,12 @@ void initPlayer(Joueur *player){
     cout << "2. " << allPokimac[1].nom << endl;
     cout << "3. " << allPokimac[2].nom << endl;
 
-    cout<<"Votre choix : ";
+    cout<<"Ton choix : ";
     cin>>user_pokIMAC;
 
     while(user_pokIMAC<1 || user_pokIMAC>3){
         cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
-        cout << "Votre choix : ";
+        cout << "Ton choix : ";
         cin >> user_pokIMAC;
     }
 
@@ -101,30 +102,26 @@ void initPlayer(Joueur *player){
 }
 
 int sizeMap(){
-    //Facultatif TODO detecter si c'est un nb ou pas pour faire boucler (j'ai essayé un truc qui ne fonctionne pas)
-    //char largeur[1];
-    int largeur;
+    char largeur[2];
     cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
     cin>>largeur;
 
-    /*while(largeur[0]<'1'||largeur[0]>'9'){
+    int largeurInt = atoi(largeur);
+    while(largeurInt<1||largeurInt>9){
         cout<<"Ce choix n'est pas valide ! Tu dois choisir un nombre entier."<<endl;
         cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
         cin>>largeur;
-    }*/
+        largeurInt = atoi(largeur);
+    }
 
     ConsoleUtils::clear();
-    //return atoi(largeur);
-    return largeur;
+    return largeurInt;
 }
 
 void detectSpace(){
-    cout<<endl<<"Appuie sur ESPACE pour passer a l'ecran suivant."<<endl;
-    char input = ConsoleUtils::getChar();
-    while(input == ' '){
-        ConsoleUtils::clear();
-        break;
-    }
+    cout<<endl<<"Appuie sur une touche pour passer a l'ecran suivant."<<endl;
+    ConsoleUtils::getChar();
+    ConsoleUtils::clear();
 }
 //
 // Created by Aurore on 07/12/2021.
