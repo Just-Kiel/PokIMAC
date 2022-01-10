@@ -4,6 +4,7 @@
 
 #include "consoleUtils.hpp"
 #include "variables.h"
+#include "instructions.h"
 using namespace std;
 
 void printMenu(Joueur* joueur){
@@ -52,6 +53,7 @@ void printMenu(Joueur* joueur){
 
         } else if (user_choice == 2) {
             //Sarah / Facultatif TODO Amener vers fonction affichage des regles
+            printSelection();
             printMenu(joueur);
         } else {
             //Fin du programme

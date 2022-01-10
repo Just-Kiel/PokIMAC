@@ -13,6 +13,9 @@
 
 using namespace std;
 
+//TODO ajouter detectSpace pour aérer texte
+//TODO enlever accents et caractères spéciaux (casse)
+
 void printRegles();
 
 void printSelection( ){
@@ -24,7 +27,8 @@ void printSelection( ){
     cout << "1. Commandes" << endl;
     cout << "2. Regles du jeu" << endl;
     cout << "3. Retour" << endl;
-    
+
+    int user_choice;
     cout << "Ton choix : ";
     cin >> user_choice;
 
@@ -52,9 +56,9 @@ void printSelection( ){
         cout<<"← ou Q : pour aller vers la gauche"<<endl;
 
         cout<<"Pour selectionner une option : "<<endl;
-        cout<<" Saisir ton choix ou ce qui t'est demande a l'aide du clavier. Si tu dois valider ton choix, appuis sur la touche 'o' <<endl;
+        cout<<"Saisir ton choix ou ce qui t'est demande a l'aide du clavier. Si tu dois valider ton choix, appuis sur la touche 'o'"<<endl;
         
-        cout<<"Appuis sur la touche 'espace' pour revenir au menu principal. Attention, réalise en cours de partie, cette action quittera la partie de façon définitive."<<endl;
+        cout<<"Appuie sur la touche 'espace' pour revenir au menu principal. Attention, réalise en cours de partie, cette action quittera la partie de façon définitive."<<endl;
         
         cout<<"Si tu ne comprends pas les commandes, adresse toi a Aurore Lafaurie (@just_kiel sur instagram), elle saura te guider ! "<<endl;
 
@@ -77,26 +81,24 @@ void printSelection( ){
         
        //Fonction printRegle qui affiche le menu des règles du jeu
         
-        printRegles;
+        printRegles();
         
         
     } else {
         
         //Fin du programme > retour au menu principal
-        printSelection;
+        return;
         
     }
 }
 
 
-    void printRegles(){
+void printRegles(){
         
         // Explications des règles du jeu + possibilité de faire retour
         // TODO Récupérer ASCII ART "RÈGLES DU JEU "
         
         int choix_utilisateur=0;
-        
-        cout<<""<<endl;
         
         cout << "Choisis dans le menu (1, 2, 3, 4 ou 5) :" << endl;
         cout << "1. Histoire et Enjeux" << endl;
@@ -121,10 +123,9 @@ void printSelection( ){
             cout<<"HISTOIRE ET ENJEUX"<<endl;
             
             cout<<"Tu incarnes un jeune DressESIPE de PokIMAC a qui l'on offre un PokIMAC de depart, \n et tu pars pour une aventure semee d'embuches. \n Tu parcours une région peuplee de PokIMAC sauvages que tu peux capturer et faire combattre. /n Tout ceci dans le but de te mesurer a l'élite des dresseurs du Champs et enfin devenir le Maitre du Bourg Coper avec le PokESIPE le plus rempli !"<<endl;
+            detectSpace();
             
-            
-            printRegles;
-            
+            printRegles();
         } else if (choix_utilisateur == 2) {
             
             // Les PokIMAC :
@@ -141,7 +142,7 @@ void printSelection( ){
             
             cout<<" ###!!! DISCLAIMER !!!### "<<endl
                 <<"Toute ressemblance de PokIMAC avec des professeurs de l'ESIPE - IMAC est parfaitement fortuite."<<endl
-                <<"Ce jeu a été codé dans l'innoncence, la stress et la prise de tête. Il n'a aucunement pour but de dénigrer l'integrite de qui que ce soit. Il se veut fun et bienveillant ! "<<end;
+                <<"Ce jeu a été codé dans l'innoncence, la stress et la prise de tête. Il n'a aucunement pour but de dénigrer l'integrite de qui que ce soit. Il se veut fun et bienveillant ! "<<endl;
 
             
             cout<<"PokESIPE : "<<endl;
@@ -164,29 +165,31 @@ void printSelection( ){
                 <<"Soniafee"<<endl
                 <<"Enguerratueur"<<endl;
             
-            cout<<"Type Design : "<<endl;
+            cout<<"Type Design : "<<endl
                 <<"Gautiplouf"<<endl
                 <<"Chataiglam"<<endl;
 
-            printRegles;
+            printRegles();
             
         } else if (choix_utilisateur == 3) {
             
             //objets
             
-            printRegles;
+            printRegles();
             
         } else if (choix_utilisateur == 4) {
 
             //combat, capture, fuite
         
         
-            printRegles;
+            printRegles();
             
         }else{
             
             //Fin du programme > retour au menu instruction
+            printSelection();
+//            return;
             
         }
     
-    }
+}

@@ -29,9 +29,3 @@ const Pokimac allPokimac[12]= {
 };
 
 const Pokimac videPokimac={"", "", "", 0, {{"", 0}, {"", 0}}};
-
-
-
-/*
-Attaque perspective, exposition, tp, c++ , expose, inenglishplease, edt, cle, video, pointeur, integration, contreintuition, td, explications, culture, controles, css, twitter, photo, diplome;
-*/
