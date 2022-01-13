@@ -7,7 +7,7 @@
 #include "variables.h"
 
 const Objet allObject[nbObjet]={
-        {"PokIBALL", "permet de capturer des pokIMACs", 1, "P", 0.9}
+        {"PokIBALL", "permet de capturer des pokIMACs", 0, "P", 0.9}
 };
 
 const Objet vide={"", "",0,"",0};
