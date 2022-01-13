@@ -6,12 +6,18 @@
 //
 #include "variables.h"
 
+// Tableau qui rassemble tous les pokimacs
+
 const Objet allObject[nbObjet]={
         {"PokIBALL", "permet de capturer des pokIMACs", 0, "P", 0.9}
 };
 
+// Tableau vide qui va se remplir avec les objets au fur et a mesure du jeu
+
 const Objet vide={"", "",0,"",0};
 
+
+// Tableau qui rassemble tous les pokimacs
 
 const Pokimac allPokimac[12]= {
         {"Robbizarre", "culture","R" , 80, {{"Perspective", 10}, {"Exposition", 5}}},

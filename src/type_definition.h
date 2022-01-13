@@ -36,6 +36,7 @@ typedef struct {
 // structure Pokimac qui définie les Pokimacs
 
 constexpr int nbAttaque = 2;
+
 typedef struct {
     
     string nom; //nom du pokimac

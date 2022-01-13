@@ -136,7 +136,7 @@ void printRegles(){
             
             cout<<"Les PokIMAC de départ, très souvent appelés par le terme anglais 'starters', sont les premiers Pokémon à rejoindre ton équipe."<<endl
                 <<"Dans la plupart des cas, tu as le choix entre trois PokIMAC ayant l'un de ces types : Culture, Programmation, Mathématiques, Design et Aide."<<endl
-                <<"Ce trio permet d'introduire rapidement au joueur à la notion de sensibilité des types avec des concepts familiers : le Design s'inspire de la Culture mais craint la programmation, qui est lui même battu par les Mathématiques. "<<endl;
+                <<"Ce trio permet d'introduire rapidement au joueur la notion de sensibilité des types avec des concepts familiers : le Design s'inspire de la Culture mais craint la programmation, qui est lui même battu par les Mathématiques. "<<endl;
             
             // Liste des PokIMAC
             
