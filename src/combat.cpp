@@ -140,3 +140,35 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
     player_pokimac->pv-=enemy_pokimac->pouvoir[randAttaque].puissance;
     detectSpace();
 }
+
+bool multiplicateurType(Pokimac attaque, Pokimac defense){
+    bool multiply = false;
+//    switch (string(attaque.espece)) {
+//        case "Culture":
+//            if(defense.espece == "Design"){
+//                multiply = true;
+//            }
+//            break;
+//        case "Programmation":
+//            if(defense.espece == "Aide"){
+//                multiply = true;
+//            }
+//            break;
+//        case "Aide":
+//            if(defense.espece == "Mathematiques"){
+//                multiply = true;
+//            }
+//            break;
+//        case "Design":
+//            if(defense.espece == "Programmation"){
+//                multiply = true;
+//            }
+//            break;
+//        case "Mathematiques":
+//            if(defense.espece == "Culture"){
+//                multiply = true;
+//            }
+//            break;
+//    }
+    return multiply;
+}

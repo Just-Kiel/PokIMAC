@@ -20,20 +20,21 @@ using namespace std;
  */
 char perso = 'i';
 char sol = 'a';
-char herbes = 'X';
+char herbes = '#';
 char objet = 'o';
 bool recupDone=false;
 
 void affichageTab(char tab[], int taille){
     //Affichage du tableau
-    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles, ouvrir l'inventaire avec i et revenir au menu avec la touche ESPACE."<<endl;
     for(int i=0; i<taille*taille; i++){
         if(i%taille==0 && i!=0){
             cout<<endl;
         }
         cout<<tab[i]<<"  ";
     }
-    cout<<endl;
+    cout<<endl<<endl;
+    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles, ouvrir l'inventaire avec i et revenir au menu avec la touche ESPACE."<<endl;
+
 }
 
 void remplissageTab(char tab[], int taille){
@@ -62,7 +63,7 @@ void remplissageTab(char tab[], int taille){
 }
 
 void affichageApresDeplacementCell(Joueur * player, char *tab, int taille){
-    ConsoleUtils::setCursorPos(player->position_x*3, player->position_y+1);
+    ConsoleUtils::setCursorPos(player->position_x*3, player->position_y);
     //Si le dresseur vient de récupérer un objet (et qu'il avait la place dans son inventaire), il n'est plus affiché sur la carte
     if(tab[(taille*(player->position_y)+(player->position_x))] == objet && recupDone){
         tab[(taille*(player->position_y)+(player->position_x))]=sol;
@@ -72,19 +73,21 @@ void affichageApresDeplacementCell(Joueur * player, char *tab, int taille){
 }
 
 void deplacementTab(char tab[], int taille, Joueur* player){
+    int min_hauteur_map = 0;
+
     //Deplacement sur le tableau
     bool move = true;
     bool detect = false;
     bool arrow = false;
     //Detection et déplacement en fonction des fleches et de ZQSD
     while(move && !detect) {
-        ConsoleUtils::setCursorPos(player->position_x*3, player->position_y+1);
+        ConsoleUtils::setCursorPos(player->position_x*3, player->position_y);
         cout << perso;
         char input = ConsoleUtils::getChar(&arrow);
         if(arrow){
             switch (input) {
                 case ConsoleUtils::KEY_UP:
-                    if (player->position_y > 0) {
+                    if (player->position_y >= min_hauteur_map) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_y--;
                     }
@@ -118,7 +121,7 @@ void deplacementTab(char tab[], int taille, Joueur* player){
                     break;
                 case 'z':
                 case 'Z':
-                    if (player->position_y > 0) {
+                    if (player->position_y >= min_hauteur_map) {
                         affichageApresDeplacementCell(player, tab, taille);
                         player->position_y--;
                     }
@@ -146,12 +149,11 @@ void deplacementTab(char tab[], int taille, Joueur* player){
                     break;
 
                     //Revenir au menu principal
-                    //Facultatif TODO validation de retour au menu
                 case ' ':
                     move = false;
                     detect=false;
                     ConsoleUtils::clear();
-                    printMenu(player);
+                    confirmChoice(player, taille, tab);
                     break;
             }
         }

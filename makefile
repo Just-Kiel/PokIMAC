@@ -34,7 +34,7 @@ DEPFILES = $(OBJFILES:%.o=%.d)
 DEPFLAGS = -MMD -MP
 
 # Add all warnings. This is not required but is a best practice
-CPPFLAGS += -Wall -Wextra
+CPPFLAGS += -Wall -Wextra -std=c++11
 
 all: $(APPNAME)
 # Build the application by running the link step with all objfile inputs

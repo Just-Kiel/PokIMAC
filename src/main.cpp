@@ -12,7 +12,7 @@ using namespace std;
 
 // Facultatif TODO rendre le tout esthétique (des couleurs)
 // TODO faire les variables (objets, attaques, representations des pokimacs)
-// Facultatif ++ TODO random pokimac starter
+
 int main(){
     //graine de l'aléatoire avec temps de l'ordi
     srand(time(0));
@@ -21,8 +21,8 @@ int main(){
     Joueur joueur;
     joueur.position_x = 0;
     joueur.position_y = 0;
-    //joueur.equipe[0]=allPokimac[0];
-    for(int i=0; i<6; i++){
+    joueur.equipe[0]=allPokimac[0];
+    for(int i=1; i<6; i++){
         joueur.equipe[i]=videPokimac;
     }
 

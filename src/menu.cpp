@@ -85,9 +85,20 @@ void initPlayer(Joueur *player){
     //Choix du premier PokIMAC
     int user_pokIMAC=0;
     cout<<"Avec quel PokIMAC veux-tu partir a l'aventure ?"<<endl;
-    cout << "1. " <<allPokimac[0].nom<< endl;
-    cout << "2. " << allPokimac[1].nom << endl;
-    cout << "3. " << allPokimac[2].nom << endl;
+    int randomPokIMAC1 = rand()%nbPokIMAC;
+
+    int randomPokIMAC2 = rand()%nbPokIMAC;
+    while (randomPokIMAC2==randomPokIMAC1){
+        randomPokIMAC2 = rand()%nbPokIMAC;
+    }
+
+    int randomPokIMAC3 = rand()%nbPokIMAC;
+    while (randomPokIMAC3 == randomPokIMAC2 || randomPokIMAC3 == randomPokIMAC1){
+        randomPokIMAC3 = rand()%nbPokIMAC;
+    }
+    cout << "1. " <<allPokimac[randomPokIMAC1].nom<< endl;
+    cout << "2. " << allPokimac[randomPokIMAC2].nom << endl;
+    cout << "3. " << allPokimac[randomPokIMAC3].nom << endl;
 
     cout<<"Ton choix : ";
     cin>>user_pokIMAC;
@@ -124,6 +135,35 @@ void detectSpace(){
     cout<<endl<<"Appuie sur une touche pour passer a l'ecran suivant."<<endl;
     ConsoleUtils::getChar();
     ConsoleUtils::clear();
+}
+
+void confirmChoice(Joueur * player, int taille, char tab[]){
+    bool answer = false;
+
+    while (!answer){
+        cout<<"Veux-tu vraiment retourner au menu principal ? (o/n)"<<endl;
+        cout<<"Ton choix :";
+        char input = ConsoleUtils::getChar();
+        switch (input) {
+            case 'o':
+            case 'O':
+                answer=true;
+                printMenu(player);
+                break;
+            case 'n':
+            case 'N':
+                answer= true;
+                ConsoleUtils::clear();
+                affichageTab(tab, taille);
+                deplacementTab(tab, taille, player);
+                break;
+            default:
+                ConsoleUtils::clear();
+                cout<<"Tu ne peux repondre que par o ou n !"<<endl;
+                break;
+        }
+
+    }
 }
 //
 // Created by Aurore on 07/12/2021.

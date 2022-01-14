@@ -81,6 +81,7 @@ void ouvertureInventaire(Joueur * player, bool inCombat){
     cin >> user_choice;
 
     //TODO object use when inventaire is great
+    //TODO Mais à quoi sert l'objet ?
 
     while(user_choice!=sizeInventaire+1 && (user_choice<1 || user_choice>nbObjetMax)){
         cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbObjetMax<<" ou "<<sizeInventaire+1<<"."<<endl;
