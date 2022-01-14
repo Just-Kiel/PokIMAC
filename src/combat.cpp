@@ -143,7 +143,7 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
 
 bool multiplicateurType(Pokimac attaque, Pokimac defense){
     bool multiply = false;
-//    switch (string(attaque.espece)) {
+//    switch (attaque.espece) {
 //        case "Culture":
 //            if(defense.espece == "Design"){
 //                multiply = true;
