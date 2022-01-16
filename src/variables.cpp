@@ -6,10 +6,20 @@
 //
 #include "variables.h"
 
-// Tableau qui rassemble tous les pokimacs
+// Tableau qui rassemble tous les objets
 
 const Objet allObject[nbObjet]={
-        {"PokIBALL", "permet de capturer des pokIMACs", 0, "P", 0.9}
+        {"PokIBALL", "permet de capturer des pokIMACS", 0, "P", 0.9},
+        {"Biere", "permet de regenerer 5 PV au PokIMAC de ton choix", 1, "B", 0.9},
+        {"Mojito", " permet de regenerer 10 PV au PokIMAC de ton choix", 1, "M", 0.9},
+        {"Chocolat Chaud", " permet de regenerer 15 PV au PokIMAC de ton choix", 1, "CC", 0.9},
+        {"Repas Crous", " permet de regenerer 20 PV au PokIMAC de ton choix", 1, "RC", 0.9},
+        {"Cassoulet", " permet de regenerer 25 PV au PokIMAC de ton choix", 1, "C", 0.9},
+        {"Sel", " augmente x2.0 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "S", 0.9},
+        {"Weekend", " augmente x3 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "WK", 0.9},
+        {"Presentiel", " augmente x4 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "PR", 0.9},
+        {"Billet de Train", " augmente x5 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "BT", 0.9},
+        {"Sommeil Reparateur", " augmente x10 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "SR", 0.9}
 };
 
 // Tableau vide qui va se remplir avec les objets au fur et a mesure du jeu
@@ -33,5 +43,7 @@ const Pokimac allPokimac[12]= {
         {"Gautiplouf", "Design", "G", 50, {{"Pixel Art", 12}, {"JeudIMAC", 14}}},
         {"Chataiglam", "Design", "C", 90, {{"Repertoire", 9}, {"Croquis", 16}}}
 };
+
+// Tableau vide qui va se remplir avec les PokIMACS au fur et a mesure du jeu
 
 const Pokimac videPokimac={"", "", "", 0, {{"", 0}, {"", 0}}};

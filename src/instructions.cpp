@@ -21,9 +21,12 @@ void printRegles();
 void printSelection( ){
     
     // TODO Récupérer ASCII ART "INSTRUCTIONS"
+   
     cout<<""<<endl;
+ 
     
-    cout << "Choisis dans le menu (1, 2 ou 3) :" << endl;
+    cout << "Choisis dans le menu (1, 2 ou 3) :" << endl
+        <<endl;
     cout << "1. Commandes" << endl;
     cout << "2. Regles du jeu" << endl;
     cout << "3. Retour" << endl;
@@ -33,7 +36,8 @@ void printSelection( ){
     cin >> user_choice;
 
     while(user_choice<1 || user_choice>3){
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl
+            <<endl;
         cout << "Ton choix : ";
         cin >> user_choice;
     }
@@ -42,40 +46,30 @@ void printSelection( ){
 
     if (user_choice == 1) {
         
-        int choix=0;
+       // int choix=0;
         
         // Présentation des commandes + possibilité de faire retour
         // TODO Récupérer ASCII ART "COMMANDES"
         
+        detectSpace();
+        
         cout<<""<<endl;
         
         cout<<"Pour se diriger dans le jeu : "<<endl<<endl;
-        cout<<" 'Fleche du haut' ou Z : pour aller vers le haut"<<endl;
-        cout<<"'Fleche de droite' ou D : pour aller vers la droite"<<endl;
-        cout<<"'Fleche du bas' ou S : pour aller vers le bas"<<endl;
-        cout<<"'Fleche de gauche' ou Q : pour aller vers la gauche"<<endl<<endl;
+        cout<<"> 'Fleche du haut' ou Z : pour aller vers le haut"<<endl;
+        cout<<"> 'Fleche de droite' ou D : pour aller vers la droite"<<endl;
+        cout<<"> 'Fleche du bas' ou S : pour aller vers le bas"<<endl;
+        cout<<"> 'Fleche de gauche' ou Q : pour aller vers la gauche"<<endl<<endl;
 
         cout<<"Pour selectionner une option : "<<endl<<endl;
-        cout<<"Saisir ton choix ou ce qui t'est demande a l'aide du clavier. Si tu dois valider ton choix, appuie sur la touche 'o'"<<endl;
+        cout<<"> Saisir ton choix ou ce qui t'est demande a l'aide du clavier. Si tu dois valider ton choix, appuie sur la touche 'o'"<<endl;
         
-        cout<<"Appuie sur la touche 'espace' pour revenir au menu principal. Attention, realise en cours de partie, cette action quittera la partie de façon definitive."<<endl;
+        cout<<"> Appuie sur la touche 'espace' pour revenir au menu principal. Attention, realise en cours de partie, cette action quittera la partie de façon definitive."<<endl<<endl;
         
-        cout<<"Si tu ne comprends pas les commandes, adresse toi a Aurore Lafaurie (@_just_kiel_ sur instagram), elle saura te guider ! "<<endl<<endl;
-
-        cout<<"Tu as fini de consulter les commandes ? "<<endl<<endl;
-        cout << "1. OUI" << endl;
-        cout << "2. NON" << endl<<endl;
-        
-        cout << "Ton choix : ";
-        cin >> choix;
-
-        while(choix<1 || choix>2){
-            cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 2."<<endl;
-            cout << "Ton choix : ";
-            cin >> user_choice;
-        }
+        cout<<"> Si tu ne comprends pas les commandes, adresse toi a Aurore Lafaurie (@_just_kiel_ sur instagram), elle saura te guider ! "<<endl<<endl;
         
         detectSpace();
+        printSelection();
         
     } else if (user_choice == 2) {
         
@@ -195,7 +189,9 @@ void printRegles(){
             
             cout<<"Les Pokiball sont des objets de type 0, elles te permettent de capturer des PokIMACS sauvages. Attention, 1 pokiball ne peut contenir qu'un seul PokIMAC ! Tu commences la partie avec une Pokiball, a toi d'en gagner d'autres en te baladant dans le Bourg Coper."<<endl;
             
-            cout<<"Les objets de type 1 te permettent de regenerer les PV de tes PokIMACS si ces derniers sont blesses. Attention, tu ne peux régénérer les PV de ton PokIMAC qu'une seule fois dans le combat ! "<<endl<< "Voici les differents objets de type 1: "<<endl;
+            cout<<"Les objets de type 1 te permettent de regenerer les PV de tes PokIMACS si ces derniers sont blesses. Tu peux regenerer tes PV autant de fois que tu as d'objets !"<<endl
+                <<endl
+                <<"Voici les differents objets de type 1 : "<<endl;
             
             cout<<""<<endl // visuel biere
                 <<"La Biere te permet de regenerer 5 PV au PokIMAC de ton choix. "<<endl;
@@ -213,6 +209,28 @@ void printRegles(){
                 <<"Le Cassoulet te permet de regenerer 25 PV au PokIMAC de ton choix. "<<endl;
             
             detectSpace();
+            
+            cout<<"Les objets de type 2 te permettent de multiplier la puissance de tes attaques. Attention, tu ne peux multiplier tes attaques qu'une seule fois dans par combat ! "<<endl
+                <<endl
+                << "Voici les differents objets de type 2 : "<<endl;
+            
+            cout<<""<<endl // visuel biere
+                <<"Le Sel augmente x2 la puissance de toutes tes attaques."<<endl;
+            
+            cout<<""<<endl // visuel Mojito
+                <<"Le Weekend augmente x3 la puissance de toutes tes attaques."<<endl;
+            
+            cout<<""<<endl // visuel Chocolat Chaud
+                <<"Le Presentiel augmente x4 la puissance de toutes tes attaques."<<endl;
+
+            cout<<""<<endl // visuel Repas CROUS
+                <<"Le Billet de Train augmente x5 la puissance de toutes tes attaques. "<<endl;
+            
+            cout<<""<<endl // visuel Cassoulet
+                <<"Le Sommeil Reparateur augmente x10 la puissance de toutes tes attaques."<<endl;
+            
+            detectSpace();
+            printSelection();
 
         } else if (choix_utilisateur == 4) {
 

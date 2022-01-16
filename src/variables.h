@@ -8,7 +8,7 @@
 //  Created by Sarah N'GOTTA on 07/12/2021.
 //
 
-constexpr int nbObjet = 1;
+constexpr int nbObjet = 12;
 extern const Objet allObject[nbObjet];
 extern const Objet vide;
 

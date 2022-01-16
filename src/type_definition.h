@@ -26,7 +26,7 @@ typedef struct {
     
     string nom; //nom de l'objet
     string definition; // a quoi il sert
-    int id_type; //quel est son type : pokiball, rare, obj du quotidien...
+    int id_type; //quel est son type : 0, 1, 2...
     string visuel; // visuel de l'objet
     float apparition; //combien de fois il va apparaitre dans le jeu, sa rareté
     
