@@ -280,7 +280,7 @@ void printRegles(){
             
             cout<<" - Robbizarre" << endl
                 <<" - Ozlameche "<< endl
-                <<" - Guerrarlande"<<endl<<endl;
+                <<" - Gairrarlande"<<endl<<endl;
             
            // cout<<"Type Programmation : "<<endl
             
