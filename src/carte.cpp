@@ -33,7 +33,39 @@ void affichageTab(char tab[], int taille){
         cout<<tab[i]<<"  ";
     }
     cout<<endl<<endl;
-    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec zqsd ou les fleches directionnelles, ouvrir l'inventaire avec i et revenir au menu avec la touche ESPACE."<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    std::cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec ";
+    ConsoleUtils::resetColors();
+
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+    std::cout<<"zqsd";
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" ou les ";
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+    std::cout<<"fleches directionnelles";
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" ouvrir l'inventaire avec ";
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+    std::cout<<"i";
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" et revenir au menu avec la touche ";
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+    std::cout<<"ESPACE";
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
 
 }
 
