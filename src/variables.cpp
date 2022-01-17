@@ -29,7 +29,7 @@ const Objet vide={"", "",0,"",0};
 
 // Tableau qui rassemble tous les pokimacs
 
-const Pokimac allPokimac[12]= {
+const Pokimac allPokimac[13]= {
         {"Robbizarre", "Culture","R" , 80, {{"Perspective", 10}, {"Exposition", 5}}},
         {"Nosteevrapti", "Programmation","N" , 50, {{"TP", 8}, {"C++", 12}}},
         {"Ozlameche", "Culture", "O", 70, {{"Expose", 20}, {"In english please", 6}}},
@@ -41,6 +41,7 @@ const Pokimac allPokimac[12]= {
         {"Charpenti", "Programmation", "C", 80, {{"CSS", 9}, {"Twitter", 5}}},
         {"Enguerratueur", "Aide", "E", 100, {{"Photo", 5}, {"Diplome", 8}}},
         {"Gautiplouf", "Design", "G", 50, {{"Pixel Art", 12}, {"JeudIMAC", 14}}},
+        {"Cherripant", "Aide", "C", 150, {{"Mooh la vache", 12}, {"24/24 7/7", 25}}},
         {"Chataiglam", "Design", "C", 90, {{"Repertoire", 9}, {"Croquis", 16}}}
 };
 
