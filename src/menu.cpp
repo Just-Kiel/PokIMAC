@@ -11,6 +11,7 @@ void printMenu(Joueur* joueur){
     int user_choice=0;
 
     //Menu
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
     cout<<"\n"
           "  _____      _    _____ __  __          _____ \n"
           " |  __ \\    | |  |_   _|  \\/  |   /\\   / ____|\n"
@@ -21,7 +22,11 @@ void printMenu(Joueur* joueur){
           "                                              \n"
           "                                              "<<endl;
 
-        cout << "Choisis dans le menu (1, 2 ou 3) :" << endl;
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    std::cout << "Choisis dans le menu (1, 2 ou 3) :";
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
         cout << "1. Jouer" << endl;
         cout << "2. Instructions" << endl;
         cout << "3. Quitter" << endl;
@@ -31,7 +36,11 @@ void printMenu(Joueur* joueur){
         cin >> user_choice;
 
         while(user_choice<1 || user_choice>3){
-            cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
+            
+            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+            std::cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
+            ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+
             cout << "Ton choix : ";
             cin >> user_choice;
         }
@@ -67,15 +76,37 @@ void initPlayer(Joueur *player){
     //Nom du dresseur PokIMAC
 
     char validation='o';
-    cout<<"Quel nom veux-tu donner a ton dresseur PokIMAC ?"<<endl;
-    cin>>player->nom;
-    cout<<"C'est bien "<<player->nom<<" ton nom ? (o/n)"<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    std::cout << "Quel nom veux-tu donner a ton dresseur PokIMAC ?";
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
+        cin>>player->nom;
+    ConsoleUtils::resetColors(); std::cout << std::endl;
+
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    std::cout <<"C'est bien "<<player->nom<<" ton nom ? (o/n)";
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     cin>>validation;
 
     while(validation=='n' || validation!='o'){
-        cout<<"Quel nom veux-tu donner a ton dresseur PokIMAC ?"<<endl;
-        cin>>player->nom;
-        cout<<"C'est bien "<<player->nom<<" ton nom ? (o/n)"<<endl;
+        ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+        ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+        std::cout << "Quel nom veux-tu donner a ton dresseur PokIMAC ?";
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
+            cin>>player->nom;
+        ConsoleUtils::resetColors(); std::cout << std::endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+        ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+        std::cout <<"C'est bien "<<player->nom<<" ton nom ? (o/n)";
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        
         cin>>validation;
     }
     cout<<"Bienvenue "<<player->nom<<" !"<<endl;
@@ -84,7 +115,12 @@ void initPlayer(Joueur *player){
 
     //Choix du premier PokIMAC
     int user_pokIMAC=0;
-    cout<<"Avec quel PokIMAC veux-tu partir a l'aventure ?"<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    std::cout <<"Avec quel PokIMAC veux-tu partir a l'aventure ?";
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
     int randomPokIMAC1 = rand()%nbPokIMAC;
 
     int randomPokIMAC2 = rand()%nbPokIMAC;
@@ -96,15 +132,30 @@ void initPlayer(Joueur *player){
     while (randomPokIMAC3 == randomPokIMAC2 || randomPokIMAC3 == randomPokIMAC1){
         randomPokIMAC3 = rand()%nbPokIMAC;
     }
-    cout << "1. " <<allPokimac[randomPokIMAC1].nom<< endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    std::cout << "1."<<allPokimac[randomPokIMAC1].nom<< endl;
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::MAGENTA);
+    std::cout << "2."<<allPokimac[randomPokIMAC2].nom << endl;
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::CYAN);
+    std::cout << "3."<<allPokimac[randomPokIMAC3].nom << endl;
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
+    /*cout << "1. " <<allPokimac[randomPokIMAC1].nom<< endl;
     cout << "2. " << allPokimac[randomPokIMAC2].nom << endl;
-    cout << "3. " << allPokimac[randomPokIMAC3].nom << endl;
-
+    cout << "3. " << allPokimac[randomPokIMAC3].nom << endl;*/
+    
     cout<<"Ton choix : ";
     cin>>user_pokIMAC;
 
     while(user_pokIMAC<1 || user_pokIMAC>3){
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+        std::cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
         cout << "Ton choix : ";
         cin >> user_pokIMAC;
     }
@@ -116,14 +167,32 @@ void initPlayer(Joueur *player){
 
 int sizeMap(){
     char largeur[2];
-    cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    std::cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
+    ConsoleUtils::resetColors(); std::cout << std::endl;
+   
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
     cin>>largeur;
+    ConsoleUtils::resetColors(); std::cout << std::endl;
 
     int largeurInt = atoi(largeur);
     while(largeurInt<1||largeurInt>9){
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir un nombre entier."<<endl;
-        cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+        std::cout<<"Ce choix n'est pas valide ! Tu dois choisir un nombre entier."<<endl;
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+        ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+        std::cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
+        ConsoleUtils::resetColors(); std::cout << std::endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
         cin>>largeur;
+        ConsoleUtils::resetColors(); std::cout << std::endl;
+        
         largeurInt = atoi(largeur);
     }
 
@@ -141,7 +210,11 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
     bool answer = false;
 
     while (!answer){
-        cout<<"Veux-tu vraiment retourner au menu principal ? (o/n)"<<endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+        std::cout<<"Veux-tu vraiment retourner au menu principal ? (o/n)"<<endl;
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        
         cout<<"Ton choix :";
         char input = ConsoleUtils::getChar();
         switch (input) {
@@ -159,7 +232,10 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
                 break;
             default:
                 ConsoleUtils::clear();
-                cout<<"Tu ne peux repondre que par o ou n !"<<endl;
+                ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+                std::cout<<"Tu ne peux repondre que par o ou n !"<<endl;
+                ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+                
                 break;
         }
 
