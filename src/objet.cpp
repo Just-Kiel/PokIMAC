@@ -24,7 +24,7 @@ bool ajoutObjetAInventaire(Joueur * player, Objet object){
     } else {
         cout << object.visuel << endl;
         cout << "L'objet " << object.nom << " vient d'etre ajoute a ton inventaire !" << endl;
-        cout << "Voici son utilite :" << endl;
+        cout << "Voici son utilite :";
         cout << object.definition << endl;
     }
     detectSpace();
