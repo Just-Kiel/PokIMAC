@@ -28,7 +28,7 @@ void ouvertureEquipe(Joueur * player){
     cin >> user_choice;
 
     while(user_choice!=sizeEquipe+1 && (user_choice<1 || user_choice>nbPokimacMax)){
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbObjetMax<<" ou "<<sizeInventaire+1<<"."<<endl;
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbPokimacMax<<" ou "<<sizeInventaire+1<<"."<<endl;
         cout << "Ton choix : ";
         cin >> user_choice;
     }

@@ -7,5 +7,4 @@
 #ifndef PROJET_MAIN_H
 #define PROJET_MAIN_H
 
-
 #endif //PROJET_MAIN_H

@@ -6,6 +6,7 @@
 using namespace std;
 #include "menu.h"
 #include "main.h"
+#include "hello.hpp"
 #include "variables.h"
 #include <stdlib.h>
 #include <time.h>
@@ -17,7 +18,7 @@ int main(){
     //graine de l'aléatoire avec temps de l'ordi
     srand(time(0));
 
-    //Initialisation du Joueur
+  /*  //Initialisation du Joueur
     Joueur joueur;
     joueur.position_x = 0;
     joueur.position_y = 0;
@@ -31,8 +32,9 @@ int main(){
     for(int i=1; i<size_inventaire; i++){
         joueur.inventaire[i]=vide;
     }
-
+*/
     //Lancement du programme
-    printMenu(&joueur);
+    //printMenu(&joueur);
+    printHello();
     return 0;
 }
