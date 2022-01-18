@@ -53,7 +53,6 @@ void printMenu(Joueur* joueur){
             char * map=(char *) malloc(size*size*sizeof(char));
 
             //Personnalisation du dresseur
-            //TODO à décommenter
             initPlayer(joueur);
 
             //Début du déplacement sur la carte
@@ -61,7 +60,7 @@ void printMenu(Joueur* joueur){
             deplacementTab(map, size, joueur);
 
         } else if (user_choice == 2) {
-            //Sarah / Facultatif TODO Amener vers fonction affichage des regles
+            //Sarah fonction affichage des regles
             printSelection();
             printMenu(joueur);
         } else {
@@ -160,8 +159,15 @@ void initPlayer(Joueur *player){
         cin >> user_pokIMAC;
     }
 
-    player->equipe[0]=allPokimac[user_pokIMAC-1];
-    cout<<player->nom<<", c'est parti pour l'aventure avec "<<allPokimac[user_pokIMAC-1].nom<<" !"<<endl;
+    if(user_pokIMAC == 1){
+        player->equipe[0]=allPokimac[randomPokIMAC1];
+    } else if(user_pokIMAC == 2){
+        player->equipe[0]=allPokimac[randomPokIMAC2];
+    } else {
+        player->equipe[0]=allPokimac[randomPokIMAC3];
+    }
+
+    cout<<player->nom<<", c'est parti pour l'aventure avec "<<player->equipe[0].nom<<" !"<<endl;
     detectSpace();
 }
 

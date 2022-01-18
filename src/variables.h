@@ -8,11 +8,11 @@
 //  Created by Sarah N'GOTTA on 07/12/2021.
 //
 
-constexpr int nbObjet = 12;
+constexpr int nbObjet = 11;
 extern const Objet allObject[nbObjet];
-extern const Objet vide;
+extern Objet vide;
 
-constexpr int nbPokIMAC = 12;
+constexpr int nbPokIMAC = 13;
 extern const Pokimac allPokimac[nbPokIMAC];
 extern const Pokimac videPokimac;
 #endif //PROJET_VARIABLES_H

@@ -64,7 +64,7 @@ int capturePokIBALL(Joueur * player, Pokimac * pokimac){
     }
 }
 
-void ouvertureInventaire(Joueur * player, bool inCombat){
+void ouvertureInventaire(Joueur * player, bool inCombat, int pokimacUser){
     int nbObjetMax=0;
     cout<<"Dans ton inventaire il y a :"<<endl;
 
@@ -80,9 +80,6 @@ void ouvertureInventaire(Joueur * player, bool inCombat){
     cout << "Ton choix : ";
     cin >> user_choice;
 
-    //TODO object use when inventaire is great
-    //TODO Mais à quoi sert l'objet ?
-
     while(user_choice!=sizeInventaire+1 && (user_choice<1 || user_choice>nbObjetMax)){
         cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbObjetMax<<" ou "<<sizeInventaire+1<<"."<<endl;
         cout << "Ton choix : ";
@@ -92,6 +89,52 @@ void ouvertureInventaire(Joueur * player, bool inCombat){
     if(user_choice == sizeInventaire+1){
         ConsoleUtils::clear();
     } else {
-        detectSpace();
+        Objet * current_objet = &(player->inventaire[user_choice-1]);
+        howToUse(*current_objet);
+
+        if(inCombat){
+            useInCombat(current_objet, &player->equipe[pokimacUser]);
+        } else {
+            ouvertureInventaire(player, inCombat);
+        }
     }
+}
+
+void howToUse(Objet objet){
+    ConsoleUtils::clear();
+    cout << objet.visuel << endl;
+    cout << objet.nom << endl;
+    cout << "Son utilite : " << objet.definition << endl;
+
+    detectSpace();
+}
+
+int multiplicateurObjet = 1;
+
+void useInCombat(Objet * useObject, Pokimac * player_pokimac){
+    Pokimac refPokIMAC;
+    for(int i = 0; i<nbPokIMAC; i++){
+        if(allPokimac[i].nom == player_pokimac->nom){
+            refPokIMAC = allPokimac[i];
+        }
+    }
+    if(useObject->id_type == 1){
+        if (player_pokimac->pv<refPokIMAC.pv){
+            cout << "Ton pokIMAC voit ses PV se regenerer !"<<endl;
+            int pvMissing = refPokIMAC.pv - player_pokimac->pv;
+            if(pvMissing<useObject->puissance){
+                player_pokimac->pv += pvMissing;
+            } else {
+                player_pokimac->pv+=useObject->puissance;
+            }
+            *useObject = vide;
+        } else {
+            cout << "Tu as deja trop de PV, pas besoin d'utiliser ce style d'objet !"<<endl;
+        }
+    } else if(useObject->id_type == 2){
+        multiplicateurObjet = useObject->puissance;
+
+        *useObject = vide;
+    }
+    detectSpace();
 }

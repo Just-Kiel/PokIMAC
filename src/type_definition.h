@@ -29,7 +29,7 @@ typedef struct {
     int id_type; //quel est son type : 0, 1, 2...
     string visuel; // visuel de l'objet
     float apparition; //combien de fois il va apparaitre dans le jeu, sa rareté
-    
+    int puissance; //force de l'action
     
 } Objet;
 
@@ -52,11 +52,12 @@ typedef struct {
 
 // structure Joueur qui définie le joueur
 constexpr int sizeInventaire = 2;
+constexpr int sizeEquipe = 6;
 typedef struct{
     
     string nom; //nom du joueur
-    Pokimac equipe[6] ; //composition de son équipe de pokemon, via la struct pokimac
-    Objet inventaire[2] ; // composition de son sac a dos, via la struct objet
+    Pokimac equipe[sizeEquipe] ; //composition de son équipe de pokemon, via la struct pokimac
+    Objet inventaire[sizeInventaire] ; // composition de son sac a dos, via la struct objet
     int position_x;
     int position_y;
     

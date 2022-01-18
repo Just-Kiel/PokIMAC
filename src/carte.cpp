@@ -8,6 +8,7 @@
 #include "objet.h"
 #include "combat.h"
 #include "menu.h"
+#include "equipe.h"
 
 using namespace std;
 /*
@@ -51,11 +52,19 @@ void affichageTab(char tab[], int taille){
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
-    cout<<" ouvrir l'inventaire avec ";
+    cout<<", ouvrir l'inventaire avec ";
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
     std::cout<<"i";
+    ConsoleUtils::resetColors();
+
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<", voir ton equipe avec ";
+    ConsoleUtils::resetColors();
+
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+    std::cout<<"e";
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -145,6 +154,12 @@ void deplacementTab(char tab[], int taille, Joueur* player){
             }
         } else {
             switch (input) {
+                case 'e':
+                case 'E':
+                    ConsoleUtils::clear();
+                    ouvertureEquipe(player);
+                    affichageTab(tab, taille);
+                    break;
                 case 'I':
                 case 'i':
                     ConsoleUtils::clear();

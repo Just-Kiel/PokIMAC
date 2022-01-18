@@ -8,5 +8,5 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac);
 int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser);
 int choixPokIMAC(Joueur * player);
 void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac);
-bool multiplicateurType(Pokimac attaque, Pokimac defense);
+int multiplicateurType(Pokimac attaque, Pokimac defense);
 #endif //PROJET_COMBAT_H

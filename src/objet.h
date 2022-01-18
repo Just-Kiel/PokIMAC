@@ -6,5 +6,8 @@
 #define PROJET_OBJET_H
 bool ajoutObjetAInventaire(Joueur * player, Objet object);
 int capturePokIBALL(Joueur * player, Pokimac * pokimac);
-void ouvertureInventaire(Joueur * player, bool inCombat=false);
+void ouvertureInventaire(Joueur * player, bool inCombat=false, int pokimacUser = 0);
+void howToUse(Objet objet);
+void useInCombat(Objet * useObject, Pokimac * player_pokimac);
+extern int multiplicateurObjet;
 #endif //PROJET_OBJET_H

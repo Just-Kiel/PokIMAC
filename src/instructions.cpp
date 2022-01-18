@@ -145,6 +145,7 @@ void printRegles(){
         
         // Explications des règles du jeu + possibilité de faire retour
         // TODO Récupérer ASCII ART "RÈGLES DU JEU "
+        //TODO detect if darwin (linux + mac) ou windows
         
         int choix_utilisateur=0;
         
@@ -372,7 +373,7 @@ void printRegles(){
             
             cout<<" Les objets font partie de ton inventaire, ton sac a dos d'aventurier ! "<<endl<<"Ils te permettent d'ameliorer ta chasse aux PokIMAC. Lorsque tu utilises un objet, celui-ci disparait apres utilisation"<<endl;
             
-            // visuel de Pokiball
+            //TODO visuel de Pokiball
             
             cout<<""<<endl;
             

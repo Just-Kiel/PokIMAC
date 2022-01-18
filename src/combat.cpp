@@ -19,6 +19,7 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac){
     int nbChoixPokIMAC= choixPokIMAC(player);
     int statusFight=0;
     while(pokimac.pv>0 && player->equipe[nbChoixPokIMAC].pv>0 && statusFight!=2) {
+        cout << left << setw(20) << player->equipe[nbChoixPokIMAC].representation << pokimac.representation <<endl;
         cout << left << setw(20) << player->equipe[nbChoixPokIMAC].nom << pokimac.nom << endl;
 
         cout << "PV : " << left << setw(15) << player->equipe[nbChoixPokIMAC].pv << "PV : " << pokimac.pv << endl;
@@ -54,7 +55,6 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
     ConsoleUtils::clear();
 
     if(user_fight == 1){
-        //TODO attaque types de chaque pokimac
         attaqueCombat(&player->equipe[pokimacUser], pokimac);
 
         return 1;
@@ -65,7 +65,7 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
 
     } else if(user_fight == 3){
         // Ouvre l'inventaire et permet le retour (pas encore possible d'agir vu que 0 objet possible)
-        ouvertureInventaire(player, true);
+        ouvertureInventaire(player, true, pokimacUser);
         return 0;
 
     } else if(user_fight == 4){
@@ -132,43 +132,73 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
         cin >> user_choice;
     }
 
+    ConsoleUtils::clear();
+
     cout<<"Tu attaques avec "<<player_pokimac->pouvoir[user_choice-1].nom_attaque<<endl;
-    enemy_pokimac->pv-=player_pokimac->pouvoir[user_choice-1].puissance;
+
+    int efficiency = multiplicateurType(*player_pokimac, *enemy_pokimac);
+
+    if(efficiency == 1){
+        enemy_pokimac->pv-=(player_pokimac->pouvoir[user_choice-1].puissance)*multiplicateurObjet;
+    } else if(efficiency == 0){
+        cout<<"C'est tres peu efficace !"<<endl<<endl;
+        enemy_pokimac->pv-=((player_pokimac->pouvoir[user_choice-1].puissance)*multiplicateurObjet)/2;
+    } else if(efficiency == 2){
+        cout<<"C'est tres efficace !"<<endl<<endl;
+        enemy_pokimac->pv-=((player_pokimac->pouvoir[user_choice-1].puissance)*multiplicateurObjet)*2;
+    }
+
     cout<<enemy_pokimac->nom<<" contre-attaque !"<<endl;
 
     int randAttaque = rand()%nbAttaque;
-    player_pokimac->pv-=enemy_pokimac->pouvoir[randAttaque].puissance;
+
+    efficiency = multiplicateurType(*enemy_pokimac, *player_pokimac);
+
+    if(efficiency == 1) {
+        player_pokimac->pv -= enemy_pokimac->pouvoir[randAttaque].puissance;
+    } else if(efficiency == 0){
+        player_pokimac->pv -= (enemy_pokimac->pouvoir[randAttaque].puissance)/2;
+    } else if(efficiency == 2){
+        player_pokimac->pv -= (enemy_pokimac->pouvoir[randAttaque].puissance)*2;
+    }
+
+    multiplicateurObjet = 1;
     detectSpace();
 }
 
-bool multiplicateurType(Pokimac attaque, Pokimac defense){
-    bool multiply = false;
-//    switch (attaque.espece) {
-//        case "Culture":
-//            if(defense.espece == "Design"){
-//                multiply = true;
-//            }
-//            break;
-//        case "Programmation":
-//            if(defense.espece == "Aide"){
-//                multiply = true;
-//            }
-//            break;
-//        case "Aide":
-//            if(defense.espece == "Mathematiques"){
-//                multiply = true;
-//            }
-//            break;
-//        case "Design":
-//            if(defense.espece == "Programmation"){
-//                multiply = true;
-//            }
-//            break;
-//        case "Mathematiques":
-//            if(defense.espece == "Culture"){
-//                multiply = true;
-//            }
-//            break;
-//    }
+int multiplicateurType(Pokimac attaque, Pokimac defense){
+    int multiply = 1;
+    if(attaque.espece == "Culture"){
+        if(defense.espece=="Mathematiques"){
+            multiply=0;
+        } else if(defense.espece == "Design") {
+            multiply = 2;
+        }
+    } else if(attaque.espece == "Programmation"){
+        if(defense.espece == "Aide"){
+            multiply = 2;
+        } else if(defense.espece == "Design"){
+            multiply = 0;
+        }
+    } else if(attaque.espece == "Aide"){
+        if(defense.espece == "Mathematiques"){
+            multiply = 2;
+        } else if(defense.espece == "Programmation"){
+            multiply = 0;
+        }
+    } else if(attaque.espece == "Design"){
+        if(defense.espece == "Programmation"){
+            multiply = 2;
+        } else if(defense.espece == "Culture"){
+            multiply = 0;
+        }
+    } else if(attaque.espece == "Mathematiques"){
+        if(defense.espece == "Culture"){
+            multiply = 2;
+        } else if(defense.espece == "Aide"){
+            multiply = 0;
+        }
+    }
+
     return multiply;
 }
