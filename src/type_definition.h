@@ -43,14 +43,11 @@ typedef struct {
     string espece; // son espece : 3D, graphisme, communication, dev, inté, audiovisuelle...
     string representation; // visuel du pokimac
     int pv; // nombre de pv du pokimac
-    //int attaque;
-   // int resistance; //
-  //  int defense; // quantité de pv qu'un pokimac peut encaisser sans perdre de vie lorsqu'il subit lors d'une attanque par un adversaire
     Attaque pouvoir[nbAttaque] ; //attaque propre au pokimac defini par le type attaque
     
 } Pokimac;
 
-// structure Joueur qui définie le joueur
+// structure Joueur qui définit le joueur
 constexpr int sizeInventaire = 2;
 constexpr int sizeEquipe = 6;
 typedef struct{
