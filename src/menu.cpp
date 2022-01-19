@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "menu.h"
-
+#include "goodbye.hpp"
 #include "consoleUtils.hpp"
 #include "variables.h"
 #include "instructions.h"
@@ -65,8 +65,11 @@ void printMenu(Joueur* joueur){
             printMenu(joueur);
         } else {
             //Fin du programme
-            cout<<"Merci d'avoir joue a PokIMAC !"<<endl;
-            detectSpace();
+            //cout<<"coucou"<<endl;
+            
+            // TODO Ne s'affiche pas
+            printGoodbye();
+
             //Facultatif++ TODO Fin de jeu
         }
 }
