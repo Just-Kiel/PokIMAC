@@ -256,7 +256,7 @@ void printRegles(){
             
             
             cout<<"Toute ressemblance de PokIMAC avec des professeurs de l'ESIPE - IMAC est parfaitement fortuite."<<endl
-                <<"Ce jeu a été code dans l'innocence, la stress et la prise de tête. Il n'a aucunement pour but de denigrer l'integrite de qui que ce soit. Il se veut fun et bienveillant ! "<<endl<<endl;
+                <<"Ce jeu a été code dans l'innocence et le stress. Il n'a aucunement pour but de denigrer l'integrite de qui que ce soit. Il se veut fun et bienveillant ! "<<endl<<endl;
 
             detectSpace();
             

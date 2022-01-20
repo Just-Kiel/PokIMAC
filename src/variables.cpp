@@ -29,17 +29,17 @@ const Objet allObject[nbObjet]={
                                                            "                         '%@@@g,                ,g@@@N`                         \n"
                                                            "                            '*%@@@@mggg,,,ggm@@@@@P`                            \n"
                                                            "                                 \"**NNNNNNNNM*\"                                 \n"
-                                                           "", 0.9, 0},
-        {"Biere", "permet de regenerer 5 PV au PokIMAC de ton choix", 1, "B", 0.9, 5},
-        {"Mojito", "permet de regenerer 10 PV au PokIMAC de ton choix", 1, "M", 0.9, 10},
-        {"Chocolat Chaud", "permet de regenerer 15 PV au PokIMAC de ton choix", 1, "CC", 0.9, 15},
-        {"Repas Crous", "permet de regenerer 20 PV au PokIMAC de ton choix", 1, "RC", 0.9, 20},
-        {"Cassoulet", "permet de regenerer 25 PV au PokIMAC de ton choix", 1, "C", 0.9, 25},
-        {"Sel", "augmente x2.0 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "S", 0.9, 2},
-        {"Weekend", "augmente x3 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "WK", 0.9, 3},
-        {"Presentiel", "augmente x4 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "PR", 0.9, 4},
-        {"Billet de Train", "augmente x5 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "BT", 0.9, 5},
-        {"Sommeil Reparateur", "augmente x10 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "SR", 0.9, 10}
+                                                           "", 0.2, 0},
+        {"Biere", "permet de regenerer 5 PV au PokIMAC de ton choix", 1, "B", 0.15, 5},
+        {"Mojito", "permet de regenerer 10 PV au PokIMAC de ton choix", 1, "M", 0.1, 10},
+        {"Chocolat Chaud", "permet de regenerer 15 PV au PokIMAC de ton choix", 1, "CC", 0.05, 15},
+        {"Repas Crous", "permet de regenerer 20 PV au PokIMAC de ton choix", 1, "RC", 0.05, 20},
+        {"Cassoulet", "permet de regenerer 25 PV au PokIMAC de ton choix", 1, "C", 0.05, 25},
+        {"Sel", "augmente x2.0 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "S", 0.15, 2},
+        {"Weekend", "augmente x3 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "WK", 0.1, 3},
+        {"Presentiel", "augmente x4 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "PR", 0.05, 4},
+        {"Billet de Train", "augmente x5 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "BT", 0.05, 5},
+        {"Sommeil Reparateur", "augmente x10 la puissance de toutes tes attaques - valable 1 fois / combat", 2, "SR", 0.05, 10}
 };
 
 // Tableau vide qui va se remplir avec les objets au fur et a mesure du jeu
@@ -77,8 +77,22 @@ const Pokimac allPokimac[nbPokIMAC]= {
                                  "                             g@@L|j%@@@@@@@@%MMT'      |j@@@@@@                 \n"
                                  "",
                                  80, {{"Perspective", 10}, {"Exposition", 5}}},
-        //TODO Visuel Vincent Steeve
-        {"Nosteevrapti", "Programmation","N" , 50, {{"TP", 8}, {"C++", 12}}},
+        //Visuel Vincent Steeve / Nosferapti
+        {"Nosteevrapti", "Programmation","           ,#$l|lF                      \n"
+                                         "        <M||||||l ;,                    \n"
+                                         "      {|||||||lll  |l,                  \n"
+                                         "    {|||||||M|||l \\|llyw ,,ww,    /l    \n"
+                                         "   *`  'l|l|||||lk $@@@@@$|` \"  ,&|l@   \n"
+                                         "         \"   `\"*|l$M&$@RK'`  ,g$L|||l   \n"
+                                         "                 $lll|l$M&$T|||l||||l   \n"
+                                         "                 %$$$$$F**l||||j|||||   \n"
+                                         "                /\"  $F      *||$|||||   \n"
+                                         "               r    ]         ||||||{   \n"
+                                         "             ,\"     [             l|    \n"
+                                         "            /       F              {    \n"
+                                         "           '        F                   \n"
+                                         ""
+                                         , 50, {{"TP", 8}, {"C++", 12}}},
 
         {"Ozlameche", "Culture", "                                         ,,,,,,                                 \n"
                                  "                               ,,,gggg@@@$@@@@@@@@g,                            \n"
@@ -110,22 +124,155 @@ const Pokimac allPokimac[nbPokIMAC]= {
                                  "                          ]     '    `''`                                       \n"
                                  "                       ,,y                          g,                          \n"
                                  "", 70, {{"Expose", 20}, {"In english please", 6}}},
-        // TODO Visuel Sonia Mendes
-        {"Soniafee", "Aide", "S", 100, {{"Emploi du temps", 4}, {"Cle", 8}}},
-        // TODO Visuel Eric Laporte
-        {"Laporteille", "Programmation", "L", 80, {{"Video", 8}, {"Pointeur", 12}}},
-        // TODO Visuel Jean-Christophe Novelli
-        {"Nocvelli", "Mathematiques", "N", 120, {{"Integration", 25}, {"Contre-intuition", 20}}},
-        // TODO Visuel Alexandre Rieu
-        {"Rieulu", "Mathematiques", "R", 140, {{"TD", 10}, {"Explications", 8}}},
-        // TODO Visuel Alice Bernard Gairard
-        {"Gairrarlande", "Culture", "G", 70, {{"Culture", 15}, {"Controles", 17}}},
-        // TODO Visuel Gaelle Charpentier
-        {"Charpenti", "Programmation", "C", 80, {{"CSS", 9}, {"Twitter", 5}}},
-        // TODO Visuel Enguerrand De Smet
-        {"Enguerratueur", "Aide", "E", 100, {{"Photo", 5}, {"Diplome", 8}}},
-        // TODO Visuel Théo Gautier
-        {"Gautiplouf", "Design", "G", 50, {{"Pixel Art", 12}, {"JeudIMAC", 14}}},
+        // Visuel Sonia Mendes / Silvallié Fée
+        {"Soniafee", "Aide", "              ||                        \n"
+                             "            ||'                         \n"
+                             "            '  |||                      \n"
+                             "        ,   ||'`                        \n"
+                             "       ,l,>|||''''                      \n"
+                             "        * y*,+|,                        \n"
+                             "         wQ$|L  |>,            ,=^      \n"
+                             "          \"}i|L  !'         ,@\"`        \n"
+                             "            M|   |!,,    ,gN\"           \n"
+                             "            |  .   |||@@@@@g`|          \n"
+                             "           '|j| %@@@@@@@@$$P*m/         \n"
+                             "            g@$M@@$@@@@@@@@@   \"*~.     \n"
+                             "          ,@@N\" ]L]\"'-@@-]\"%@C          \n"
+                             "      yg,g@C       ,g@@C   ]$L          \n"
+                             "      *            \"^,   ]B@M*          \n"
+                             ""
+         , 100, {{"Emploi du temps", 4}, {"Cle", 8}}},
+        // Visuel Eric Laporte / Laporeille
+        {"Laporteille", "Programmation", "               ,~.                      \n"
+                                         "            ,|||||LI                    \n"
+                                         "            |||||$$$`                   \n"
+                                         "            '&@&@$$L                    \n"
+                                         "             ]@l$$F    ,=~,,            \n"
+                                         "              @l&&  $$$@||||l           \n"
+                                         "             ,$$$$$$$$$$&||$$           \n"
+                                         "            ,$&$$$$$$$$$$$$&*           \n"
+                                         "            ]$$$@$$@$$$$&N\"             \n"
+                                         "             \"&$$$$$$$$F                \n"
+                                         "              ,g$$$$g,,,                \n"
+                                         "           1&&M|||||||$P                \n"
+                                         "             .l|||||||l                 \n"
+                                         "              l||||l$$$,                \n"
+                                         "               |l$$&&$|l                \n"
+                                         "               \"**\"*F*\"                 \n"
+                                         ""
+         , 80, {{"Video", 8}, {"Pointeur", 12}}},
+        // Visuel Jean-Christophe Novelli / Noctali
+        {"Nocvelli", "Mathematiques", "                       ]gg,             \n"
+                                      "                        ]@P             \n"
+                                      "                          'g@$&         \n"
+                                      "                            ,$NB        \n"
+                                      "     $$@g,         ,  ,,,,g@$$g\"C&      \n"
+                                      "      $$$$$g    4@$$,]$$@R$$$M*@$$@     \n"
+                                      "      ]$$$$R |g           \"$$$$$$$P     \n"
+                                      "        TT+|-g$@   ,,,,    $$$$$$       \n"
+                                      "          '&B$$$@@$$$$$$$$$$$$$$$       \n"
+                                      "               ]$$$$$$$$$$$$$$$$$       \n"
+                                      "               @@@$$$@&$$$$$$C,]`       \n"
+                                      "              $$$$@$PgjP$$@B$ P         \n"
+                                      "             @$@P$$@gP` ]@$J$@          \n"
+                                      "             $$P $$P     $$Q$$          \n"
+                                      "              $$@$$       *B$$,         \n"
+                                      "                 B&B                    \n"
+                                      ""
+         , 120, {{"Integration", 25}, {"Contre-intuition", 20}}},
+        // Visuel Alexandre Rieu / Riolu
+        {"Rieulu", "Mathematiques", "          ,ly,   ;|%                    \n"
+                                    "          l||||||||l@                   \n"
+                                    "    il$w ;|||||||||ll&                  \n"
+                                    "   Yll$|lL||||||g#$@@$$@gggg,           \n"
+                                    "      *$@%ggg@@%@L%@Mj%@$$$$$$@         \n"
+                                    "      ,@@g@$$&k,$y@$l$\"-*$@$$@@F        \n"
+                                    "      @$$@@@lllllll@\"     \"*M*}l|$g,    \n"
+                                    "     ]@$@@@\"****lll$         ,Llllll$*  \n"
+                                    "      *%@M* ;ll|l$@$$y  ,,,w$llll$F     \n"
+                                    "      ,  ,,jllF\" ]@%@l||||ll$$@@@@,wg   \n"
+                                    "  ,l||||||l%*     \"ll||||llF\"\"\"%@@$$$r  \n"
+                                    "   YlL|l%*         L||l$F*       *M%\"   \n"
+                                    "                    j@$r                \n"
+                                    "                     %@@                \n"
+                                    "                      $$@               \n"
+                                    "                      ]$$@,             \n"
+                                    "                       @@$$k            \n"
+                                    "                       @@%P*            \n"
+                                    "", 140, {{"TD", 10}, {"Explications", 8}}},
+        // Visuel Alice Bernard Gairard / Guérilande
+        {"Gairrarlande", "Culture", "           ;lll@Tli,      ,w, ,         \n"
+                                    "        ,,l$lITlI$$$$&w,,iZMW$l@&       \n"
+                                    "      'WllI&$$&MZgWTl$WWW&$$$$$WM       \n"
+                                    "       \"1F$$$y&gllIl$$$P*&$$$$$ $F      \n"
+                                    "        $$$$$$&$$$         $$$ $$ w     \n"
+                                    "       gF%@@@&lg@           ]$$$$$ F    \n"
+                                    "      @@gg@Z@FT              J$$%$ L    \n"
+                                    "   g@@$$$$$Qgg                1   $$F   \n"
+                                    "     M& 1  &  E               @  $$$@r  \n"
+                                    "   R  @||m@  R                N @Q$&M   \n"
+                                    "   ]  @  g                    $$@$@$    \n"
+                                    "     ]$   $$$$$g               [\"Q5'    \n"
+                                    "     ;g$$W%Nl$$$             # $W  ^    \n"
+                                    "     $$@gg,g$$$$y,,          $ $$ @L    \n"
+                                    "      *Z$&$$$@MM$l&L   ;lll;j$g $$R     \n"
+                                    "            $W$l|llTl;lWlW@@WIBM\"       \n"
+                                    "             lllilIM&Illlll@W           \n"
+                                    "                'F\"  Y&l$*F'            \n"
+                                    "", 70, {{"Culture", 15}, {"Controles", 17}}},
+        // Visuel Gaelle Charpentier / Charpenti
+        {"Charpenti", "Programmation", "                  =TT>~,,               \n"
+                                       "               /| |||||||||lL~          \n"
+                                       "              g|L|||||||||||   l        \n"
+                                       "            j,|||||,g\\||*||*\"'          \n"
+                                       "       l||$$gL||||@g\",L|||L             \n"
+                                       "         *%&**L|L|L,s|||A@              \n"
+                                       "          ;||||}ggL||y@$@               \n"
+                                       "       ,<l|||L||j$@$$@@@@@@@@@@@[lllLy  \n"
+                                       "  @$@@` ggm@@*||||\"$@@@@$$$$$$$$@llll|  \n"
+                                       "  $@@@@@$@\"`|||||||'|*@@@$$$$$$$F|||lj  \n"
+                                       "  ]%@@@%%N||||||||||||$NNN%%%%&NWlllW*  \n"
+                                       "         $$@Wgggg@@$$$F                 \n"
+                                       "         $$$F`     %$$w                 \n"
+                                       "        **\"`                            \n"
+                                       "", 80, {{"CSS", 9}, {"Twitter", 5}}},
+        // Visuel Enguerrand De Smet / Ossatueur
+        {"Enguerratueur", "Aide", "          ,                             \n"
+                                  "        ;L   ,                          \n"
+                                  "        '**WL '.                        \n"
+                                  "             'v,                        \n"
+                                  "       ;        ]g$l%,                  \n"
+                                  "       L ; ,.   /lN\" |~                 \n"
+                                  "      ;|'          ;`*L '               \n"
+                                  "      |           |L   \"L   |           \n"
+                                  "     l|      ,;||| L|   'L;L  ,         \n"
+                                  "     ||| ,;||gL|||| |     ,g$@@@@w      \n"
+                                  "     |'  |c.~*'  ||||wg@$$$\"]@P` '      \n"
+                                  "    |`  '     ,,|#@$ll$$@P\"             \n"
+                                  "    |  ` ,,igll|l|%@@@M$$$g             \n"
+                                  "    *W|l*`  ]lll||, \"%$$$$$$ggwwww@g,   \n"
+                                  "            g@|||||||||$@lll$$@$$$$F    \n"
+                                  "           #@$@llll|||l$@$$ll%$N*`      \n"
+                                  "           /%@@*'`\"**\"\"`\"$@@@$$         \n"
+                                  "           `              \"%M*%@        \n"
+                                  "", 100, {{"Photo", 5}, {"Diplome", 8}}},
+        // Visuel Théo Gautier / Tiplouf
+        {"Gautiplouf", "Design", "                  ,,,,,,                \n"
+                                 "              ,$$l$$$$$$l$b,            \n"
+                                 "            /' Q$$$$$$$$$$$$$y          \n"
+                                 "           r py]Q$*l$l*`   *$lk         \n"
+                                 "            ]@C].=, /   w    V$         \n"
+                                 "               ||||\\   @g@   ]$         \n"
+                                 "            ,  *j*$\"   *P    @F         \n"
+                                 "            g%w            gP-          \n"
+                                 "           [$$$l$%gwwwwwg%j$y           \n"
+                                 "           /\"\"*@  *$lll$l@\"Vj%g$ ,      \n"
+                                 "           L| |L]| -,|  `||\"@@$$$C      \n"
+                                 "        V$>$  |L ||)`|  ,@,>K$@\"        \n"
+                                 "        y|||\\M4,,,|P,,gM|l|||Q          \n"
+                                 "         V|||@lllll|||ll/||||C          \n"
+                                 "           **   ``\"\"^\"\"\"W|l*            \n"
+                                 "", 50, {{"Pixel Art", 12}, {"JeudIMAC", 14}}},
 
         {"Cherripant", "Aide", "                     g$@$@@$$$m&&@@$@@$@$%@$@@@$$@@$$@$@$@                      \n"
                                "                   g$@$$@$@@@@@@@@@@@@@@@$$$$@@$@@@@g@%@$jI,                    \n"
@@ -158,8 +305,24 @@ const Pokimac allPokimac[nbPokIMAC]= {
                                "                   ,w'         ||||lj$$$$%%M%&$M$                               \n"
                                "                 g@`            '''!||lT|||||llLL   ]Wl$@@gg,,,                 \n"
                                "", 150, {{"Mooh la vache", 12}, {"24/24 7/7", 25}}},
-        // TODO Visuel Noémie Chataigner
-        {"Chataiglam", "Design", "C", 90, {{"Repertoire", 9}, {"Croquis", 16}}}
+        // Visuel Noémie Chataigner / Chaglam
+        {"Chataiglam", "Design", "                       ,,,,,,           \n"
+                                 "                 ,    *\"`   `           \n"
+                                 "              ,;l`  ;g     ;     +'     \n"
+                                 "     >Wly,g&$llw,  ,|lggl@@$lMy\"        \n"
+                                 "    !  $L|||l'lllw,|$@*`   <lF$$        \n"
+                                 "    \\LiF`  `,e`,llll`,,,wW|Q, l$        \n"
+                                 "     'y -   \"jj$$llgg$l|*\"```|%&        \n"
+                                 "    .~jw, ,,g$$@\" ` $\"     ;l` l&       \n"
+                                 " '  ^     ``]%C    $L  ,,$F`  ;$`       \n"
+                                 "          ]%$lLL    \"**\"   ,$F`         \n"
+                                 "           l||%         ,l*`            \n"
+                                 "          {lL|l$,     ,l*               \n"
+                                 "          llllll$$g, $@                 \n"
+                                 "         ]l$@lllMllllF,                 \n"
+                                 "          $$$ll$$llll$E                 \n"
+                                 "          ]jFl$@@lll$*                  \n"
+                                 "", 90, {{"Repertoire", 9}, {"Croquis", 16}}}
 };
 
 // Tableau vide qui va se remplir avec les PokIMACS au fur et a mesure du jeu

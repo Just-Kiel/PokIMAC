@@ -34,55 +34,32 @@ void printHello(){
          joueur.inventaire[i]=vide;
      }
 
-     //TODO Visuel IMAC + petit
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-    cout<<endl<<
-    "         ++:               +#:                +-."<<endl<<
-    "      .+@@##+:           +%%%%*:           .+@@==-."<<endl<<
-    "      .+@@@@####*:      .+%%%%%%%%#-      .+@@@@====-."<<endl<<
-    "     +@@@@@@######+:   +%%%%%%%%%%%%#:   +@@@@@@======-."<<endl<<
-    "   :@@@@@@@@########++%%%%%%%%%%%%%%%%*:@@@@@@@@========-."<<endl<<
-    "    .*@@@@@@#######%%%%%%%%%%%%%%%%%#-   .*@@@@@@==========-."<<endl<<
-    "      .*@@@@#####%%%%%%%%%%%%%%%%%%-       .*@@@@============-."<<endl<<
-    "       :#@@###%%%%%%%%%%%%%%%%%#-            :#@@==============-."<<endl<<
-    "         .*#%%%%%%%%%%%%%%%%%#-                 .*================-."<<endl<<
-    "          +%%%%%%%%%%%%%%%%%=                      :================-."<<endl<<
-    "        +%%%%%%%%%%%%%%%%%=....                       :================-."<<endl<<
-    "     .+%%%%%%%%%%%%%%%%#=........                       :================-."<<endl<<
-    "    +%%%%%%%%%%%%%%%%%=............                        :================-."<<endl<<
-    "   %%%%%%%%%%%%%%%%#==---------------:                       -****************=."<<endl<<
-    ".+%%%%%%%%%%%%%%%%#- .=############*-..                         .*@@@@@@@@@@@@%+==-."<<endl<<
-   "+%%%%%%%%%%%%%%%%%-        .=########*-......                       .*@@@@@@@@%+======-."<<endl<<
-  "+%%%%%%%%%%%%%%%%#-           .+####*-..........                        :*@ @@@%+==========-."<<endl<<
-".+%%%%%%%%%%%%%%%%#-              .=*-..............                       .*%+==============-."<<endl<<
-".+%%%%%%%%%%%%%%%%#:             =%###############+.                       *@@@@@@@@@@@@@@@@%:"<<endl<<
-  ".*%%%%%%%%%%%%%%%%*:         =#%%%############+:                      .+@@@@@@@@@@@@@@@@#:"<<endl<<
-    ".+%%%%%%%%%%%%%%%%#-   .=%%%%%%%%%#######+:                       .+@@@@@@@@@@@@@@@@#:"<<endl<<
-    " .+%%%%%%%%%%%%%%%%#:=%%%%%%%%%%%%%###*.                        *@@@@@@@@@@@@@@@@%:"<<endl<<
-    "  .*%%%%%%%%%%%%%%%%*=%%%%%%%%%%%%%%%%*:                      =%@@@@@@@@@@@@@@@#-"<<endl<<
-    "   .+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*-                      .:===#@@@@@@@@@@@@*:"<<endl<<
-    "     .+%%%%%%%%%%%%%%%%%%%%%%%%%%#-                      -=======#@@@@@@@@#:"<<endl<<
-    "       .*%%%%%%%%%%%%%%%%%%%%%%#-                     :==========+#@@@@#:"<<endl<<
-    "        .+%%%%%%%%%%%%%%%%%%*-                      .:===============#*:"<<endl<<
-    "         =#%%%%%%%%%%%%%%%%%#:                   :================-."<<endl<<
-    "         =*####%%%%%%%%%%%%%%%%%*:             :-===============-."<<endl<<
-    "     .=*########%%%%%%%%%%%%%%%%%#-         :-===============-."<<endl<<
-    "    =#############%%%%%%%%%%%%%%%%%#:    :================-."<<endl<<
-    "  :*###############**%%%%%%%%%%%%%%%%*.-===============-."<<endl<<
-    "   .=############*-  .+%%%%%%%%%%%%#-   :============:."<<endl<<
-    "    .=########*:      .+%%%%%%%%%-       :========-."<<endl<<
-    "      .+####*-          .*%%%%#-           :====-."<<endl<<
-    "        .=*-              .+#-               ::."<<endl;
-    
+     cout << "      ,gW,    ,g&,    ,g&,              \n"
+             "    ,@$$||l,,$llll$,,@$$l$$,            \n"
+             "     \"B$||l$$$lll$\"  \"&$ll$$$g          \n"
+             "       `g$$$$$$$\"      '&$$$$$$g        \n"
+             "      g$$$$$$@\"           %$$&lllg      \n"
+             "   ,g$$$$$$F*ggggggw        *@@@@@@@,   \n"
+             " ,$lllM$$F    \"$$F-  |        \"$$Mlll@, \n"
+             "\"&@@@@@Mw      ,&&&&&&&\"       ,&@@@@@@\"\n"
+             "  `%$$lll$g  g@$$$@l@\"       g$$$$$$@\"  \n"
+             "     1$$$$@$$%$$$$@\"       g$$$$$$&`    \n"
+             "       *&llllll%F       ,g$$$$$$F       \n"
+             "      ,$$@lllll$$y    ,$|j$$$$F         \n"
+             "    ,$$$$$$$&$$$$$$w,$llll|$\"           \n"
+             "     `%$$@\"  `%$$@\"  `&ll@\"             \n"
+             "        `       `       `               \n"
+             "" << endl;
 
-    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    ConsoleUtils::resetColors();
     
     detectSpace();
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout << "Bienvenue sur";
-    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    std::cout << "Bienvenue sur" <<endl;
+    ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
     cout<<"\n"
@@ -93,9 +70,8 @@ void printHello(){
           " | |  | (_) |   < _| |_| |  | |/ ____ \\ |____ \n"
           " |_|   \\___/|_|\\_\\_____|_|  |_/_/    \\_\\_____|\n"
           "                                              \n"
-          "                                              ";
-    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-
+          "                                              " << endl;
+    ConsoleUtils::resetColors();
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -107,8 +83,8 @@ void printHello(){
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
     cout<<"Tout ceci dans le but de te mesurer a l'elite des dresseurs du Champs et enfin devenir le Maitre du Bourg Coper avec le PokESIPE le plus rempli ! "<<endl
         <<endl
-        <<"C'EST PARTI ? ";
-    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        <<"C'EST PARTI ? " <<endl;
+    ConsoleUtils::resetColors();
     
     detectSpace();
     printMenu(&joueur);

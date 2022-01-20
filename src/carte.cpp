@@ -249,6 +249,10 @@ bool detection(char tab[], int taille, Joueur * player){
 
         //Facultatif TODO random en fonction de la rareté d'apparition
 
+//        // Random apparition
+//        float prob[nbObjet];
+
+
         int random=rand()%nbObjet;
 
         //Fonction ajout Objet à inventaire
