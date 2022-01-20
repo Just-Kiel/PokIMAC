@@ -69,6 +69,40 @@ void affichageTab(char tab[], int taille){
     std::cout<<"ESPACE";
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    std::cout <<"Comprendre la map : ";
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+    cout<<perso;
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" : ca, c'est toi !"<<endl;
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+    cout<<herbes;
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" : les hautes herbes ou se cachent les PokIMACS"<<endl;
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+    cout<<sol;
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" : le chemin classique"<<endl;
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+    cout<<objet;
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" : de type 0, 1 ou 2, ils te permettront d'aider tes PokIMACS"<<endl;
+    ConsoleUtils::resetColors();
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+    cout<<pokimac_center;
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout<<" : c'est l'endroit ou tu peux faire soigner tes PokIMACS"<<endl;
+    ConsoleUtils::resetColors();
 
 }
 

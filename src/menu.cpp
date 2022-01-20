@@ -33,8 +33,12 @@ void printMenu(Joueur* joueur){
 
 
         cout << "Ton choix : ";
+    
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
         cin >> user_choice;
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
 
+    
         while(user_choice<1 || user_choice>3){
             
             ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
@@ -87,7 +91,11 @@ void initPlayer(Joueur *player){
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
     std::cout <<"C'est bien "<<player->nom<<" ton nom ? (o/n)";
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
     cin>>validation;
+    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+
 
     while(validation=='n' || validation!='o'){
         ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -104,7 +112,10 @@ void initPlayer(Joueur *player){
         std::cout <<"C'est bien "<<player->nom<<" ton nom ? (o/n)";
         ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
         
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
         cin>>validation;
+        ConsoleUtils::resetColors(); std::cout << std::endl;
+
     }
     cout<<"Bienvenue "<<player->nom<<" !"<<endl;
 
@@ -147,14 +158,25 @@ void initPlayer(Joueur *player){
     cout << "3. " << allPokimac[randomPokIMAC3].nom << endl;*/
     
     cout<<"Ton choix : ";
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
     cin>>user_pokIMAC;
+    ConsoleUtils::resetColors(); std::cout << std::endl;
 
     while(user_pokIMAC<1 || user_pokIMAC>3){
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
         std::cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
         ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+        ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
         cout << "Ton choix : ";
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
         cin >> user_pokIMAC;
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+
     }
 
     if(user_pokIMAC == 1){
