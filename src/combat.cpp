@@ -11,9 +11,10 @@
 #include "variables.h"
 #include "menu.h"
 #include "objet.h"
+#include "equipe.h"
 using namespace std;
 
-void affichageDebutCombat(Joueur * player, Pokimac pokimac){
+void affichageDebutCombat(Joueur * player, Pokimac pokimac, char tab[], int taille){
     cout<<"Oh non te voici face a "<<pokimac.nom<<endl;
 
     int nbChoixPokIMAC= choixPokIMAC(player);
@@ -22,14 +23,33 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac){
         cout << left << setw(20) << player->equipe[nbChoixPokIMAC].representation << pokimac.representation <<endl;
         cout << left << setw(20) << player->equipe[nbChoixPokIMAC].nom << pokimac.nom << endl;
 
+        cout << "Type : " << left << setw(13) << player->equipe[nbChoixPokIMAC].espece << "Type : " << pokimac.espece << endl;
         cout << "PV : " << left << setw(15) << player->equipe[nbChoixPokIMAC].pv << "PV : " << pokimac.pv << endl;
 
         statusFight = choixCombat(player, &pokimac, nbChoixPokIMAC);
     }
     if(pokimac.pv<=0){
         cout<<pokimac.nom<<" est mort, tu as gagne !"<<endl;
+        detectSpace();
     } else if(player->equipe[nbChoixPokIMAC].pv<=0){
-        cout<<"Oh non ton pokIMAC doit vite etre soigne !"<<endl;
+        for(int i = 0; i < sizeEquipe; i++){
+            if(player->equipe[i].nom != videPokimac.nom && player->equipe[i].pv>0){
+                cout << "Ton PokIMAC est blesse mais tu peux en envoyer un autre au combat !" << endl;
+                detectSpace();
+                choixPokIMAC(player);
+            } else {
+                cout << "Tu ne peux plus combattre ! Rends toi vite au PokIMAC Center le plus proche !" <<endl;
+                detectSpace();
+                for(int i=0; i<(taille*taille); i++){
+                    if(tab[i]==pokimac_center){
+                        player->position_y = i/taille;
+                        player->position_x = i%taille;
+                        soinPokimacCenter(player);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -11,18 +11,12 @@
 #include "equipe.h"
 
 using namespace std;
-/*
- * TODO Caractères à définir :
- *      - Joueur
- *      - Pokemons
- *      - Objet
- *      - Sol
- *      - Centre Pokemon en cas de décès de tous les pokimac
- */
-char perso = 'i';
-char sol = 'a';
+
+char perso = 'J';
+char sol = '~';
 char herbes = '#';
-char objet = 'o';
+char objet = '@';
+char pokimac_center = '&';
 bool recupDone=false;
 
 void affichageTab(char tab[], int taille){
@@ -88,8 +82,8 @@ void remplissageTab(char tab[], int taille){
 
     //Positionnement random des objets
     for(int j=0; j<(taille*taille/5); j++){
-        randomObject = rand()%(taille*taille);
-        tab[randomObject]=objet;
+        randomObject = rand()%((taille*taille)-1);
+        tab[randomObject+1]=objet;
     }
 
     //Positionnement des mauvaises herbes
@@ -99,6 +93,10 @@ void remplissageTab(char tab[], int taille){
             tab[randomObject]=herbes;
         }
     }
+
+    //Positionnement du PokIMAC Center
+    int center = taille/2;
+    tab[center] = pokimac_center;
 
     affichageTab(tab, taille);
 }
@@ -229,9 +227,16 @@ bool detection(char tab[], int taille, Joueur * player){
         bool randomBoolPokIMAC =rand()%2;
         if(randomBoolPokIMAC){
             int randomPokIMAC=rand()%nbPokIMAC;
-            affichageDebutCombat(player, allPokimac[randomPokIMAC]);
+            affichageDebutCombat(player, allPokimac[randomPokIMAC], tab, taille);
             ConsoleUtils::clear();
         }
+
+        affichageTab(tab, taille);
+    } else if(tab[(taille*(player->position_y)+(player->position_x))]==pokimac_center){
+        ConsoleUtils::clear();
+        soinPokimacCenter(player);
+
+        detectSpace();
 
         affichageTab(tab, taille);
     }

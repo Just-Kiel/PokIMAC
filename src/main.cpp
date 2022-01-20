@@ -11,9 +11,6 @@ using namespace std;
 #include <stdlib.h>
 #include <time.h>
 
-// Facultatif TODO rendre le tout esthétique (des couleurs)
-// TODO faire les variables (representations des pokimacs)
-
 int main(){
     //graine de l'aléatoire avec temps de l'ordi
     srand(time(0));

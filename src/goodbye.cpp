@@ -6,11 +6,7 @@
 //
 
 #include "goodbye.hpp"
-#include "variables.h"
-#include "menu.h"
-#include "main.h"
-#include <stdio.h>
-#include <cstring>
+
 #include <iostream>
 #include "consoleUtils.hpp"
 #include "menu.h"
@@ -21,7 +17,7 @@ void printGoodbye(){
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout << "Les Cassoulettes vous remercient d'avoir jouer au";
+    std::cout << "Les Cassoulettes vous remercient d'avoir joue a";
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);

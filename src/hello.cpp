@@ -33,7 +33,8 @@ void printHello(){
      for(int i=1; i<size_inventaire; i++){
          joueur.inventaire[i]=vide;
      }
-    
+
+     //TODO Visuel IMAC + petit
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
     cout<<endl<<
     "         ++:               +#:                +-."<<endl<<
@@ -77,7 +78,7 @@ void printHello(){
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     
     detectSpace();
-    
+
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
     std::cout << "Bienvenue sur";
@@ -102,9 +103,9 @@ void printHello(){
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
-    std::cout << "Dans ce jeu,tu incarnes un jeune DressESIPE de PokIMAC a qui l'on offre un PokIMAC de depart, et tu pars pour une aventure semee d’embuches."<<endl<<"Tu parcours une region peuplee de PokIMAC sauvages que tu peux capturer et faire combattre."<<endl<<endl;
+    std::cout << "Dans ce jeu,tu incarnes un jeune DressESIPE de PokIMAC a qui l'on offre un PokIMAC de depart, et tu pars pour une aventure semee d'embuches."<<endl<<"Tu parcours une region peuplee de PokIMACs sauvages que tu peux capturer et faire combattre."<<endl<<endl;
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
-    cout<<"Tout ceci dans le but de te mesurer à l'élite des dresseurs du Champs et enfin devenir le Maitre du Bourg Coper avec le PokESIPE le plus rempli ! "<<endl
+    cout<<"Tout ceci dans le but de te mesurer a l'elite des dresseurs du Champs et enfin devenir le Maitre du Bourg Coper avec le PokESIPE le plus rempli ! "<<endl
         <<endl
         <<"C'EST PARTI ? ";
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
