@@ -247,16 +247,22 @@ bool detection(char tab[], int taille, Joueur * player){
     if(tab[(taille*(player->position_y)+(player->position_x))]==objet){
         ConsoleUtils::clear();
 
-        //Facultatif TODO random en fonction de la rareté d'apparition
+        // Random apparition
+        float prob[nbObjet];
 
-//        // Random apparition
-//        float prob[nbObjet];
+        for(int i=0; i<nbObjet; i++){
+            prob[i]=prob[i-1]+allObject[i].apparition;
+        }
 
+        float random=(float)rand()/(float)RAND_MAX;
 
-        int random=rand()%nbObjet;
+        int count=0;
+        while(random>prob[count] && count<nbObjet-1){
+            count++;
+        }
 
         //Fonction ajout Objet à inventaire
-        recupDone=ajoutObjetAInventaire(player, allObject[random]);
+        recupDone=ajoutObjetAInventaire(player, allObject[count]);
         affichageTab(tab, taille);
 
     } else if(tab[(taille*(player->position_y)+(player->position_x))]==herbes){

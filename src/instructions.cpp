@@ -10,6 +10,7 @@
 #include <iostream>
 #include "consoleUtils.hpp"
 #include "menu.h"
+#include "variables.h"
 
 using namespace std;
 
@@ -323,7 +324,7 @@ void printRegles(){
             ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
             
             cout<<" Les objets font partie de ton inventaire, ton sac a dos d'aventurier ! "<<endl<<"Ils te permettent d'ameliorer ta chasse aux PokIMAC. Lorsque tu utilises un objet, celui-ci disparait apres utilisation"<<endl;
-            
+
             //TODO visuel de Pokiball
             
             cout<<""<<endl;
