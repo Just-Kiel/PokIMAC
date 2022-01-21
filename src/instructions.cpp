@@ -34,11 +34,11 @@ void printSelection( ){
     cout << "2. Regles du jeu" << endl;
     cout << "3. Retour" << endl;
 
-    int user_choice;
+    char user_choice;
     cout << "Ton choix : ";
     cin >> user_choice;
 
-    while(user_choice<1 || user_choice>3){
+    while(user_choice<'1' || user_choice>'3'){
         cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl
             <<endl;
         cout << "Ton choix : ";
@@ -47,7 +47,7 @@ void printSelection( ){
     
     ConsoleUtils::clear();
 
-    if (user_choice == 1) {
+    if (user_choice == '1') {
         // Présentation des commandes + possibilité de faire retour
         cout<<"   _____                                          _           \n"
               "  / ____|                                        | |          \n"
@@ -106,7 +106,7 @@ void printSelection( ){
         detectSpace();
         printSelection();
         
-    } else if (user_choice == 2) {
+    } else if (user_choice == '2') {
         
        //Fonction printRegle qui affiche le menu des règles du jeu
         
@@ -136,7 +136,7 @@ void printRegles(){
             "              __/ |                            _/ |           \n"
             "             |___/                            |__/"<<endl << endl;
 
-    int choix_utilisateur;
+    char choix_utilisateur;
         
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -171,7 +171,7 @@ void printRegles(){
     cout << "Ton choix : ";
     cin >> choix_utilisateur;
 
-    while(choix_utilisateur<1 || choix_utilisateur>5){
+    while(choix_utilisateur<'1' || choix_utilisateur>'5'){
         cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 5."<<endl;
         cout << "Ton choix : ";
         cin >> choix_utilisateur;
@@ -179,7 +179,7 @@ void printRegles(){
 
         ConsoleUtils::clear();
 
-        if (choix_utilisateur == 1) {
+        if (choix_utilisateur == '1') {
 
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
             ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -195,7 +195,7 @@ void printRegles(){
             detectSpace();
             printRegles();
             
-        } else if (choix_utilisateur == 2) {
+        } else if (choix_utilisateur == '2') {
             
             // Les PokIMAC :
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -320,7 +320,7 @@ void printRegles(){
             detectSpace();
             printRegles();
 
-        } else if (choix_utilisateur == 3) {
+        } else if (choix_utilisateur == '3') {
             
             //objets
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -675,7 +675,7 @@ void printRegles(){
             detectSpace();
             printRegles();
             
-        } else if (choix_utilisateur == 4) {
+        } else if (choix_utilisateur == '4') {
 
             //combat, capture, fuite
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);

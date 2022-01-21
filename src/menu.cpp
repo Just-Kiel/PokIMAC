@@ -8,7 +8,7 @@
 using namespace std;
 
 void printMenu(Joueur* joueur){
-    int user_choice=0;
+    char user_choice='0';
 
     //Menu
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
@@ -39,7 +39,7 @@ void printMenu(Joueur* joueur){
         ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
 
     
-        while(user_choice<1 || user_choice>3){
+        while(user_choice<'1' || user_choice>'3'){
             
             ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
             std::cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
@@ -51,7 +51,7 @@ void printMenu(Joueur* joueur){
 
         ConsoleUtils::clear();
 
-        if (user_choice == 1) {
+        if (user_choice == '1') {
             int size = sizeMap();
             char * map=(char *) malloc(size*size*sizeof(char));
 
@@ -62,7 +62,7 @@ void printMenu(Joueur* joueur){
             remplissageTab(map, size);
             deplacementTab(map, size, joueur);
 
-        } else if (user_choice == 2) {
+        } else if (user_choice == '2') {
             //Sarah fonction affichage des regles
             printSelection();
             printMenu(joueur);
@@ -122,7 +122,7 @@ void initPlayer(Joueur *player){
     detectSpace();
 
     //Choix du premier PokIMAC
-    int user_pokIMAC;
+    char user_pokIMAC;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -159,7 +159,7 @@ void initPlayer(Joueur *player){
     cin>>user_pokIMAC;
     ConsoleUtils::resetColors(); std::cout << std::endl;
 
-    while(user_pokIMAC<1 || user_pokIMAC>3){
+    while(user_pokIMAC<'1' || user_pokIMAC>'3'){
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
         std::cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
         ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
@@ -172,12 +172,11 @@ void initPlayer(Joueur *player){
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
         cin >> user_pokIMAC;
         ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-
     }
 
-    if(user_pokIMAC == 1){
+    if(user_pokIMAC == '1'){
         player->equipe[0]=allPokimac[randomPokIMAC1];
-    } else if(user_pokIMAC == 2){
+    } else if(user_pokIMAC == '2'){
         player->equipe[0]=allPokimac[randomPokIMAC2];
     } else {
         player->equipe[0]=allPokimac[randomPokIMAC3];

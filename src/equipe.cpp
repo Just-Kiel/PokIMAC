@@ -23,24 +23,24 @@ void ouvertureEquipe(Joueur * player){
 
     cout<<sizeEquipe+1<<". Retour"<<endl;
 
-    int user_choice;
+    char user_choice;
     cout << "Ton choix : ";
     cin >> user_choice;
 
-    while(user_choice!=sizeEquipe+1 && (user_choice<1 || user_choice>nbPokimacMax)){
+    while(user_choice!=(char)(sizeEquipe+1+48) && (user_choice<'1' || user_choice>(char)(48+nbPokimacMax))){
         cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbPokimacMax<<" ou "<<sizeEquipe+1<<"."<<endl;
         cout << "Ton choix : ";
         cin >> user_choice;
     }
 
-    if(user_choice == sizeEquipe+1){
+    if(user_choice == (char)(48+sizeEquipe+1)){
         ConsoleUtils::clear();
     } else {
         ConsoleUtils::clear();
-        cout << player->equipe[user_choice-1].representation << endl;
-        cout << player->equipe[user_choice-1].nom << endl;
-        cout << "Type : " << player->equipe[user_choice-1].espece << endl;
-        cout << "PV : " << player->equipe[user_choice-1].pv << endl;
+        cout << player->equipe[user_choice-1-48].representation << endl;
+        cout << player->equipe[user_choice-1-48].nom << endl;
+        cout << "Type : " << player->equipe[user_choice-1-48].espece << endl;
+        cout << "PV : " << player->equipe[user_choice-1-48].pv << endl;
         detectSpace();
 
         ouvertureEquipe(player);

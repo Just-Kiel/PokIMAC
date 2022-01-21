@@ -51,7 +51,7 @@ int capturePokIBALL(Joueur * player, Pokimac * pokimac){
             }
         }
     }
-    if(pokimac->pv<=10){
+    if(pokimac->pv>10){
         cout<<"Tu n'as pas pu capture le PokIMAC, desole !"<<endl;
         detectSpace();
         return 0;
@@ -76,20 +76,20 @@ void ouvertureInventaire(Joueur * player, bool inCombat, int pokimacUser){
     }
     cout<<sizeInventaire+1<<". Retour"<<endl;
 
-    int user_choice;
+    char user_choice;
     cout << "Ton choix : ";
     cin >> user_choice;
 
-    while(user_choice!=sizeInventaire+1 && (user_choice<1 || user_choice>nbObjetMax)){
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbObjetMax<<" ou "<<sizeInventaire+1<<"."<<endl;
+    while(user_choice!=(char)(sizeInventaire+1+48) && (user_choice<'1' || user_choice>(char)(nbObjetMax+48))){
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<(char)(nbObjetMax+48)<<" ou "<<(char)(48+sizeInventaire+1)<<"."<<endl;
         cout << "Ton choix : ";
         cin >> user_choice;
     }
 
-    if(user_choice == sizeInventaire+1){
+    if(user_choice == (char)(sizeInventaire+1+48)){
         ConsoleUtils::clear();
     } else {
-        Objet * current_objet = &(player->inventaire[user_choice-1]);
+        Objet * current_objet = &(player->inventaire[(user_choice-1-48)]);
         howToUse(*current_objet);
 
         if(inCombat){

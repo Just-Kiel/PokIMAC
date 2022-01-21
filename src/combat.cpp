@@ -74,7 +74,7 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac, char tab[], int tail
 }
 
 int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
-    int user_fight;
+    char user_fight;
    
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -97,9 +97,9 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
     ConsoleUtils::resetColors(); std::cout << std::endl;
 
 
-    while(user_fight<1 || user_fight>5){
+    while(user_fight<'1' || user_fight>'5'){
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 4."<<endl;
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 5."<<endl;
         ConsoleUtils::resetColors(); std::cout << std::endl;
 
         ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -109,25 +109,26 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
         
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
         cin>> user_fight;
-        ConsoleUtils::resetColors(); std::cout << std::endl;    }
+        ConsoleUtils::resetColors(); std::cout << std::endl;
+    }
 
     ConsoleUtils::clear();
 
-    if(user_fight == 1){
+    if(user_fight == '1'){
         attaqueCombat(&player->equipe[pokimacUser], pokimac);
 
         return 1;
-    } else if(user_fight==2) {
+    } else if(user_fight=='2') {
         // Tentative de capture avec lancement de PokIBALL
         int captureStatus=capturePokIBALL(player, pokimac);
         return captureStatus;
 
-    } else if(user_fight == 3){
+    } else if(user_fight == '3'){
         // Ouvre l'inventaire et permet le retour (pas encore possible d'agir vu que 0 objet possible)
         ouvertureInventaire(player, true, pokimacUser);
         return 0;
 
-    } else if(user_fight == 4){
+    } else if(user_fight == '4'){
         // Fuite du combat
         
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTGREEN);
@@ -142,7 +143,6 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
         pokimacUser = choixPokIMAC(player);
         return 1;
     }
-    return 0;
 }
 
 int choixPokIMAC(Joueur * player){
@@ -163,7 +163,7 @@ int choixPokIMAC(Joueur * player){
         }
     }
 
-    int user_pokIMAC;
+    char user_pokIMAC;
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -175,8 +175,8 @@ int choixPokIMAC(Joueur * player){
     ConsoleUtils::resetColors(); std::cout << std::endl;
 
 
-    while((user_pokIMAC<1 || user_pokIMAC>nbPokIMACMax)||player->equipe[user_pokIMAC-1].pv <= 0){
-        if(user_pokIMAC<1 || user_pokIMAC>nbPokIMACMax){
+    while((user_pokIMAC<'1' || user_pokIMAC>(char)(48+nbPokIMACMax))||player->equipe[user_pokIMAC-1-48].pv <= 0){
+        if(user_pokIMAC<'1' || user_pokIMAC>(char)(48+nbPokIMACMax)){
             
             ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
             cout << "Ce choix n'est pas valide ! Tu dois choisir entre 1 et " << nbPokIMACMax << "." << endl;
@@ -200,7 +200,7 @@ int choixPokIMAC(Joueur * player){
         ConsoleUtils::resetColors(); std::cout << std::endl;    }
 
     ConsoleUtils::clear();
-    return user_pokIMAC-1;
+    return user_pokIMAC-1-48;
 }
 
 void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
@@ -214,7 +214,7 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
         cout<<a+1<<". "<<player_pokimac->pouvoir[a].nom_attaque<<endl<<endl;
     }
 
-    int user_choice;
+    char user_choice;
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
     cout << "Ton choix : ";
@@ -224,10 +224,10 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
     cin >> user_choice;
     ConsoleUtils::resetColors(); std::cout << std::endl;
 
-    while(user_choice<1 || user_choice>nbAttaque+1){
+    while(user_choice<'1' || user_choice>(char)(nbAttaque+1+48)){
         
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbAttaque+1<<"."<<endl;
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<nbAttaque<<"."<<endl;
         ConsoleUtils::resetColors(); std::cout << std::endl;
         
         ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -244,7 +244,7 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    cout<<"Tu attaques avec "<<player_pokimac->pouvoir[user_choice-1].nom_attaque<<endl;
+    cout<<"Tu attaques avec "<<player_pokimac->pouvoir[user_choice-1-48].nom_attaque<<endl;
     if(multiplicateurObjet!=1){
         for(int i=0; i<nbObjet; i++){
             if(allObject[i].puissance == multiplicateurObjet){
@@ -258,19 +258,19 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
     int efficiency = multiplicateurType(*player_pokimac, *enemy_pokimac);
 
     if(efficiency == 1){
-        enemy_pokimac->pv-=(player_pokimac->pouvoir[user_choice-1].puissance)*multiplicateurObjet;
+        enemy_pokimac->pv-=(player_pokimac->pouvoir[user_choice-1-48].puissance)*multiplicateurObjet;
     } else if(efficiency == 0){
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
         cout<<"C'est tres peu efficace !"<<endl<<endl;
         ConsoleUtils::resetColors(); std::cout << std::endl;
 
-        enemy_pokimac->pv-=((player_pokimac->pouvoir[user_choice-1].puissance)*multiplicateurObjet)/2;
+        enemy_pokimac->pv-=((player_pokimac->pouvoir[user_choice-1-48].puissance)*multiplicateurObjet)/2;
     } else if(efficiency == 2){
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
         cout<<"C'est tres efficace !"<<endl<<endl;
         ConsoleUtils::resetColors(); std::cout << std::endl;
 
-        enemy_pokimac->pv-=((player_pokimac->pouvoir[user_choice-1].puissance)*multiplicateurObjet)*2;
+        enemy_pokimac->pv-=((player_pokimac->pouvoir[user_choice-1-48].puissance)*multiplicateurObjet)*2;
     }
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
