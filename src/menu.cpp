@@ -76,7 +76,7 @@ void printMenu(Joueur* joueur){
 void initPlayer(Joueur *player){
     //Nom du dresseur PokIMAC
 
-    char validation='o';
+    char validation;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -122,7 +122,7 @@ void initPlayer(Joueur *player){
     detectSpace();
 
     //Choix du premier PokIMAC
-    int user_pokIMAC=0;
+    int user_pokIMAC;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
@@ -152,10 +152,6 @@ void initPlayer(Joueur *player){
     ConsoleUtils::setColor(ConsoleUtils::Color::CYAN);
     std::cout << "3."<<allPokimac[randomPokIMAC3].nom << endl;
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-    
-    /*cout << "1. " <<allPokimac[randomPokIMAC1].nom<< endl;
-    cout << "2. " << allPokimac[randomPokIMAC2].nom << endl;
-    cout << "3. " << allPokimac[randomPokIMAC3].nom << endl;*/
     
     cout<<"Ton choix : ";
     
@@ -196,7 +192,7 @@ int sizeMap(){
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout<<"Combien de largeur veux-tu que la grille fasse ?"<<endl;
+    std::cout<<"Combien de largeur veux-tu que la grille fasse ? (Entre 2 et 9)"<<endl;
     ConsoleUtils::resetColors(); std::cout << std::endl;
    
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
@@ -247,6 +243,7 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
             case 'o':
             case 'O':
                 answer=true;
+                ConsoleUtils::clear();
                 printMenu(player);
                 break;
             case 'n':

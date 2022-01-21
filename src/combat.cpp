@@ -25,8 +25,6 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac, char tab[], int tail
     int statusFight=0;
     while(pokimac.pv>0 && player->equipe[nbChoixPokIMAC].pv>0 && statusFight!=2) {
         
-        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-        cout << left << setw(20) << player->equipe[nbChoixPokIMAC].representation << pokimac.representation <<endl;
         ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
         cout << left << setw(20) << player->equipe[nbChoixPokIMAC].nom << pokimac.nom << endl;
         ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
@@ -85,7 +83,7 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
 
     cout<<"1. Attaquer"<<endl;
     cout<<"2. Capturer"<<endl;
-    cout<<"3. Inventaire (not implemented yet)"<<endl;
+    cout<<"3. Inventaire"<<endl;
     cout<<"4. Fuir"<<endl;
     cout<<"5. Changer de PokIMAC"<<endl<<endl;
 
@@ -247,6 +245,14 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
     cout<<"Tu attaques avec "<<player_pokimac->pouvoir[user_choice-1].nom_attaque<<endl;
+    if(multiplicateurObjet!=1){
+        for(int i=0; i<nbObjet; i++){
+            if(allObject[i].puissance == multiplicateurObjet){
+                cout<< allObject[i].nom << " est actif !" <<endl;
+                break;
+            }
+        }
+    }
     ConsoleUtils::resetColors(); std::cout << std::endl;
 
     int efficiency = multiplicateurType(*player_pokimac, *enemy_pokimac);
