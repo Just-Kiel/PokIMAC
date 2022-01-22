@@ -15,6 +15,7 @@
 	#include <termios.h>
 	#include <unistd.h>
 	#include <sys/ioctl.h>
+	#include <sys/socket.h>
 #endif
 
 class ConsoleUtils {
@@ -92,7 +93,7 @@ class ConsoleUtils {
 		newt.c_cc[VTIME] = 1; // minimum characters to wait for
 		tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 		ioctl(0, FIONREAD, &cnt); // Read count
-		struct timeval tv {0, 100};
+		struct timeval tv = {0, 100};
 		select(STDIN_FILENO+1, NULL, NULL, NULL, &tv); // A small time delay
 		tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 		return cnt; // Return number of characters
