@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "menu.h"
 #include "goodbye.hpp"
@@ -49,6 +50,8 @@ void printMenu(){
             cin >> user_choice;
         }
 
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
         ConsoleUtils::clear();
 
         if (user_choice == '1') {
@@ -83,7 +86,6 @@ void printMenu(){
             printMenu();
         } else {
             //Fin du programme
-            // Voir sur Mac TODO Ne s'affiche pas chez Sarah
             printGoodbye();
         }
 }
@@ -236,7 +238,7 @@ int sizeMap(){
     return largeurInt;
 }
 
-void detectSpace(){
+void detectSpace() {
     cout<<endl<<"Appuie sur une touche pour passer a l'ecran suivant."<<endl;
     ConsoleUtils::getChar();
     ConsoleUtils::clear();
@@ -253,10 +255,32 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
         
         cout<<"Ton choix :";
         char input = ConsoleUtils::getChar();
+
+        ofstream file;
+        int pokimacMax = 0;
+
         switch (input) {
             case 'o':
             case 'O':
                 answer=true;
+
+                file.open("save.txt");
+                file << player->nom <<endl;
+                while(pokimacMax<sizeEquipe){
+                    if(player->equipe[pokimacMax].nom != videPokimac.nom){
+                        file << pokimacMax << player->equipe[pokimacMax].nom << endl;
+                        file << pokimacMax << player->equipe[pokimacMax].espece << endl;
+                        file << pokimacMax << player->equipe[pokimacMax].representation << endl;
+                        file << pokimacMax << player->equipe[pokimacMax].pv << endl;
+                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[0].nom_attaque << endl;
+                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[0].puissance << endl;
+                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[1].nom_attaque << endl;
+                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[1].puissance << endl;
+                    }
+                    pokimacMax++;
+                }
+                file.close();
+
                 ConsoleUtils::clear();
                 printMenu();
                 break;

@@ -33,6 +33,8 @@ void ouvertureEquipe(Joueur * player){
         cin >> user_choice;
     }
 
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
     if(user_choice == (char)(48+sizeEquipe+1)){
         ConsoleUtils::clear();
     } else {

@@ -14,7 +14,7 @@ using namespace std;
 int main(){
     //graine de l'aléatoire avec temps de l'ordi
     srand(time(0));
-    
+
     //Lancement du programme
     printHello();
     printMenu();

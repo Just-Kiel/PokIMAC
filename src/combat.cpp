@@ -112,6 +112,8 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int * pokimacUser){
         ConsoleUtils::resetColors(); std::cout << std::endl;
     }
 
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
     ConsoleUtils::clear();
 
     if(user_fight == '1'){
@@ -201,6 +203,8 @@ int choixPokIMAC(Joueur * player){
         cin>>user_pokIMAC;
         ConsoleUtils::resetColors(); std::cout << std::endl;    }
 
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
     ConsoleUtils::clear();
     return user_pokIMAC-1-48;
 }
@@ -241,6 +245,8 @@ void attaqueCombat(Pokimac * player_pokimac, Pokimac * enemy_pokimac){
         cin >> user_choice;
         ConsoleUtils::resetColors(); std::cout << std::endl;
     }
+
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
     ConsoleUtils::clear();
 

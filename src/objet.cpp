@@ -86,6 +86,8 @@ void ouvertureInventaire(Joueur * player, bool inCombat, int pokimacUser){
         cin >> user_choice;
     }
 
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
     if(user_choice == (char)(sizeInventaire+1+48)){
         ConsoleUtils::clear();
     } else {
@@ -136,5 +138,4 @@ void useInCombat(Objet * useObject, Pokimac * player_pokimac){
 
         *useObject = vide;
     }
-    detectSpace();
 }

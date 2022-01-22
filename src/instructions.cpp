@@ -44,7 +44,8 @@ void printSelection( ){
         cout << "Ton choix : ";
         cin >> user_choice;
     }
-    
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
     ConsoleUtils::clear();
 
     if (user_choice == '1') {
@@ -125,7 +126,6 @@ void printSelection( ){
 void printRegles(){
         
     // Explications des règles du jeu + possibilité de faire retour
-    //TODO detect if darwin (linux + mac) ou windows
 
     cout << "  _____            _                 _           _            \n"
             " |  __ \\          | |               | |         (_)           \n"
@@ -176,6 +176,8 @@ void printRegles(){
         cout << "Ton choix : ";
         cin >> choix_utilisateur;
     }
+
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
         ConsoleUtils::clear();
 

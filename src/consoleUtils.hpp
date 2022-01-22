@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include <cstdio>
+//#include <cstdio>
 
 // for sleep function
 #include <chrono>
@@ -12,6 +12,7 @@
 	#include <windows.h>  // for WinAPI
 	#include <conio.h>    // for getch() and kbhit()
 #else
+    #include <stdio.h>
 	#include <termios.h>
 	#include <unistd.h>
 	#include <sys/ioctl.h>
