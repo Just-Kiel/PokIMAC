@@ -33,7 +33,7 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac, char tab[], int tail
         cout << "PV : " << left << setw(15) << player->equipe[nbChoixPokIMAC].pv << "   PV : " << pokimac.pv << endl;
         ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
 
-        statusFight = choixCombat(player, &pokimac, nbChoixPokIMAC);
+        statusFight = choixCombat(player, &pokimac, &nbChoixPokIMAC);
     }
     if(pokimac.pv<=0){
         
@@ -73,7 +73,7 @@ void affichageDebutCombat(Joueur * player, Pokimac pokimac, char tab[], int tail
     }
 }
 
-int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
+int choixCombat(Joueur * player, Pokimac * pokimac, int * pokimacUser){
     char user_fight;
    
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -115,9 +115,9 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
     ConsoleUtils::clear();
 
     if(user_fight == '1'){
-        attaqueCombat(&player->equipe[pokimacUser], pokimac);
+        attaqueCombat(&player->equipe[*pokimacUser], pokimac);
 
-        return 1;
+        return 0;
     } else if(user_fight=='2') {
         // Tentative de capture avec lancement de PokIBALL
         int captureStatus=capturePokIBALL(player, pokimac);
@@ -125,7 +125,7 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
 
     } else if(user_fight == '3'){
         // Ouvre l'inventaire et permet le retour (pas encore possible d'agir vu que 0 objet possible)
-        ouvertureInventaire(player, true, pokimacUser);
+        ouvertureInventaire(player, true, *pokimacUser);
         return 0;
 
     } else if(user_fight == '4'){
@@ -138,10 +138,12 @@ int choixCombat(Joueur * player, Pokimac * pokimac, int pokimacUser){
         detectSpace();
 
         return 2;
-    }else{
+    }else if(user_fight == '5'){
         // Changement de PokIMAC en combat
-        pokimacUser = choixPokIMAC(player);
-        return 1;
+        *pokimacUser = choixPokIMAC(player);
+        return 0;
+    } else {
+        return 0;
     }
 }
 
