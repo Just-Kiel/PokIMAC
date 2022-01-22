@@ -14,24 +14,9 @@ using namespace std;
 int main(){
     //graine de l'aléatoire avec temps de l'ordi
     srand(time(0));
-
-  /*  //Initialisation du Joueur
-    Joueur joueur;
-    joueur.position_x = 0;
-    joueur.position_y = 0;
-    joueur.equipe[0]=allPokimac[0];
-    for(int i=1; i<6; i++){
-        joueur.equipe[i]=videPokimac;
-    }
-
-    int size_inventaire = sizeof (joueur.inventaire)/sizeof(joueur.inventaire[0]);
-    joueur.inventaire[0]=allObject[0];
-    for(int i=1; i<size_inventaire; i++){
-        joueur.inventaire[i]=vide;
-    }
-*/
+    
     //Lancement du programme
-    //printMenu(&joueur);
     printHello();
+    printMenu();
     return 0;
 }

@@ -7,7 +7,7 @@
 #include "instructions.h"
 using namespace std;
 
-void printMenu(Joueur* joueur){
+void printMenu(){
     char user_choice='0';
 
     //Menu
@@ -55,17 +55,32 @@ void printMenu(Joueur* joueur){
             int size = sizeMap();
             char * map=(char *) malloc(size*size*sizeof(char));
 
+            //Initialisation du Joueur
+            Joueur joueur;
+            joueur.position_x = 0;
+            joueur.position_y = 0;
+            joueur.equipe[0]=allPokimac[0];
+            for(int i=1; i<6; i++){
+                joueur.equipe[i]=videPokimac;
+            }
+
+            int size_inventaire = sizeof (joueur.inventaire)/sizeof(joueur.inventaire[0]);
+            joueur.inventaire[0]=allObject[0];
+            for(int i=1; i<size_inventaire; i++){
+                joueur.inventaire[i]=vide;
+            }
+
             //Personnalisation du dresseur
-            initPlayer(joueur);
+            initPlayer(&joueur);
 
             //Début du déplacement sur la carte
             remplissageTab(map, size);
-            deplacementTab(map, size, joueur);
+            deplacementTab(map, size, &joueur);
 
         } else if (user_choice == '2') {
             //Sarah fonction affichage des regles
             printSelection();
-            printMenu(joueur);
+            printMenu();
         } else {
             //Fin du programme
             // Voir sur Mac TODO Ne s'affiche pas chez Sarah
@@ -243,7 +258,7 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
             case 'O':
                 answer=true;
                 ConsoleUtils::clear();
-                printMenu(player);
+                printMenu();
                 break;
             case 'n':
             case 'N':

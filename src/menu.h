@@ -8,7 +8,7 @@
 
 
 int sizeMap();
-void printMenu(Joueur * joueur);
+void printMenu();
 void initPlayer(Joueur *player);
 void detectSpace();
 void confirmChoice(Joueur * player, int taille, char tab[]);
