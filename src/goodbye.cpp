@@ -17,8 +17,9 @@ void printGoodbye(){
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout << "Les Cassoulettes vous remercient d'avoir joue a";
-    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+    cout << "Les Cassoulettes vous remercient d'avoir joue a";
+    ConsoleUtils::resetColors();
+    cout << endl<<endl;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
     cout<<"\n"
@@ -30,14 +31,15 @@ void printGoodbye(){
           " |_|   \\___/|_|\\_\\_____|_|  |_/_/    \\_\\_____|\n"
           "                                              \n"
           "                                              ";
-    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-
+    ConsoleUtils::resetColors();
+    cout << endl<<endl;
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout << "A bientot !";
-    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-    
+    cout << "A bientot !";
+    ConsoleUtils::resetColors();
+    cout << endl<<endl;
+
     detectSpace();
     
 }

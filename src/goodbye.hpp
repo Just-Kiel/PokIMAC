@@ -11,6 +11,4 @@
 void printGoodbye();
 
 
-#include <stdio.h>
-
 #endif /* goodbye_hpp */

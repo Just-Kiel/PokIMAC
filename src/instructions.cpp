@@ -46,7 +46,6 @@ void printSelection( ){
     }
     
     ConsoleUtils::clear();
-    ConsoleUtils::clear();
 
     if (user_choice == '1') {
         // Présentation des commandes + possibilité de faire retour
