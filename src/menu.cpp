@@ -1,14 +1,10 @@
 #include <iostream>
-#include <fstream>
 
 #include "menu.h"
 #include "goodbye.hpp"
 #include "consoleUtils.hpp"
 #include "variables.h"
 #include "instructions.h"
-
-//Save beta test
-#include "save.h"
 
 using namespace std;
 
@@ -68,64 +64,10 @@ void printMenu(){
             map =(char *) malloc(size*size*sizeof(char));
 
             Joueur joueur;
-            ifstream readFile("save.txt", ios::in);
-            if(!readFile){
-                //Personnalisation du dresseur
-                initPlayer(&joueur);
-            } else {
 
-                char new_user = '0';
+            //Personnalisation du dresseur
+            initPlayer(&joueur);
 
-                ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
-                ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-                cout << "Choisis dans le menu (1, 2 ou 3) :";
-                ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-
-                cout << "1. Nouvelle partie" << endl;
-                cout << "2. Charger partie" << endl;
-                cout << "3. Retour" << endl;
-
-
-                cout << "Ton choix : ";
-
-                ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
-                cin >> new_user;
-                ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-
-                while(new_user < '1' || new_user >'3'){
-                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
-                    cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
-                    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
-
-                    cout << "Ton choix : ";
-                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
-                    cin >> new_user;
-                    ConsoleUtils::resetColors();
-                }
-
-                cin.ignore(numeric_limits<streamsize>::max(),'\n');
-
-                if(new_user == '1'){
-                    initPlayer(&joueur);
-                } else if(new_user == '2'){
-                    load(&joueur);
-                    ConsoleUtils::clear();
-
-                    if(joueur.nom == ""){
-                        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
-                        cout << "Il n'y a pas de sauvegarde !" << endl;
-                        ConsoleUtils::resetColors();
-                        cout << endl<<endl;
-
-                        initPlayer(&joueur);
-                    } else {
-                        cout << "Te revoilà " << joueur.nom << " !" << endl;
-                        detectSpace();
-                    }
-                } else {
-                    printMenu();
-                }
-            }
 
             //Début du déplacement sur la carte
             remplissageTab(map, size);
@@ -335,10 +277,6 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
             case 'o':
             case 'O':
                 answer=true;
-
-                //Save beta test
-                save(player);
-
                 ConsoleUtils::clear();
                 printMenu();
                 break;

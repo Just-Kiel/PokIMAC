@@ -246,7 +246,7 @@ void printRegles(){
 
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
             ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-            cout << " PokESIPE "<<endl<<endl<<"Découvre l'ensemble des PokIMACS disponible !";
+            cout << "PokESIPE "<<endl<<endl<<"Decouvre l'ensemble des PokIMACS disponibles !";
             ConsoleUtils::resetColors(); std::cout<<std::endl<<endl<<endl;
             
             detectSpace();
