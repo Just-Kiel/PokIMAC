@@ -8,7 +8,7 @@
 #include "instructions.h"
 
 //Save beta test
-//#include "save.h"
+#include "save.h"
 
 using namespace std;
 
@@ -289,7 +289,7 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
                 answer=true;
 
                 //Save beta test
-//                save(player);
+                save(player);
 
                 ConsoleUtils::clear();
                 printMenu();
