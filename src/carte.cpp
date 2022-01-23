@@ -30,11 +30,11 @@ void affichageTab(char tab[], int taille){
     cout<<endl<<endl;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
-    std::cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec ";
+    cout<<"Te voici dans le bourg Coper, tu peux te deplacer avec ";
     ConsoleUtils::resetColors();
 
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-    std::cout<<"zqsd";
+    cout<<"zqsd";
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -42,7 +42,7 @@ void affichageTab(char tab[], int taille){
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-    std::cout<<"fleches directionnelles";
+    cout<<"fleches directionnelles";
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -50,7 +50,7 @@ void affichageTab(char tab[], int taille){
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-    std::cout<<"i";
+    cout<<"i";
     ConsoleUtils::resetColors();
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -58,7 +58,7 @@ void affichageTab(char tab[], int taille){
     ConsoleUtils::resetColors();
 
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-    std::cout<<"e";
+    cout<<"e";
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -66,12 +66,12 @@ void affichageTab(char tab[], int taille){
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-    std::cout<<"ESPACE";
+    cout<<"ESPACE";
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout <<"Comprendre la map : ";
+    cout <<"Comprendre la map : ";
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);

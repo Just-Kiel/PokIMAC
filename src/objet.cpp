@@ -20,12 +20,22 @@ bool ajoutObjetAInventaire(Joueur * player, Objet object){
     }
 
     if(!recup){
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
         cout<<"Malheureusement plus de place dans ton inventaire ! Utilise des objets avant !"<<endl;
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     } else {
         cout << object.visuel << endl;
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
         cout << "L'objet " << object.nom << " vient d'etre ajoute a ton inventaire !" << endl;
-        cout << "Voici son utilite :";
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+        ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+        ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+        cout << "Voici son utilite : ";
+        ConsoleUtils::resetColors();
+        ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
         cout << object.definition << endl;
+        ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+
     }
     detectSpace();
     return recup;
@@ -41,7 +51,9 @@ int capturePokIBALL(Joueur * player, Pokimac * pokimac){
                     if (player->equipe[j].nom == videPokimac.nom) {
                         player->equipe[j] = *pokimac;
                         recup = true;
+                        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
                         cout << "Tu as capture " << pokimac->nom << endl;
+                        ConsoleUtils::resetColors();
                         detectSpace();
                         break;
                     }
@@ -52,11 +64,17 @@ int capturePokIBALL(Joueur * player, Pokimac * pokimac){
         }
     }
     if(pokimac->pv>10){
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTGREEN);
         cout<<"Tu n'as pas pu capture le PokIMAC, desole !"<<endl;
+        ConsoleUtils::resetColors();
+
         detectSpace();
         return 0;
     }else if(!recup){
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
         cout<<"Tu n'as plus de PokIBALL !"<<endl;
+        ConsoleUtils::resetColors();
+
         detectSpace();
         return 0;
     }else{
@@ -66,11 +84,20 @@ int capturePokIBALL(Joueur * player, Pokimac * pokimac){
 
 void ouvertureInventaire(Joueur * player, bool inCombat, int pokimacUser){
     int nbObjetMax=0;
-    cout<<"Dans ton inventaire il y a :"<<endl;
+    
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    cout<<"Dans ton inventaire il y a :"<<endl<<endl;
+    ConsoleUtils::resetColors();
+
 
     for(int i=0; i<sizeInventaire; i++){
         if(player->inventaire[i].nom != vide.nom && (!inCombat || player->inventaire[i].nom != allObject[0].nom)){
+            
+            ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
             cout<< i+1 <<". "<<player->inventaire[i].nom<<endl;
+            ConsoleUtils::resetColors();
+
             nbObjetMax=i+1;
         }
     }
@@ -78,12 +105,21 @@ void ouvertureInventaire(Joueur * player, bool inCombat, int pokimacUser){
 
     char user_choice;
     cout << "Ton choix : ";
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
     cin >> user_choice;
+    ConsoleUtils::resetColors();
+
 
     while(user_choice!=(char)(sizeInventaire+1+48) && (user_choice<'1' || user_choice>(char)(nbObjetMax+48))){
-        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<(char)(nbObjetMax+48)<<" ou "<<(char)(48+sizeInventaire+1)<<"."<<endl;
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+        cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et "<<(char)(nbObjetMax+48)<<" ou "<<(char)(48+sizeInventaire+1)<<"."<<endl<<endl;
+        ConsoleUtils::resetColors();
+
         cout << "Ton choix : ";
+        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
         cin >> user_choice;
+        ConsoleUtils::resetColors();
+
     }
 
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
@@ -105,8 +141,17 @@ void ouvertureInventaire(Joueur * player, bool inCombat, int pokimacUser){
 void howToUse(Objet objet){
     ConsoleUtils::clear();
     cout << objet.visuel << endl;
+    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
     cout << objet.nom << endl;
-    cout << "Son utilite : " << objet.definition << endl;
+    ConsoleUtils::resetColors();
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+    cout << "Son utilite : ";
+    ConsoleUtils::resetColors();
+    ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+    cout << objet.definition << endl;
+    ConsoleUtils::resetColors();
+
 
     detectSpace();
 }
@@ -122,7 +167,10 @@ void useInCombat(Objet * useObject, Pokimac * player_pokimac){
     }
     if(useObject->id_type == 1){
         if (player_pokimac->pv<refPokIMAC.pv){
+            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTGREEN);
             cout << "Ton pokIMAC voit ses PV se regenerer !"<<endl;
+            ConsoleUtils::resetColors();
+
             int pvMissing = refPokIMAC.pv - player_pokimac->pv;
             if(pvMissing<useObject->puissance){
                 player_pokimac->pv += pvMissing;
@@ -131,7 +179,10 @@ void useInCombat(Objet * useObject, Pokimac * player_pokimac){
             }
             *useObject = vide;
         } else {
+            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
             cout << "Tu as deja trop de PV, pas besoin d'utiliser ce style d'objet !"<<endl;
+            ConsoleUtils::resetColors();
+
         }
     } else if(useObject->id_type == 2){
         multiplicateurObjet = useObject->puissance;

@@ -42,7 +42,7 @@ void printHello(){
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout << "Bienvenue sur" <<endl;
+    cout << "Bienvenue sur" <<endl;
     ConsoleUtils::resetColors();
     
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
@@ -59,11 +59,11 @@ void printHello(){
 
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
     ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-    std::cout << "by The Cassoulettes !";
+    cout << "by The Cassoulettes !";
     ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
     
     ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
-    std::cout << "Dans ce jeu,tu incarnes un jeune DressESIPE de PokIMAC a qui l'on offre un PokIMAC de depart, et tu pars pour une aventure semee d'embuches."<<endl<<"Tu parcours une region peuplee de PokIMACs sauvages que tu peux capturer et faire combattre."<<endl<<endl;
+    cout << "Dans ce jeu,tu incarnes un jeune DressESIPE de PokIMAC a qui l'on offre un PokIMAC de depart, et tu pars pour une aventure semee d'embuches."<<endl<<"Tu parcours une region peuplee de PokIMACs sauvages que tu peux capturer et faire combattre."<<endl<<endl;
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
     cout<<"Tout ceci dans le but de te mesurer a l'elite des dresseurs du Champs et enfin devenir le Maitre du Bourg Coper avec le PokESIPE le plus rempli ! "<<endl
         <<endl
