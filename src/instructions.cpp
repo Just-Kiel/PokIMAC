@@ -246,83 +246,166 @@ void printRegles(){
 
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
             ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-            cout << " PokESIPE ";
+            cout << " PokESIPE "<<endl<<endl<<"Découvre l'ensemble des PokIMACS disponible !";
             ConsoleUtils::resetColors(); std::cout<<std::endl<<endl<<endl;
-            
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
-            cout << " Type Culture ";
-            ConsoleUtils::resetColors(); std::cout<<std::endl<<endl<<endl;
-            
-            ConsoleUtils::setColor(ConsoleUtils::Color::CYAN);
-            cout << " Cible :";
-            ConsoleUtils::resetColors(); std::cout<<" Design"<<std::endl<<endl;
-            
-            cout<<" - Robbizarre" << endl
-                <<" - Ozlameche "<< endl
-                <<" - Gairrarlande"<<endl<<endl;
-
-            detectSpace();
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
-            cout << " Type Programmation ";
-            ConsoleUtils::resetColors(); std::cout<<std::endl<<endl<<endl;
-            
-            ConsoleUtils::setColor(ConsoleUtils::Color::CYAN);
-            cout << " Cible :";
-            ConsoleUtils::resetColors(); std::cout<<" Mathematiques"<<std::endl<<endl;
-            
-            cout<<" - Nosteevrapti" <<endl
-                <<" - Laporteille" <<endl
-                <<" - Charpenti" <<endl<<endl;
-
-            detectSpace();
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
-            cout << " Type Mathematiques ";
-            ConsoleUtils::resetColors(); std::cout<<std::endl<<endl<<endl;
-            
-            ConsoleUtils::setColor(ConsoleUtils::Color::CYAN);
-            cout << " Cible :";
-            ConsoleUtils::resetColors(); std::cout<<" Culture"<<std::endl<<endl;
-            
-            cout<<" - Nocvelli"<<endl
-                <<" - Rieulu"<<endl<<endl;
-
-            detectSpace();
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
-            cout << " Type Aide ";
-            ConsoleUtils::resetColors(); std::cout<<std::endl<<endl<<endl;
-            
-            ConsoleUtils::setColor(ConsoleUtils::Color::CYAN);
-            cout << " Cible :";
-            ConsoleUtils::resetColors(); std::cout<<" Mathematiques"<<std::endl<<endl;
-            
-            
-            cout<<" - Soniafee"<<endl
-                <<" - Enguerratueur"<<endl
-                <<" - Cherripant"<<endl<<endl;
-
-            detectSpace();
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
-            cout << " Type Design ";
-            ConsoleUtils::resetColors(); std::cout<<std::endl<<endl<<endl;
-            
-            ConsoleUtils::setColor(ConsoleUtils::Color::CYAN);
-            cout << " Cible :";
-            ConsoleUtils::resetColors(); std::cout<<" Programmation"<<std::endl<<endl;
-            
-            cout<<" - Gautiplouf"<<endl
-                <<" - Chataiglam"<<endl<<endl;
             
             detectSpace();
+            
+            for (int i=0; i<nbPokIMAC; i++){
+                
+                if(allPokimac[i].espece=="Culture"){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
+                    cout <<"Type "<<allPokimac[i].espece ;
+                    ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
+                    
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
+                    cout << " Cible :";
+                    ConsoleUtils::resetColors(); std::cout<<" Design"<<std::endl<<endl;
+                    
+                    cout<<allPokimac[i].representation<<endl;
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
+                    cout<<allPokimac[i].nom<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pv<<" PV"<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
+                    cout<<"Ses attaques : "<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    for (int n=0; n<2; n++){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pouvoir[n].nom_attaque<<" :";
+                    ConsoleUtils::resetColors();
+                    cout<<" fait perdre "<<allPokimac[i].pouvoir[n].puissance<<" PV a ton adversaire."<<endl<<endl;
+                    }
+                    detectSpace();
+                }
+                
+                if(allPokimac[i].espece=="Programmation"){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_BLUE);
+                    cout <<"Type "<<allPokimac[i].espece ;
+                    ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
+                    
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+                    cout << " Cible :";
+                    ConsoleUtils::resetColors(); std::cout<<" Aide"<<std::endl<<endl;
+                    
+                    cout<<allPokimac[i].representation<<endl;
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+                    cout<<allPokimac[i].nom<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pv<<" PV"<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_BLUE);
+                    cout<<"Ses attaques : "<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    for (int n=0; n<2; n++){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pouvoir[n].nom_attaque<<" :";
+                    ConsoleUtils::resetColors();
+                    cout<<" fait perdre "<<allPokimac[i].pouvoir[n].puissance<<" PV a ton adversaire."<<endl<<endl;
+                    }
+                    detectSpace();
+                }
+                
+                if(allPokimac[i].espece=="Aide"){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_GREEN);
+                    cout <<"Type "<<allPokimac[i].espece ;
+                    ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
+                    
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTGREEN);
+                    cout << " Cible :";
+                    ConsoleUtils::resetColors(); std::cout<<" Mathematiques"<<std::endl<<endl;
+                    
+                    cout<<allPokimac[i].representation<<endl;
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTGREEN);
+                    cout<<allPokimac[i].nom<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pv<<" PV"<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_GREEN);
+                    cout<<"Ses attaques : "<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    for (int n=0; n<2; n++){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pouvoir[n].nom_attaque<<" :";
+                    ConsoleUtils::resetColors();
+                    cout<<" fait perdre "<<allPokimac[i].pouvoir[n].puissance<<" PV a ton adversaire."<<endl<<endl;
+                    }
+                    detectSpace();
+                }
+                
+                if(allPokimac[i].espece=="Mathematiques"){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_RED);
+                    cout <<"Type "<<allPokimac[i].espece ;
+                    ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
+                    
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+                    cout << " Cible :";
+                    ConsoleUtils::resetColors(); std::cout<<" Culture"<<std::endl<<endl;
+                    
+                    cout<<allPokimac[i].representation<<endl;
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+                    cout<<allPokimac[i].nom<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pv<<" PV"<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_RED);
+                    cout<<"Ses attaques : "<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    for (int n=0; n<2; n++){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pouvoir[n].nom_attaque<<" :";
+                    ConsoleUtils::resetColors();
+                    cout<<" fait perdre "<<allPokimac[i].pouvoir[n].puissance<<" PV a ton adversaire."<<endl<<endl;
+                    }
+                    detectSpace();
+                }
+                
+                if(allPokimac[i].espece=="Design"){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_MAGENTA);
+                    cout <<"Type "<<allPokimac[i].espece ;
+                    ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
+                    
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
+                    cout << " Cible :";
+                    ConsoleUtils::resetColors(); std::cout<<" Programmation"<<std::endl<<endl;
+                    
+                    cout<<allPokimac[i].representation<<endl;
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
+                    cout<<allPokimac[i].nom<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pv<<" PV"<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
+                    ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_MAGENTA);
+                    cout<<"Ses attaques : "<<endl<<endl;
+                    ConsoleUtils::resetColors();
+                    for (int n=0; n<2; n++){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                    cout<<allPokimac[i].pouvoir[n].nom_attaque<<" :";
+                    ConsoleUtils::resetColors();
+                    cout<<" fait perdre "<<allPokimac[i].pouvoir[n].puissance<<" PV a ton adversaire."<<endl<<endl;
+                    }
+                    detectSpace();
+                }
+                
+            }
+            
+
             
             // Les poKIMAC Starter :
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
@@ -340,357 +423,35 @@ void printRegles(){
 
         } else if (choix_utilisateur == '3') {
             
-            //objets
             ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
             ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
             cout << "LES OBJETS";
             ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
             
             cout<<"Les objets font partie de ton inventaire, ton sac a dos d'aventurier ! "<<endl<<"Ils te permettent d'ameliorer ta chasse aux PokIMACs. Lorsque tu utilises un objet, celui-ci disparait apres utilisation."<<endl << endl;
-
-            detectSpace();
-
-            cout<<"            ,gg@@@@@@@@@@Nw,            \n"
-                  "        ,g@@@@@RP**\"\"*\"*RB@@@@N,        \n"
-                  "      g@@@N\"-               \"N@@@N      \n"
-                  "    g@@@P                      \"B@@@    \n"
-                  "  ,@@@P                          \"@@@w  \n"
-                  " ,@@@            ,,ggg,            $@@g \n"
-                  " @@@`         ,@@@@@@@@@@g          $@@ \n"
-                  "]@@P         @@@P^     %@@@         ]@@@\n"
-                  "@@@ggggggggg@@@P   gg   ]@@@ggggggggg@@@\n"
-                  "$@@@BBBBBBBBB@@L  'NN`  ]@@@BBBBBBBBB@@@\n"
-                  "]@@P         B@@g      g@@@`        ]@@@\n"
-                  " @@@          *@@@@@@@@@@P          @@@P\n"
-                  " ]@@@           '\"*PP*\"`           @@@P \n"
-                  "  ]@@@p                          ,@@@P  \n"
-                  "   '%@@@,                      ,@@@@'   \n"
-                  "     \"%@@@g,                ,g@@@@\"     \n"
-                  "        \"B@@@@Nwg,,,,,,,gg@@@@@*`       \n"
-                  "           \"\"RB@@@@@@@@@@@R*`           \n"
-                  "                   --                   \n"
-                  ""<<endl;
-            
-            ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_MAGENTA);
-            cout << "Les Pokiball ";
-            ConsoleUtils::resetColors(); std::cout<<" sont des objets de type 0, elles te permettent de capturer des PokIMACS sauvages."<<std::endl<<endl;
-            
-            ConsoleUtils::setColor(ConsoleUtils::Color::MAGENTA);
-            cout << "Attention, 1 pokiball ne peut contenir qu'un seul PokIMAC !";
-            ConsoleUtils::resetColors(); std::cout<<" Tu commences la partie avec une Pokiball, a toi d'en gagner d'autres en te baladant dans le Bourg Coper."<<std::endl<<endl;
             
             detectSpace();
             
-            ConsoleUtils::setColor(ConsoleUtils::Color::MAGENTA);
-            cout << "Les objets de type 1 te permettent de regenerer les PV de tes PokIMACS si ces derniers sont blesses. Tu peux regenerer tes PV autant de fois que tu as d'objets !";
-            ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
+            for (int i=0; i<nbObjet; i++){
+                
+                cout<<allObject[i].visuel<<endl;
+                
+                ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
+                cout<<allObject[i].nom<<endl<<endl;
+                ConsoleUtils::resetColors();
+                ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
+                cout<<"Objet de type "<<allObject[i].id_type<<endl<<endl;
+                ConsoleUtils::resetColors();
+                ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
+                cout<<"Utilité :";
+                ConsoleUtils::resetColors();
+                ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+                cout<<" "<<allObject[i].definition<<endl;
+                ConsoleUtils::resetColors();
+                detectSpace();
+
+            }
             
-            cout <<"Voici les differents objets de type 1 : "<<endl <<endl;
-            
-            cout<<"         ,@@NN@N  ,,                    \n"
-                  "      ,,$@-    ]@P*PN@gggg,             \n"
-                  "   g@P**B@            T\" '%@            \n"
-                  "  ]@P                     ,@P           \n"
-                  "  ]@P              ]@@NNNN$@            \n"
-                  "  ]@P  gg,,g@@     ]@`    ]@            \n"
-                  "  ]@P  @K***-*B@N@@P-     ]@NNNNNB@g    \n"
-                  "  '@g ,@P                 ]@       $@   \n"
-                  "    P$@` ]@P  @P  @P  @P  ]@@@@N,   @L  \n"
-                  "     $@  ]@P  @P  @P  @P  ]@   ]@   @P  \n"
-                  "     $@  ]@P  @P  @P  @P  ]@   ]@   @P  \n"
-                  "     $@  ]@P  @P  @P  @P  ]@   ]@   @P  \n"
-                  "     $@  ]@P  @P  @P  @P  ]@   ]@   @P  \n"
-                  "     $@  ]@P  @P  @P  @P  ]@@@@@\"   @P  \n"
-                  "     $@   @P  @P  @P  @P  ]@       $@`  \n"
-                  "     $@                   ]@ggggg@@P'   \n"
-                  "     $@                   $@            \n"
-                  "      %@gpppppppppppppppp@@\"            \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-            cout << "> La Biere";
-            ConsoleUtils::resetColors(); std::cout<<" te permet de regenerer ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
-            cout << "5 PV";
-            ConsoleUtils::resetColors(); std::cout<<" au PokIMAC de ton choix."<<std::endl<<endl;
-
-            detectSpace();
-
-            cout<<"           ,@@@          @@@@@@@@@P     \n"
-                  "     ,@@  /@@@@@p       ]@@             \n"
-                  "     ]@P  @@@@@@@       $@@             \n"
-                  "                        @@              \n"
-                  "    )@BBBBBBBBBBBBBBBBBP``BBBBBBBBBw    \n"
-                  "    ]@@@@@@@@@@@@@@@@@@  ]@@@@@@@@@P    \n"
-                  "     @@@@@@@@@@@@@@@@@@  @@@@@@@@@@     \n"
-                  "     ]@@@@@*\"\"\"\"\"\"\"\"\"\"-  \"\"\"\"%@@@@@     \n"
-                  "      @@@@@  gggg      -ggg  ]@@@@P     \n"
-                  "      $@@@@  ]@@   &@@   @@  @@@@@      \n"
-                  "      ]@@@@P -@@@g     g@@P  @@@@@      \n"
-                  "       @@@@@  $@@@@Ngg@@@@  ]@@@@       \n"
-                  "       ]@@@@  ]@@@@@@@@@@[  @@@@@       \n"
-                  "       ]@@@@P  @@@@@@@@@@P ]@@@@P       \n"
-                  "        $@@@@  $@@@@@@@@@  ]@@@@        \n"
-                  "        ]@@@@-             @@@@@        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         $@@@@@@@@@@@@@@@@@@@@@         \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_GREEN);
-            cout << "> Le Mojito";
-            ConsoleUtils::resetColors(); std::cout<<" te permet de regenerer ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTGREEN);
-            cout << "10 PV";
-            ConsoleUtils::resetColors(); std::cout<<" au PokIMAC de ton choix."<<std::endl<<endl;
-
-            detectSpace();
-
-            cout<<"                            @@          \n"
-                  "                           g@@   @@     \n"
-                  "                     ,gg@@N*\"  ,@@C     \n"
-                  "                  g@@*\"-,g@@@NR**       \n"
-                  "                 ]@C   @@\"              \n"
-                  "                 '    '*                \n"
-                  "                                        \n"
-                  " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        \n"
-                  " @@@P    @@@@@@@@@@@@@@@@@@@@@@@gg,     \n"
-                  " @@@L    @@@@@@@@@@@@@@@@@@@@@@@B@@@@g  \n"
-                  " $@@@    @@@@@@@@@@@@@@@@@@@@@@@  \"@@@@ \n"
-                  " ]@@@    @@@@@@@@@@@@@@@@@@@@@@@   ]@@@P\n"
-                  " -@@@@   ]@@@@@@@@@@@@@@@@@@@@@   g@@@@ \n"
-                  "  ]@@@@  '@@@@@@@@@@@@@@@@@@@@@@@@@@@\"  \n"
-                  "   %@@@@g ]@@@@@@@@@@@@@@@@@@@*P\"\"`     \n"
-                  "    ]@@@@@N@@@@@@@@@@@@@@@@@P           \n"
-                  "     '%@@@@@@@@@@@@@@@@@@@P             \n"
-                  " RNB@@@@@@@@@@@@@@@@@@@@@@@@@@NP        \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_BLUE);
-            cout << "> Le Chocolat Chaud";
-            ConsoleUtils::resetColors(); std::cout<<" te permet de regenerer ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-            cout << "15 PV";
-            ConsoleUtils::resetColors(); std::cout<<" au PokIMAC de ton choix."<<std::endl<<endl;
-            
-            detectSpace();
-
-            cout<<"                  ]@@K                  \n"
-                  "               ,gg@@@@gg,               \n"
-                  "           g@@@@@@@@@@@@@@@Bg           \n"
-                  "        ,@@@@@@@@@@@@@@@@@@@@@@,        \n"
-                  "       g@@@@@@@@@@@@@@@@@@@@@@@@@       \n"
-                  "      @@@@@@@@@@@@@@@@@@@@@@@@@@@@      \n"
-                  "     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     \n"
-                  "   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@w  \n"
-                  "   ********\"@$*********$@@$@@\"******\"   \n"
-                  "           ]@@@      ,@@@@@@P           \n"
-                  "           ]@@@     g@@@@@@P            \n"
-                  "           @@@@K  g@@@@@@@`             \n"
-                  "          @@@@@@@@@@@@@@\"               \n"
-                  "         @@@@@@@@@@@@@P                 \n"
-                  "      ,g@@@@@@@@@@@@\"                   \n"
-                  "     'B@@@@@@@@@@\"                      \n"
-                  "       \"B@@@@@\"                         \n"
-                  "          %@@P                          \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_RED);
-            cout << "> Le Repas Crous";
-            ConsoleUtils::resetColors(); std::cout<<" te permet de regenerer ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
-            cout << "20 PV";
-            ConsoleUtils::resetColors(); std::cout<<" au PokIMAC de ton choix."<<std::endl<<endl;
-
-            detectSpace();
-
-            cout<<"                                    /@N,\n"
-                  "  g@@g                            g@*`\"`\n"
-                  " ]NMPMBg,                  ,gg@@@@      \n"
-                  "        \"%@@@@Ngggg, |  |y@@@@@@@@,     \n"
-                  "       :||@@@@@@@@@@@@@@M**M$@@@@@@@@g  \n"
-                  "     !|,,g@@@@@@@@@@@@$` |  `'T\"%@NNB@  \n"
-                  "   ||,@@@@@@@@@@@\"\"\"*M@ | ||||'|||||  | \n"
-                  " @ ||]@@@@MMM'  | ' | - || ||  ||,gggg@W\n"
-                  "]@K||`*B@'  |'`| ||||  ||  ||||,@$$$$@@@\n"
-                  "@@@g||   || |||||  -'''|||| |`g@$$$@@@@@\n"
-                  "$@@@@,   |||||||'||||||||||,g@$$$@@@@@@@\n"
-                  "]@@@@@@@,  |||||||||||||`g@@$$@@@@@@@@@@\n"
-                  " $@@@@@@@@@@gggggggggg@$$@@@@@@@@@@@@@@ \n"
-                  "  %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@` \n"
-                  "   \"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@P   \n"
-                  "     \"B@@@@@@@@@@@@@@@@@@@@@@@@@@@P`    \n"
-                  "       `*B@@@@@@@@@@@@@@@@@@@@@P\"       \n"
-                  "           \"\"MN@@@@@@@@@@@N*\"           \n"
-                  "                   ---                  \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
-            cout << "> Le Cassoulet";
-            ConsoleUtils::resetColors(); std::cout<<" te permet de regenerer ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
-            cout << "25 PV";
-            ConsoleUtils::resetColors(); std::cout<<" au PokIMAC de ton choix."<<std::endl<<endl;
-            
-            detectSpace();
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::MAGENTA);
-            cout << "Les objets de type 2 te permettent de multiplier la puissance de tes attaques."<<endl<<"Attention, l'objet n'est valable que pour une attaque !";
-            ConsoleUtils::resetColors(); std::cout<<std::endl<<endl;
-
-            cout<< "Voici les differents objets de type 2 : "<<endl <<endl;
-            
-            cout<<"              ,gg@@@@@@gg,              \n"
-                  "            g@@@@@@\"\"$@@@@@g            \n"
-                  "          g@@@@P\"$@Ng@@\"*@@@@g          \n"
-                  "         ]@@@@@Ng@@@@@@gg@@@@@K         \n"
-                  "         RRRRRRRRRRRRRRRRRRRRRR         \n"
-                  "                                        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@P        \n"
-                  "         @@@@@@@@@@@@@@@@@@@@@@         \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_CYAN);
-            cout << "> Le Sel";
-            ConsoleUtils::resetColors(); std::cout<<" augmente ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
-            cout << "X2";
-            ConsoleUtils::resetColors(); std::cout<<" la puissance de toutes tes attaques."<<std::endl<<endl;
-            
-            detectSpace();
-
-            cout<<"                   gN                   \n"
-                  "                  g@@@                  \n"
-                  "      ,            ``            ,      \n"
-                  "      ]@@@P   ,,ggB@@BNgg,   9@@@K      \n"
-                  "       $P  ,g@@@@@@@@@@@@@@N,  *@       \n"
-                  "         ,@@@@@@@@@@@@@@@@@@@@g         \n"
-                  "        /@@@@@@@@@@@@@@@@@@@@@@N        \n"
-                  "       ]@@@@@@@@@@@@@@@@@@@@@@@@b       \n"
-                  " ,g@@  $@@@@@@@@@@@@@@@@@@@@@@@@@  $@g, \n"
-                  "`*N@@  $@@@@@@@@@@@@@@@@@@@@@@@@@  ]@N^-\n"
-                  "       ]@@@@@@@@@@@@@@@@@@@@@@@@P  -    \n"
-                  "        ]@@@@@@@@@@@@@@@@@@@@@@@        \n"
-                  "         \"@@@@@@@@@@@@@@@@@@@@P         \n"
-                  "       @g  *B@@@@@@@@@@@@@@@P  ,@       \n"
-                  "      ]@@@w   \"*NB@@@@@NP\"-  g@@@K      \n"
-                  "      *\"                       -`\"      \n"
-                  "                  %@@@                  \n"
-                  "                   %@                   \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
-            cout << "> Le Weekend";
-            ConsoleUtils::resetColors(); std::cout<<" augmente ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTYELLOW);
-            cout << "X3";
-            ConsoleUtils::resetColors(); std::cout<<" la puissance de toutes tes attaques."<<std::endl<<endl;
-
-            detectSpace();
-            
-            cout<<"              ,,gg@@@@gg,,              \n"
-                  "       ,gg@@@@@@@@@@@@@@@@@@@Npg,       \n"
-                  " gg@@@@@@@@@@@@@@@P**PN@@@@@@@@@@@@@Bgg,\n"
-                  "$@@@@@@@@@@@@@@@@ *NNP $@@@@@@@@@@@@@@@@\n"
-                  " '\"*NB@@@@@@@@NP\"-,gg@@@@@@@@@@@@@@NP\"\" \n"
-                  "     gg,`]@` ,g@@@@@@@@@@@@BR**`,,g     \n"
-                  "     @@@@@@ ,g, `\"PMMP\"\" ,gg@@@@@@@     \n"
-                  "     @@@@@@ ]@@@@@@@@@@@@@@@@@@@@@@     \n"
-                  "     @@@@@@ ]@@@@@@@@@@@@@@@@@@@@@@     \n"
-                  "     B@@@@@ ]@@@@@@@@@@@@@@@@@@@@@@     \n"
-                  "      *B@@@ ]@@@@@@@@@@@@@@@@@@@@P`     \n"
-                  "         ]@ 'TPPPRNNNNRPP*\"\"'           \n"
-                  "         g@,                            \n"
-                  "       j@@@@@                           \n"
-                  "       ]@@@@@                           \n"
-                  "        B@@@@                           \n"
-                  ""<<endl ;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::BLACK);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_GREEN);
-            cout << "> Le Presentiel";
-            ConsoleUtils::resetColors(); std::cout<<" augmente ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTGREEN);
-            cout << "X4";
-            ConsoleUtils::resetColors(); std::cout<<" la puissance de toutes tes attaques."<<std::endl<<endl;
-
-            detectSpace();
-            
-            cout<<"                       g@@@,            \n"
-                  "                     g@@@@@@@g          \n"
-                  "                  ,@@@@P- ]@@@P         \n"
-                  "                ,@@@@P    @@@`          \n"
-                  "              g@@@@C      $@@@,  ,gg    \n"
-                  "            g@@@@\"         *@@@@@@@@@@, \n"
-                  "          g@@@P    ,@@@r     `\"\"\"\" \"@@@@\n"
-                  "       ,@@@@P-   ,@@@@P           g@@@N\"\n"
-                  "     ,@@@@P    g@@@@C          ,g@@@P'  \n"
-                  "   g@@@@*     ]@@@\"  ,gg     ,@@@@P     \n"
-                  " g@@@@\"         -  g@@@@   ,@@@@*       \n"
-                  "$@@@g  ,,,        ]@@@`  g@@@@\"         \n"
-                  " *B@@@@@@@@@w          g@@@@`           \n"
-                  "   \"NBP\" \"%@@@      ,g@@@P-             \n"
-                  "           @@@    ,@@@@P                \n"
-                  "          @@@$  ,@@@@*                  \n"
-                  "          \"B@@@@@@@\"                    \n"
-                  "            *B@@N`                      \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_RED);
-            cout << "> Le Billet de Train";
-            ConsoleUtils::resetColors(); std::cout<<" augmente ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
-            cout << "X5";
-            ConsoleUtils::resetColors(); std::cout<<" la puissance de toutes tes attaques."<<std::endl<<endl;
-
-            detectSpace();
-
-            cout<<"                               @@@@@@@' \n"
-                  "                                  @@P   \n"
-                  "           ,g@@@@@P`            ,@@C    \n"
-                  "       ,g@@@@@@@P              g@@Ngggg \n"
-                  "     ,@@@@@@@@@`    ]@@@@@@   '\"\"\"\"\"\"\"\" \n"
-                  "   ,@@@@@@@@@@P       .@@P              \n"
-                  "  ,@@@@@@@@@@@       ,@@@,,,            \n"
-                  "  @@@@@@@@@@@@      7RRRRRRK            \n"
-                  " @@@@@@@@@@@@@              gggggw      \n"
-                  " @@@@@@@@@@@@@@             **@@@       \n"
-                  " @@@@@@@@@@@@@@@            ,@@@@@      \n"
-                  " $@@@@@@@@@@@@@@@g          ------      \n"
-                  "  @@@@@@@@@@@@@@@@@g,              .    \n"
-                  "  ]@@@@@@@@@@@@@@@@@@@@Nwg,,,,gg@@@     \n"
-                  "   \"B@@@@@@@@@@@@@@@@@@@@@@@@@@@@P      \n"
-                  "     *@@@@@@@@@@@@@@@@@@@@@@@@@P`       \n"
-                  "       \"N@@@@@@@@@@@@@@@@@@@@P`         \n"
-                  "           \"RB@@@@@@@@@@N*\"             \n"
-                  "                  --                    \n"
-                  ""<<endl;
-
-            ConsoleUtils::setColor(ConsoleUtils::Color::WHITE);
-            ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_BLUE);
-            cout << "> Le Sommeil Reparateur";
-            ConsoleUtils::resetColors(); std::cout<<" augmente ";
-            ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTBLUE);
-            cout << "X10";
-            ConsoleUtils::resetColors(); std::cout<<" la puissance de toutes tes attaques."<<std::endl<<endl;
-            
-            detectSpace();
             printRegles();
             
         } else if (choix_utilisateur == '4') {
