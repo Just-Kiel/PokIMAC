@@ -4,16 +4,35 @@
 #include <iostream>
 #include <fstream>
 
-//#include <limits>
+#include <limits>
 
 #include "save.h"
 
 using namespace std;
 
 void save(const Joueur* player) {
-//    fstream saveFile("save.txt",ios::out|ios::trunc);
-//    saveFile << *player;
-//    saveFile.close();
+    fstream saveFile("save.txt",ios::out|ios::trunc);
+    writeJoueur(player, saveFile);
+    saveFile.close();
+}
+
+void writeJoueur(const Joueur * player, fstream & myFile){
+    myFile << player->nom << "," << player->position_x << "," << player->position_y << "," << endl;
+    for (int i = 0; i < sizeInventaire; i++) {
+        writeObjet(&(player->inventaire[i]), myFile);
+    }
+    myFile << endl;
+    for(int i = 0; i < sizeEquipe; i++) {
+        writePokimac(&(player->equipe[i]), myFile);
+    }
+}
+
+void writeObjet(const Objet * objet, fstream & myFile){
+    myFile << objet->nom << ",";
+}
+
+void writePokimac(const Pokimac * pokimac, fstream & myFile){
+    myFile << pokimac->nom << "," << pokimac->pv << "," << endl;
 }
 
 
