@@ -8,6 +8,8 @@
 
 #include "save.h"
 
+#include "variables.h"
+
 using namespace std;
 
 void save(const Joueur* player) {
@@ -35,6 +37,74 @@ void writePokimac(const Pokimac * pokimac, fstream & myFile){
     myFile << pokimac->nom << "," << pokimac->pv << "," << endl;
 }
 
+void load(Joueur * player){
+    ifstream readFile("save.txt", ios::in);
+    readJoueur(player, readFile);
+    readFile.close();
+}
+
+void readJoueur(Joueur * player, ifstream & myFile){
+    // Extrait ce qui est avant la premiere , pour remplir la variable
+    getline(myFile, player->nom, ',');
+    myFile >> player->position_x;
+    myFile.ignore(1);
+    myFile >> player->position_y;
+
+    myFile.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int i = 0; i < sizeInventaire; i++) {
+        readObjet(&(player->inventaire[i]), myFile);
+    }
+
+    myFile.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int i = 0; i < sizeEquipe ; i++) {
+        readPokimac(&(player->equipe[i]), myFile);
+        myFile.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+}
+
+void readObjet(Objet * objet, ifstream & myFile){
+    getline(myFile, objet->nom, ',');
+    Objet ref;
+    if(objet->nom == vide.nom){
+        ref = vide;
+        objet = &ref;
+    } else {
+        for (int i = 0; i < nbObjet; i++) {
+            if (objet->nom == allObject[i].nom) {
+                ref = allObject[i];
+                objet->puissance = ref.puissance;
+                objet->apparition = ref.apparition;
+                objet->visuel = ref.visuel;
+                objet->id_type = ref.id_type;
+                objet->definition = ref.definition;
+                break;
+            }
+        }
+    }
+}
+
+void readPokimac(Pokimac * pokimac, ifstream & myFile){
+    getline(myFile, pokimac->nom, ',');
+    myFile >> pokimac->pv;
+    Pokimac ref;
+    if(pokimac->nom == videPokimac.nom){
+        ref = videPokimac;
+        pokimac = &ref;
+    } else {
+        for (int i = 0; i < nbPokIMAC; i++) {
+            if(pokimac->nom == allPokimac[i].nom){
+                pokimac->espece = allPokimac[i].espece;
+                pokimac->representation = allPokimac[i].representation;
+                for(int j = 0; j < nbAttaque; j++){
+                    pokimac->pouvoir[j] = allPokimac[i].pouvoir[j];
+                }
+                break;
+            }
+        }
+    }
+}
 
 //typedef struct Objet{
 //

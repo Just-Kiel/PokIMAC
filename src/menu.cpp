@@ -67,32 +67,65 @@ void printMenu(){
             int size = sizeMap();
             map =(char *) malloc(size*size*sizeof(char));
 
-            //Initialisation du Joueur
             Joueur joueur;
-            joueur.position_x = 0;
-            joueur.position_y = 0;
-            joueur.equipe[0]=allPokimac[0];
-            for(int i=1; i<6; i++){
-                joueur.equipe[i]=videPokimac;
+            ifstream readFile("save.txt", ios::in);
+            if(!readFile){
+                //Personnalisation du dresseur
+                initPlayer(&joueur);
+            } else {
+
+                char new_user = '0';
+
+                ConsoleUtils::setColor(ConsoleUtils::Color::BLUE);
+                ConsoleUtils::setBackgroundColor(ConsoleUtils::BackgroundColor::BG_YELLOW);
+                cout << "Choisis dans le menu (1, 2 ou 3) :";
+                ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+
+                cout << "1. Nouvelle partie" << endl;
+                cout << "2. Charger partie" << endl;
+                cout << "3. Retour" << endl;
+
+
+                cout << "Ton choix : ";
+
+                ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
+                cin >> new_user;
+                ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+
+                while(new_user < '1' || new_user >'3'){
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+                    cout<<"Ce choix n'est pas valide ! Tu dois choisir entre 1 et 3."<<endl;
+                    ConsoleUtils::resetColors(); std::cout << std::endl<<endl;
+
+                    cout << "Ton choix : ";
+                    ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTMAGENTA);
+                    cin >> new_user;
+                    ConsoleUtils::resetColors();
+                }
+
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+                if(new_user == '1'){
+                    initPlayer(&joueur);
+                } else if(new_user == '2'){
+                    load(&joueur);
+                    ConsoleUtils::clear();
+
+                    if(joueur.nom == ""){
+                        ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTRED);
+                        cout << "Il n'y a pas de sauvegarde !" << endl;
+                        ConsoleUtils::resetColors();
+                        cout << endl<<endl;
+
+                        initPlayer(&joueur);
+                    } else {
+                        cout << "Te revoilà " << joueur.nom << " !" << endl;
+                        detectSpace();
+                    }
+                } else {
+                    printMenu();
+                }
             }
-
-            int size_inventaire = sizeof (joueur.inventaire)/sizeof(joueur.inventaire[0]);
-            joueur.inventaire[0]=allObject[0];
-            for(int i=1; i<size_inventaire; i++){
-                joueur.inventaire[i]=vide;
-            }
-
-            //Personnalisation du dresseur
-            initPlayer(&joueur);
-
-
-            //Save beta test
-//            ifstream readFile("save.txt", ios::in);
-//            readFile >> joueur;
-//            readFile.close();
-//
-//            cout << joueur;
-//            detectSpace();
 
             //Début du déplacement sur la carte
             remplissageTab(map, size);
@@ -110,6 +143,21 @@ void printMenu(){
 }
 
 void initPlayer(Joueur *player){
+
+    //Initialisation du Joueur
+
+    player->position_x = 0;
+    player->position_y = 0;
+    player->equipe[0]=allPokimac[0];
+    for(int i=1; i<6; i++){
+        player->equipe[i]=videPokimac;
+    }
+
+    player->inventaire[0]=allObject[0];
+    for(int i=1; i<sizeInventaire; i++){
+        player->inventaire[i]=vide;
+    }
+
     //Nom du dresseur PokIMAC
 
     char validation;
