@@ -10,12 +10,12 @@ using namespace std;
 
 bool ajoutObjetAInventaire(Joueur * player, Objet object){
     bool recup = false;
-    int size_inventaire = sizeof (player->inventaire)/sizeof(player->inventaire[0]);
-    for(int i=0; i<size_inventaire; i++){
+    for(int i=0; i<sizeInventaire; i++){
         //Si la place de l'inventaire est vide l'objet est récupéré
         if(player->inventaire[i].nom == ""){
             player->inventaire[i]=object;
             recup = true;
+            break;
         }
     }
 

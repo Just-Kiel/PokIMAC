@@ -18,5 +18,6 @@ int main(){
     //Lancement du programme
     printHello();
     printMenu();
+    free(map);
     return 0;
 }

@@ -6,7 +6,13 @@
 #include "consoleUtils.hpp"
 #include "variables.h"
 #include "instructions.h"
+
+//Save beta test
+//#include "save.h"
+
 using namespace std;
+
+char * map;
 
 void printMenu(){
     char user_choice='0';
@@ -56,9 +62,10 @@ void printMenu(){
 
         ConsoleUtils::clear();
 
+
         if (user_choice == '1') {
             int size = sizeMap();
-            char * map=(char *) malloc(size*size*sizeof(char));
+            map =(char *) malloc(size*size*sizeof(char));
 
             //Initialisation du Joueur
             Joueur joueur;
@@ -78,6 +85,15 @@ void printMenu(){
             //Personnalisation du dresseur
             initPlayer(&joueur);
 
+
+            //Save beta test
+//            ifstream readFile("save.txt", ios::in);
+//            readFile >> joueur;
+//            readFile.close();
+//
+//            cout << joueur;
+//            detectSpace();
+
             //Début du déplacement sur la carte
             remplissageTab(map, size);
             deplacementTab(map, size, &joueur);
@@ -89,6 +105,7 @@ void printMenu(){
         } else {
             //Fin du programme
             printGoodbye();
+
         }
 }
 
@@ -207,6 +224,9 @@ void initPlayer(Joueur *player){
     ConsoleUtils::setColor(ConsoleUtils::Color::LIGHTCYAN);
     cout<<player->nom<<", c'est parti pour l'aventure avec "<<player->equipe[0].nom<<" !"<<endl;
     ConsoleUtils::resetColors();
+
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
     detectSpace();
 }
 
@@ -263,30 +283,13 @@ void confirmChoice(Joueur * player, int taille, char tab[]){
         cout<<"Ton choix :";
         char input = ConsoleUtils::getChar();
 
-        ofstream file;
-        int pokimacMax = 0;
-
         switch (input) {
             case 'o':
             case 'O':
                 answer=true;
 
-                file.open("save.txt");
-                file << player->nom <<endl;
-                while(pokimacMax<sizeEquipe){
-                    if(player->equipe[pokimacMax].nom != videPokimac.nom){
-                        file << pokimacMax << player->equipe[pokimacMax].nom << endl;
-                        file << pokimacMax << player->equipe[pokimacMax].espece << endl;
-                        file << pokimacMax << player->equipe[pokimacMax].representation << endl;
-                        file << pokimacMax << player->equipe[pokimacMax].pv << endl;
-                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[0].nom_attaque << endl;
-                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[0].puissance << endl;
-                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[1].nom_attaque << endl;
-                        file << pokimacMax << player->equipe[pokimacMax].pouvoir[1].puissance << endl;
-                    }
-                    pokimacMax++;
-                }
-                file.close();
+                //Save beta test
+//                save(player);
 
                 ConsoleUtils::clear();
                 printMenu();
