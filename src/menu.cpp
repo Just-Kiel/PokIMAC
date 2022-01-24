@@ -119,7 +119,7 @@ void printMenu(){
 
                         initPlayer(&joueur);
                     } else {
-                        cout << "Te revoilà " << joueur.nom << " !" << endl;
+                        cout << "Te revoila " << joueur.nom << " !" << endl;
                         detectSpace();
                     }
                 } else {
